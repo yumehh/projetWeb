@@ -3,6 +3,10 @@
 
     function addUser($pseudo, $mdp, $email){
 
+        // $pseudo = "luc";
+        // $mdp = "lol";
+        // $email = "jean@gmail.com";
+
         $date = date("YYYY-MM-DD");
         $reponse = getDB()->prepare('INSERT INTO utilisateurs(pseudo, pwUser, email) VALUES (:pseudo, :mdp, :email)');
         if($mdp){ //si il existe = true
@@ -13,7 +17,7 @@
 
         $reponse->execute(array(
             'pseudo' => $pseudo,
-            'pwUser' => $mdp,
+            'mdp' => $mdp,
             'email' => $email
         ));
         $reponse->closeCursor();
