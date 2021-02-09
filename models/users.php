@@ -18,4 +18,12 @@
         $reponse->closeCursor();
     }
 
+    function checkUserByPseudo($pseudo){
+        $reponse = getDB()->prepare('SELECT * FROM utilisateurs WHERE pseudo = :pseudo');
+        $reponse->execute(['pseudo' => $pseudo]);
+        $user = $reponse->fetch();
+        $reponse->closeCursor();
+        return $user;
+    }
+
 ?>

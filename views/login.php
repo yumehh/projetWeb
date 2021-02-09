@@ -4,7 +4,7 @@ $title='Login';
 $content='Page de connexion';
 include 'includes/template.php';
 //include '../models/connexion_db.php';
-include '../models/check_credentials.php';
+//include '../models/check_credentials.php';
 
 ?>
 
