@@ -1,18 +1,15 @@
 <?php 
 
-$bdd = 'projetweb';
-$user = 'root';
-$pass = '';
+function getDB(){
+    try{
+        //PDO
+        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=UTF8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        echo 'connexion OK';
+        return $bdd;
 
-try{
-    $pdo = new PDO('mysql:host=localhost;dbname='.$bdd, $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        echo '</br>';
-        echo 'connexion réussie';
-
-}catch(PDOException $e){
-    echo 'Erreur : ' .$e->getMessage();
+    }catch(Exception $e){
+        die('Erreur : ' . $e->getMessage());
+    }
 }
 
 ?>

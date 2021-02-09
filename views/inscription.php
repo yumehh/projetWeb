@@ -3,8 +3,6 @@
 $title='Inscription';
 $content='Page d\'inscription';
 include 'includes/template.php';
-include '../models/ajout_db.php';
-
 
 ?>
 
