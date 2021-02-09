@@ -3,13 +3,8 @@
 
     function addUser($pseudo, $mdp, $email){
 
-        // $pseudo = "luc";
-        // $mdp = "lol";
-        // $email = "jean@gmail.com";
-
-        $date = date("YYYY-MM-DD");
-        $reponse = getDB()->prepare('INSERT INTO utilisateurs(pseudo, pwUser, email) VALUES (:pseudo, :mdp, :email)');
-        if($mdp){ //si il existe = true
+        $reponse = getDB()->prepare('INSERT INTO utilisateurs(pseudo, pwUser, email, date_inscription) VALUES (:pseudo, :mdp, :email, NOW())');
+        if($mdp){
             $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         }else{
             echo "fail mot de passe";
