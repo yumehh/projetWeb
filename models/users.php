@@ -1,5 +1,5 @@
 <?php 
-    require 'connexion_db.php';
+    require_once 'connexion_db.php';
 
     function addUser($pseudo, $mdp, $email){
 
