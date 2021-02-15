@@ -1,26 +1,31 @@
 <?php
 session_start();
-define('ROOT_PATH', "/projet/views/welcome.php"); // Chemin qui suit le nom de domaine. Exemple: http://monprojet.local/08_router/ le path a indiqué sera donc '/08_router/'
-$request = str_replace(ROOT_PATH, "", $_SERVER['REQUEST_URI']); // On récupère juste la request, sans le chemin du dossier.
-$request = trim($request, '/'); // Permer de supprimer le slash devant la request si elle existe
-$segments = array_filter(explode('/', $request)); // On découpe la requête pour obtenir une liste et on supprime les éléments Null
-if (!$segments){
-    $segments[0] = 'welcome'; // Si rien dans segments alors on injecte la page "welcome" qui sera la page par défaut (page d'accueil)
-}
+// Constante permettant de récupérer le chemin complet de la racine du projet afin de garantir la portabilité.
+define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+require ROOT.'controllers/welcome.php';
+//require ROOT.'models/users.php';
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = trim($uri, '/');
+$segments = array_filter(explode('/', $uri));
 // Structure URL: http://monprojet.be/{REQ_TYPE}/{REQ_TYPE_ID}/{REQ_ACTION}
-define('REQ_TYPE', $segments[0] ?? Null);
-define('REQ_TYPE_ID', $segments[1] ?? Null);
-define('REQ_ACTION', $segments[2] ?? Null);
-$file = 'controllers/'.REQ_TYPE.'.php';
-$file2 = 'controllers/'.REQ_TYPE_ID.'.php';
-if(file_exists($file)){ // On vérifie que le fichier php existe
+// Exemple d'url: http://monprojet.be/user/admin/edit
+define('REQ_TYPE', $segments[0] ?? 'welcome');
+define('REQ_TYPE_ID', $segments[1] ?? 'controllers');
+define('REQ_ACTION', $segments[2] ?? 'index');
+
+$file = ROOT.'controllers/'.REQ_TYPE.'.php';
+if(file_exists($file)){
     require $file;
-    exit();
+    # new \Projet\Controller\User();
+    $controller = '\Projet\Controllers\\'.ucfirst(REQ_TYPE);
+    $controller = new $controller();
+    $method = REQ_ACTION;
+    if (method_exists($controller, $method)){
+        $controller->$method(REQ_TYPE_ID);
+    } else {
+        # Call 404
+    }
 }
 else {
-    require 'controllers/404.php';
-    exit();
+    require ROOT.'controllers/404.php';
 }
-?>
-
-<!-- ne fonctionne pas, à retravailler -->

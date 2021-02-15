@@ -17,7 +17,7 @@
     
         <h3>Menu de navigation</h3>
         <nav>
-            <li><a href='views/welcome.php'>Page d'accueil</a></li>
+            <li><a href='welcome.php'>Page d'accueil</a></li>
             <li><a href='inscription.php'>Inscription</a></li>
             <li><a href='login.php'>Login</a></li>
             <li><a href='liste_artiste.php'>Artistes</a></li>
