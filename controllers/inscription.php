@@ -6,8 +6,6 @@
     if(isset($_POST['pseudo']) && $_POST['mdp'] && $_POST['email']){
 
         addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
-        echo "<br />";
-        echo "l'inscription a réussie";
 
     }
     else{

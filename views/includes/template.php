@@ -21,7 +21,7 @@
             <li><a href='inscription.php'>Inscription</a></li>
             <li><a href='login.php'>Login</a></li>
             <li><a href='liste_artiste.php'>Artistes</a></li>
-            <li><a href='../controllers/logout.php'>Déconnexion</a></li>
+            <li><a href='logout.php'>Déconnexion</a></li>
         </nav>
         
         <h1><?php echo $content ?></h1>
