@@ -20,8 +20,8 @@ include 'includes/template.php';
         
     <form method="POST" action="login.php">
 
-        <p>Login : <input type="text" name="pseudo" required></p>
-        <p>Mot de passe : <input type="password" name="mdp" required></p>
+        <p><label for="pseudo"> Login : </label> <input type="text" name="pseudo" id="pseudo" required></p>
+        <p><label for="mdp"> Mot de passe : </label><input type="password" name="mdp" id="mdp" required></p>
         <p><input type="submit" name="envoyer"></p>
     
     </form>

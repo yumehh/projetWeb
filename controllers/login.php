@@ -1,5 +1,6 @@
 <?php 
-
+    session_start();
+    
     require '../models/users.php';
     include '../views/login.php';
 
@@ -16,7 +17,7 @@
             if($user){
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['message'] = "Bienvenue ". $user['pseudo'];
-                header("Location: " . 'inscription.php');
+                header("Location: " . '../views/auth/welcome.php');
                 exit();
             }else{
                 $_SESSION['error'] = "mauvais login/mot de passe";
