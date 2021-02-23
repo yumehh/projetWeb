@@ -1,7 +1,7 @@
 <?php 
 
-    require '../models/artistes.php';
-    include '../views/artistes.php';
+    require 'models/artistes.php';
+    include 'views/artistes.php';
 
     if(isset($_POST['nomArtiste']) && $_POST['imageArtiste'] 
         && $_POST['descriptionArtiste']){
