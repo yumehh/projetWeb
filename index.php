@@ -11,7 +11,7 @@ $segments = array_filter(explode('/', $uri));
 // Structure URL: http://monprojet.be/{REQ_TYPE}/{REQ_TYPE_ID}/{REQ_ACTION}
 // Exemple d'url: http://monprojet.be/user/admin/edit
 define('REQ_TYPE', $segments[0] ??  'welcome');
-define('REQ_TYPE_ID', $segments[1] ?? 'login');
+define('REQ_TYPE_ID', $segments[1] ?? Null);
 define('REQ_ACTION', $segments[2] ?? Null);
 
 $file = ROOT.'controllers/'.REQ_TYPE.'.php';

@@ -7,6 +7,7 @@
 
         addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
         
+        header('Location: login');
     }
     
 ?>
