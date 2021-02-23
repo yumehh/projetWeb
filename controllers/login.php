@@ -1,8 +1,7 @@
 <?php 
-    session_start();
-    
-    require '../models/users.php';
-    include '../views/login.php';
+
+    require './models/users.php';
+    include './views/login.php';
 
     function isValidUser($pseudo, $mdp){
         $user = checkUserByPseudo($pseudo);
