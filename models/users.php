@@ -1,8 +1,8 @@
 <?php 
 
-    require_once('models/connectDB.php');
+    require_once("models/connectDB.php");
 
-    class Users extends connectDB {
+    class Users extends ConnectDB {
 
         function addUser($pseudo, $mdp, $email){
 
@@ -21,6 +21,7 @@
                 'email' => $email
             ));
             $reponse->closeCursor();
+            
             return $reponse;
             
         }

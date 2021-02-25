@@ -11,7 +11,7 @@
     //     header('Location: login');
     // }
 
-    function ajouterUser($pseudo, $mdp, $email){
+    function ajouterUser(){
         $user = new Users();
         $ajout = $user->addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
         
