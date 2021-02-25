@@ -32,8 +32,6 @@
             <p><input type="submit" name="envoyer"></p>
 
         </form>
-
-        <a href="../controllers/afficherArtistes.php">Listes des artistes</a>
         
         <script src="" async defer></script>
     </body>
