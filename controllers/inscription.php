@@ -1,7 +1,7 @@
 <?php 
 
-    require_once('models/users.php');
-    require_once('views/inscription.php');
+    require 'models/users.php';
+    require 'views/inscription.php';
 
     // require 'models/users.php';
     // include 'views/inscription.php';
@@ -14,8 +14,7 @@
     function ajouterUser(){
         $user = new Users();
         $ajout = $user->addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
-        
-        //return $ajout;
+        return $ajout;
     }
     
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-    require("models/connectDB.php");
+    require 'models/connectDB.php';
 
     class Users extends ConnectDB {
 
@@ -22,7 +22,7 @@
             ));
             $reponse->closeCursor();
             
-            //return $reponse;
+            return $reponse;
             
         }
     
