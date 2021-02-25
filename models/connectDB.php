@@ -2,16 +2,16 @@
 
     class connectDB {
         private $host = "localhost";
-        private $db_name = "cours";
+        private $db_name = "projetweb";
         private $db_user = "root";
         private $db_pass = "";
 
-        // protected $table;
-        // protected $_pdo;
-        // public function __construct(){ // constructeur
-        //     $this->table = strtolower(get_class($this));
-        //     $this->_pdo = $this->connexionDB();
-        // }
+        protected $table;
+        protected $_pdo;
+        public function __construct(){ // constructeur
+            $this->table = strtolower(get_class($this));
+            $this->_pdo = $this->connexionDB();
+        }
 
         protected function connexionDB(){
             try{
@@ -20,6 +20,7 @@
             }catch(PDOException $exception){
                 echo "Erreur de connexion : " . $exception->getMessage();
             }
+
         }
 
     }
