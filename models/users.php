@@ -1,30 +1,40 @@
 <?php 
-    require_once 'connexion_db.php';
 
-    function addUser($pseudo, $mdp, $email){
+    require_once('models/connectDB.php');
 
-        $reponse = getDB()->prepare('INSERT INTO utilisateurs(pseudo, pwUser, email, date_inscription) 
-                                    VALUES (:pseudo, :mdp, :email, NOW())');
-        if($mdp){
-            $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-        }else{
-            echo "fail mot de passe";
+    class Users extends connectDB {
+
+        function addUser($pseudo, $mdp, $email){
+
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('INSERT INTO utilisateurs(pseudo, pwUser, email, date_inscription) 
+                                        VALUES (:pseudo, :mdp, :email, NOW())');
+            if($mdp){
+                $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+            }else{
+                echo "fail mot de passe";
+            }
+    
+            $reponse->execute(array(
+                'pseudo' => $pseudo,
+                'mdp' => $mdp,
+                'email' => $email
+            ));
+            $reponse->closeCursor();
+            return $reponse;
+            
+        }
+    
+        function checkUserByPseudo($pseudo){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM utilisateurs WHERE pseudo = :pseudo');
+            $reponse->execute(['pseudo' => $pseudo]);
+            $user = $reponse->fetch();
+            $reponse->closeCursor();
+
+            return $user;
         }
 
-        $reponse->execute(array(
-            'pseudo' => $pseudo,
-            'mdp' => $mdp,
-            'email' => $email
-        ));
-        $reponse->closeCursor();
-    }
-
-    function checkUserByPseudo($pseudo){
-        $reponse = getDB()->prepare('SELECT * FROM utilisateurs WHERE pseudo = :pseudo');
-        $reponse->execute(['pseudo' => $pseudo]);
-        $user = $reponse->fetch();
-        $reponse->closeCursor();
-        return $user;
     }
 
 ?>

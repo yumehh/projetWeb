@@ -1,13 +1,21 @@
 <?php 
 
-    require 'models/users.php';
-    include 'views/inscription.php';
+    require_once('models/users.php');
+    require_once('views/inscription.php');
 
-    if(isset($_POST['pseudo']) && $_POST['mdp'] && $_POST['email']){
+    // require 'models/users.php';
+    // include 'views/inscription.php';
 
-        addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
-        
-        header('Location: login');
+    // if(isset($_POST['pseudo']) && $_POST['mdp'] && $_POST['email']){
+    //     addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
+    //     header('Location: login');
+    // }
+
+    function ajouterUser($pseudo, $mdp, $email){
+        $user = new Users();
+        $ajout = $user->addUser($pseudo, $mdp, $email);
+        echo "AJOUT OK";
     }
     
 ?>
+
