@@ -6,15 +6,16 @@
     // require 'models/users.php';
     // include 'views/inscription.php';
 
-    // if(isset($_POST['pseudo']) && $_POST['mdp'] && $_POST['email']){
+    // if(isset($_POST['pseudo']) && $_POST['pseudo'] && $_POST['email']){
     //     addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
     //     header('Location: login');
     // }
 
     function ajouterUser($pseudo, $mdp, $email){
         $user = new Users();
-        $ajout = $user->addUser($pseudo, $mdp, $email);
-        echo "AJOUT OK";
+        $ajout = $user->addUser($_POST['pseudo'], $_POST['mdp'], $_POST['email']);
+        
+        return $ajout;
     }
     
 ?>

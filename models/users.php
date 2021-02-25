@@ -21,7 +21,6 @@
                 'email' => $email
             ));
             $reponse->closeCursor();
-            
             return $reponse;
             
         }
