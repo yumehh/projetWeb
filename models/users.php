@@ -1,6 +1,6 @@
 <?php 
 
-    require 'models/connectDB.php';
+    require_once('models/connectDB.php');
 
     class Users extends ConnectDB {
 
