@@ -2,8 +2,8 @@
 
     require_once('models/artistes.php');
 
-    $artistes = new Artistes();
-    $artistes->getAll();
+    $artiste = new Artistes();
+    $artiste->getAll();
 
     require_once("views/listeArtistes.php");
 ?>
