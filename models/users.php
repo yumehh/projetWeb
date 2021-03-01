@@ -28,7 +28,7 @@
     
         function checkUserByPseudo($pseudo){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM utilisateurs WHERE pseudo = :pseudo');
+            $reponse = $db->prepare('SELECT pseudo, pwUser FROM utilisateurs WHERE pseudo = :pseudo');
             $reponse->execute(['pseudo' => $pseudo]);
             $user = $reponse->fetch();
             $reponse->closeCursor();

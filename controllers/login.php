@@ -1,12 +1,17 @@
-<?php 
-
-    require 'models/users.php';
-    include 'views/login.php';
+<?php
+    require_once('models/users.php');
+    require_once('views/login.php');
 
     function isValidUser($pseudo, $mdp){
-        $user = checkUserByPseudo($pseudo);
+        $user = new Users();
+        $user->checkUserByPseudo($pseudo, $mdp);
             if($user && password_verify($mdp, $user['pwUser'])){
+                echo "isValidUser OKAY";
                 return $user;
+            }
+            else
+            {
+                echo "isValidUser FAIL";
             }
     }
 
@@ -14,8 +19,8 @@
         if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
             $user = isValidUser($_POST['pseudo'], $_POST['mdp']);
             if($user){
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['message'] = "Bienvenue ". $user['pseudo'];
+                // $_SESSION['id'] = $user['id'];
+                // $_SESSION['message'] = "Bienvenue ". $user['pseudo'];
                 header('Location: welcome');
                 exit();
             }else{
@@ -23,5 +28,6 @@
             }
         }
     }
+
 
 ?>

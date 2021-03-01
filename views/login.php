@@ -18,7 +18,7 @@ include 'includes/template.php';
     </head>
     <body>
         
-    <form method="POST" action="login.php">
+    <form method="POST">
 
         <p><label for="pseudo"> Login : </label> <input type="text" name="pseudo" id="pseudo" required></p>
         <p><label for="mdp"> Mot de passe : </label><input type="password" name="mdp" id="mdp" required></p>
