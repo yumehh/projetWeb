@@ -8,18 +8,24 @@
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT * FROM artistes');
             $reponse->execute();
-            $artiste = $reponse->fetch();
-
-            // while($donnees = $reponse->fetch(PDO::FETCH_ASSOC)){
-            //     //var_dump($donnees);
-            //     echo "<br />";
-            //     echo $donnees['nomArtiste'];
-            // }
+            $artiste = $reponse->fetchAll();
 
             $reponse->closeCursor();
 
             return $artiste;
         
+        }
+
+        function getById($id){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM artistes where id =:id');
+            $reponse->execute(array(
+                'id' => $id
+            ));
+            $artiste = $reponse->fetch();
+            $reponse->closeCursor();
+
+            return $artiste;
         }
     
         // function addArtistes($nom, $image, $description){

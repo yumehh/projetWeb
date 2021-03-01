@@ -22,9 +22,11 @@
     <body>
         <P>listes des artistes</P>
 
-        <?php 
-            echo $artiste['nomArtiste'] . ' ' . $artiste['descriptionArtiste'];
-        ?>
+        <?php foreach($artistes as $artiste): ?>
+            <tr>
+                <td><a href= "<?= REQ_TYPE ?>/<?=$artiste['nomArtiste']?>"> <?=  $artiste['nomArtiste']?> </a></td>
+            </tr>
+        <?php endforeach ?>    
         
         <script src="" async defer></script>
     </body>
