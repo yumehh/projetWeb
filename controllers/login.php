@@ -4,14 +4,9 @@
 
     function isValidUser($pseudo, $mdp){
         $user = new Users();
-        $user->checkUserByPseudo($pseudo);
-            if($user && password_verify($mdp, $user['pwUser'])){ // problème ICI
-                echo "isValidUser OKAY";
+        $monUser =  $user->checkUserByPseudo($pseudo);
+            if($monUser && password_verify($mdp, $monUser['pwUser'])){
                 return $user;
-            }
-            else
-            {
-                echo "isValidUser FAIL";
             }
     }
 
