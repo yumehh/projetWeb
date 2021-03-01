@@ -14,7 +14,9 @@
         if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
             $userAuth = isValidUser($_POST['pseudo'], $_POST['mdp']);
             if($userAuth){
-                header('Location: welcome');
+                $_SESSION['pseudo']=$_POST['pseudo'];
+                //echo $_SESSION['pseudo'];
+                //header('Location: welcome');
                 exit();
             }else{
                 $_SESSION['error'] = "mauvais login/mot de passe";
