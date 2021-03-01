@@ -13,6 +13,7 @@ $segments = array_filter(explode('/', $uri));
 define('REQ_TYPE', $segments[0] ??  'welcome');
 define('REQ_TYPE_ID', $segments[1] ?? Null);
 define('REQ_ACTION', $segments[2] ?? Null);
+define('REQ_ACTION_2', $segments[3] ?? Null);
 
 $file = ROOT.'controllers/'.REQ_TYPE.'.php';
 if(file_exists($file)){

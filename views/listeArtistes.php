@@ -23,7 +23,7 @@
         <P>listes des artistes</P>
 
         <?php 
-            echo $artiste['nomArtiste'];
+            echo $artiste['nomArtiste'] . ' ' . $artiste['descriptionArtiste'];
         ?>
         
         <script src="" async defer></script>

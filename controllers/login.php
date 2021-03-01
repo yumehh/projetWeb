@@ -12,10 +12,8 @@
 
     if(!empty($_POST)){
         if(!empty($_POST['pseudo']) && !empty($_POST['mdp'])){
-            $user = isValidUser($_POST['pseudo'], $_POST['mdp']);
-            if($user){
-                // $_SESSION['id'] = $user['id'];
-                // $_SESSION['message'] = "Bienvenue ". $user['pseudo'];
+            $userAuth = isValidUser($_POST['pseudo'], $_POST['mdp']);
+            if($userAuth){
                 header('Location: welcome');
                 exit();
             }else{
