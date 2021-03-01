@@ -22,7 +22,7 @@
     <body>
         <P>listes des artistes</P>
 
-        <?php echo htmlspecialchars($donnees['nomArtiste']); ?>
+        <!-- <?php echo htmlspecialchars($artiste['nomArtiste']); ?> -->
         
         <script src="" async defer></script>
     </body>

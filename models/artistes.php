@@ -1,6 +1,6 @@
 <?php 
 
-    require_once("models/connectDB.php");
+    require_once('models/connectDB.php');
 
     class Artistes extends ConnectDB {
 
@@ -8,9 +8,9 @@
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT nomArtiste FROM artistes');
             $reponse->execute();
-            $user = $reponse->fetch();
+            $artiste = $reponse->fetch();
             $reponse->closeCursor();
-            return $user;
+            return $artiste;
             
         }
     

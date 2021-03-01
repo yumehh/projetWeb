@@ -1,9 +1,9 @@
 <?php 
 
-    require('models/artistes.php');
+    require_once('models/artistes.php');
 
-    $reponse = getAll();
+    $artistes = new Artistes();
+    $artistes->getAll();
 
     require_once("views/listeArtistes.php");
-
 ?>
