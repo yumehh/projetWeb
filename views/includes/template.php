@@ -18,7 +18,7 @@
 
         <h3>Menu de navigation</h3>
         <nav>
-            <li><a href="admin">Admin</a></li>
+            <!-- <li><a href="admin">Admin</a></li> -->
             <li><a href='welcome'>Page d'accueil</a></li>
             <li><a href='inscription'>Inscription</a></li>
             <li><a href='login'>Login</a></li>

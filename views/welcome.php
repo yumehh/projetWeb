@@ -20,7 +20,7 @@ include 'includes/template.php';
     </head>
     <body>
         <p>blablabla</p>
-        
+        <!-- <?php echo "Bonjour " . $_SESSION['pseudo'] ?> -->
         <script src="" async defer></script>
     </body>
 </html>
