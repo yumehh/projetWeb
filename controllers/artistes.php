@@ -13,12 +13,12 @@
     //         echo "Ajouts artistes a foiré";
     //     }
 
-    function ajoutArtiste($nom, $image, $description){
+    // function ajoutArtiste($nom, $image, $description){
 
-        $artiste = new artistes();
-        $ajout = $artiste->addArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste']);
+    //     $artiste = new artistes();
+    //     $ajout = $artiste->addArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste']);
         
-        return $ajout;
-    }
+    //     return $ajout;
+    // }
 
 ?>

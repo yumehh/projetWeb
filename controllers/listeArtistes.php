@@ -10,7 +10,14 @@
         {
 
             $detailArtiste = $artistesObjet->getByNom(REQ_TYPE_ID);
-            if(isset($detailArtiste)){
+
+             //print_r($detailArtiste['idArtiste']); // récupère l'id artiste
+
+            $artistMusic = $artistesObjet->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
+
+            print_r($artistMusic);
+            
+            if(isset($detailArtiste) && isset($artistMusic)){
 
                 require_once('views/detailArtiste.php');
             } else {

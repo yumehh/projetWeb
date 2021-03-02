@@ -22,6 +22,14 @@
     </head>
     <body>
         <h1>PAGE ADMIN</h1>
-        <script src="" async defer></script>
+        
+        <a href="<?= REQ_TYPE ?>/" >Afficher artistes</a><br />
+        <a href="">Ajouter artistes</a><br />
+        <a href="">Modifier artistes</a><br />
+        <a href="">Supprimer artistes</a><br />
+        <a href="">Confirmer - annuler commandes</a><br />
+        <a href="">Statistiques des commandes</a><br />
+
+
     </body>
 </html>
