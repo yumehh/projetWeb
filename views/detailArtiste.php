@@ -31,16 +31,23 @@
             <tbody>
 
                 <tr>
-                    <td><?= $detailArtiste['imageArtiste'] ?></td>
+                    <td> <img src="" <?= $detailArtiste['imageArtiste'] ?> /></td>
                 </tr>
 
+                <th>Description de l'artiste</th>
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>
                 </tr>
+                
+                <th>Liste de musiques </th>
+                <?php foreach($artistMusics as $artistMusic): ?>
+                    
+                    <tr>
+                        <td><?=$artistMusic['titre'] ?> : <?=$artistMusic['prix'] ?> euros</td>
+                    </tr>
 
-                <tr>
-                    <td><?= $detailArtiste['idArtiste']?></td>
-                </tr>
+                <?php endforeach ?>
+                
 
             </tbody>
         </table>

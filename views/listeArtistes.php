@@ -24,7 +24,7 @@
 
         <?php foreach($artistes as $artiste): ?>
             <tr>
-                <td><a href= "<?= REQ_TYPE ?>/<?=$artiste['nomArtiste']?>"> <?= $artiste['nomArtiste']?> </a></td>
+                <td><a href= "<?= REQ_TYPE ?>/<?=$artiste['nomArtiste']?>"> <br /> <?= $artiste['nomArtiste']?> </a></td>
             </tr>
         <?php endforeach ?>    
         

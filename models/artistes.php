@@ -6,7 +6,7 @@
 
         function getAll(){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM artistes');
+            $reponse = $db->prepare('SELECT * FROM artistes ORDER BY nomArtiste');
             $reponse->execute();
             $artiste = $reponse->fetchAll();
 
@@ -30,7 +30,10 @@
 
         function getMusicArtiste($idArtiste){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM artistesmusiques where idArtiste =:idArtiste');
+            $reponse = $db->prepare('SELECT am.idArtiste, am.idMusique, m.titre, m.prix 
+                                        FROM artistesmusiques AS am, musiques AS m 
+                                            WHERE idArtiste =:idArtiste    
+                                                AND am.idMusique = m.idMusique');
             $reponse->execute(array(
                 'idArtiste' => $idArtiste
             ));

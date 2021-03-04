@@ -2,22 +2,16 @@
 
     require_once('models/artistes.php');
     $artistesObjet = new Artistes();
-    //$artistes = $artistesObjet->getAll();
 
-    //echo "Bonjour " . $_SESSION['pseudo'];
 
     if(REQ_TYPE_ID)
         {
 
             $detailArtiste = $artistesObjet->getByNom(REQ_TYPE_ID);
 
-             //print_r($detailArtiste['idArtiste']); // récupère l'id artiste
-
-            $artistMusic = $artistesObjet->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
-
-            print_r($artistMusic);
+            $artistMusics = $artistesObjet->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
             
-            if(isset($detailArtiste) && isset($artistMusic)){
+            if(isset($detailArtiste) && isset($artistMusics)){
 
                 require_once('views/detailArtiste.php');
             } else {
