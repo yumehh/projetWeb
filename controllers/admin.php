@@ -6,9 +6,8 @@
     //require_once('views/ajoutArtistes.php');
 
    if(REQ_TYPE_ID){
-    require_once('views/ajoutArtistes.php');
-   } 
-
+        require_once('views/ajoutArtistes.php');
+    }
 ?>
 
 
