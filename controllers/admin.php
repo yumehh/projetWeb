@@ -3,10 +3,16 @@
     require_once('models/admin.php');
     require_once('models/artistes.php');
     require_once('views/admin.php');
-    //require_once('views/ajoutArtistes.php');
 
-   if(REQ_TYPE_ID){
-        require_once('views/ajoutArtistes.php');
+    
+
+    switch(REQ_TYPE_ID){
+        case "ajoutArtistes":
+            require_once('views/ajoutArtistes.php');
+            break;
+        case "listeArtistes":
+            require_once('views/listeArtistes.php');
+            break;    
     }
 ?>
 
