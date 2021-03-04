@@ -2,7 +2,7 @@
 
     $title = "Artistes";
     $content = "Ajouts de l'artiste";
-    include 'includes/template.php';
+    //include 'includes/template.php';
 
 ?>
 
@@ -18,7 +18,7 @@
     </head>
     <body>
 
-        <form method="POST" action="artistes.php">
+        <form method="POST">
         
             <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" required></p>
             <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>

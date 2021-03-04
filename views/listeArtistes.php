@@ -20,13 +20,25 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <P>listes des artistes</P>
+     
+    <table>
+        <caption>Liste des artistes </caption>
+            <thead>
+                <tr>
+                    <th> Artistes </th>
+                    <th> Genre </th>
+                </tr>
+		    </thead>
+                
+            <?php foreach($artistes as $artiste): ?>
+                <tr>
+                    <td><a href= "<?= REQ_TYPE?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
+                    <td><?= $artiste['nomGenre'] ?></td>
+                </tr>
+                    
+            <?php endforeach ?>   
 
-        <?php foreach($artistes as $artiste): ?>
-            <tr>
-                <td><a href= "<?= REQ_TYPE ?>/<?=$artiste['nomArtiste']?>"> <br /> <?= $artiste['nomArtiste']?> </a></td>
-            </tr>
-        <?php endforeach ?>    
+    </table>  
         
         <script src="" async defer></script>
     </body>

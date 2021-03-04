@@ -19,9 +19,15 @@
             }
             
         }else{
-        $artistes = $artistesObjet->getAll();
-        require_once("views/listeArtistes.php");
-}
+                $artistes = $artistesObjet->getAll();
+                
+                if($artistes){
+                    require_once("views/listeArtistes.php");
+                }else{
+                    require_once('views/404.php');
+                }
+                
+            }
 
     
 ?>

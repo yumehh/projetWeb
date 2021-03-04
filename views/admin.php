@@ -23,8 +23,8 @@
     <body>
         <h1>PAGE ADMIN</h1>
         
-        <a href="<?= REQ_TYPE ?>/" >Afficher artistes</a><br />
-        <a href="">Ajouter artistes</a><br />
+        <a href="">Afficher artistes</a><br />
+        <a href="<?= REQ_TYPE ?>/ajoutArtistes">Ajouter artistes</a><br />
         <a href="">Modifier artistes</a><br />
         <a href="">Supprimer artistes</a><br />
         <a href="">Confirmer - annuler commandes</a><br />
