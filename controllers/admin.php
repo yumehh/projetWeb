@@ -29,22 +29,23 @@
 
         case "afficherArtistes":
 
-            if(REQ_ACTION){
-
-                $detail = $afficher->getByNom(REQ_ACTION);
-                $artistDetail = $afficher->getMusicArtiste($detail['idArtiste']);
-                if(isset($detail) && isset($artistDetail)){
-                    require_once('views/detailAdmin.php');
+            if(REQ_ACTION)
+            {
+            $detailArtiste = $afficher->getByNom(REQ_ACTION);
+            $artistMusics = $afficher->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
+                if(isset($detailArtiste) && isset($artistMusics)){
+                    require_once('views/detailArtiste.php');
+                } else {
+                    require_once('views/404.php');
+                }
+            
+            }else{
+                $artistes = $afficher->getAll();   
+                if($artistes){
+                    require_once("views/afficherArtistes.php");
                 }else{
                     require_once('views/404.php');
                 }
-            }else{
-                $artist = $afficher->getAll();
-                    if($artist){
-                        require_once('views/afficherArtistes.php');
-                    }else{
-                        require_once('views/404.php');
-                    }
             }
 
             break;    
