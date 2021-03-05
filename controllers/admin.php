@@ -28,7 +28,6 @@
             break;
 
         case "afficherArtistes":
-
             if(REQ_ACTION)
             {
             $detailArtiste = $afficher->getByNom(REQ_ACTION);
@@ -47,7 +46,6 @@
                     require_once('views/404.php');
                 }
             }
-
             break;    
     }
 ?>

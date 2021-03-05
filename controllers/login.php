@@ -38,8 +38,4 @@
         }
     }
 
-    // if(idRole = 1){
-    //     header('Location: admin');
-    // }
-
 ?>

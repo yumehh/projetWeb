@@ -2,7 +2,7 @@
 
     $title = "Panel ADMIN";
     $content = "Panel ADMIN";
-    include 'includes/template.php';
+    //include 'includes/template.php';
 
 ?>
 
@@ -15,7 +15,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title><?php echo $title ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -23,12 +23,17 @@
     <body>
         <h1>PAGE ADMIN</h1>
         
+        <?php echo "Bonjour " . $_SESSION['pseudo'] ?> 
+
+        <br /><br />
+
         <a href="/<?= REQ_TYPE ?>/afficherArtistes">Afficher artistes</a><br />
         <a href="/<?= REQ_TYPE ?>/ajoutArtistes">Ajouter artistes</a><br /> 
         <a href="">Modifier artistes</a><br />
         <a href="">Supprimer artistes</a><br />
         <a href="">Confirmer - annuler commandes</a><br />
         <a href="">Statistiques des commandes</a><br />
+        <a href="">Déconnexion</a>
 
 
     </body>
