@@ -19,8 +19,6 @@ include 'includes/template.php';
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <p>blablabla</p>
-        <!-- <?php echo "Bonjour " . $_SESSION['pseudo'] ?> -->
         <script src="" async defer></script>
     </body>
 </html>

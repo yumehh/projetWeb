@@ -1,4 +1,4 @@
 <?php
-include 'views/welcome.php';
+    require_once('views/welcome.php');
 
 ?>

@@ -1,5 +1,6 @@
 <?php
 session_unset();
 session_destroy();
-header('Location: welcome');
+$_SESSION['message'] = "Vous avez été déconnecté";
+header("Location: /");
 ?>
