@@ -25,6 +25,7 @@
             <p><label for="image">Image de l'artiste : </label> <br ><textarea name="imageArtiste" id="image" required></textarea></p>
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
 
+                    <option value="defaut">Choississez une style</option>
                 <?php foreach($genreMusiques as $genre):  ?>
 
                     <option value="<?=$genre['idGenre']?>"><?=$genre['nomGenre']?></option>
@@ -34,7 +35,7 @@
             </select></p>
 
             <p><input type="submit" name="envoyer"></p>
-
+            
         </form>
         
         <script src="" async defer></script>

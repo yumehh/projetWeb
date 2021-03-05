@@ -17,13 +17,19 @@
 
             if(!empty($_POST)){
 
-                if(!empty($_POST['nomArtiste']) && !empty($_POST['imageArtiste']) && !empty($_POST['descriptionArtiste']) && !empty($_POST['genreArtiste'])){
+                if($_POST['genreArtiste'] == "1"){
+
+                    require_once('views/ajoutGenre.php');
+                }
+
+                elseif(!empty($_POST['nomArtiste']) && !empty($_POST['imageArtiste']) && !empty($_POST['descriptionArtiste']) && !empty($_POST['genreArtiste'])){
 
                    $ajout = $admin->addArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
 
                 }  
+                
             }else{
-                echo "Ajout de l'artiste est un échec.";
+                
             }
             break;
 
