@@ -24,9 +24,9 @@
         
         <form name="formAjoutGenre">
             <p>Besoin de rajouter un genre ? </p> 
-                <input type="radio" name="ajoutgenre" value="oui" ><label for="ajoutgenreoui">Oui</label>
+                <input type="radio" name="ajoutgenre" value="oui" ><label for="ajoutgenreoui" >Oui</label>
                 <input type="radio" name="ajoutgenre" value="non" checked="checked"><label for="ajoutgenrenon">Non</label>
-            <p><input type="button" name="but" value="Quel est votre choix ?" onClick="choixAjoutGenre(formAjoutGenre)"></p>
+            <p><input type="button" name="but" value="Quel est votre choix ?" onClick="choixAjoutGenre(formAjoutGenre)" ></p>
         </form>
     
     <!-- <script type="text/javascript" src="../js/script.js" async defer></script> -->
