@@ -1,6 +1,6 @@
 <?php 
 
-    $title = $detailArtiste['nomArtiste'];
+    $title = $detail['nomArtiste'];
     $content = "Présentation de l'artiste";
     //include 'includes/template.php';
 ?>
@@ -25,22 +25,22 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $detailArtiste['nomArtiste'] ?></th>
+                    <th><?= $detail['nomArtiste'] ?></th>
                 </tr>
             </thead>
             <tbody>
 
                 <tr>
-                    <td> <img src="" <?= $detailArtiste['imageArtiste'] ?> /></td>
+                    <td> <img src="" <?= $detail['imageArtiste'] ?> /></td>
                 </tr>
 
                 <th>Description de l'artiste</th>
                 <tr>
-                    <td><?= $detailArtiste['descriptionArtiste'] ?></td>
+                    <td><?= $detail['descriptionArtiste'] ?></td>
                 </tr>
                 
                 <th>Liste de musiques </th>
-                <?php foreach($artistMusics as $artistMusic): ?>
+                <?php foreach($artistDetail as $artistMusic): ?>
                     
                     <tr>
                         <td><?=$artistMusic['titre'] ?> : <?=$artistMusic['prix'] ?> euros</td>

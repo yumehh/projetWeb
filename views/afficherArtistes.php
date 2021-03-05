@@ -32,7 +32,7 @@
                 
             <?php foreach($afficherArtistes as $artiste): ?>
                 <tr>
-                    <td><a href= "<?= REQ_TYPE?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
+                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
                     <td><?= $artiste['nomGenre'] ?></td>
                 </tr>
                     

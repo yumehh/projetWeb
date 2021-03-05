@@ -8,8 +8,10 @@
     $admin = new Admin();
     $genre = new GenreMusique();
     $afficher = new Artistes();
+
     $genreMusiques = $genre->getAll();
     $afficherArtistes = $afficher->getAll();
+
 
     switch(REQ_TYPE_ID){
 
@@ -26,9 +28,25 @@
             break;
 
         case "afficherArtistes":
-            if($afficherArtistes){
-                require_once('views/afficherArtistes.php');
+
+            if(REQ_ACTION){
+
+                $detail = $afficher->getByNom(REQ_ACTION);
+                $artistDetail = $afficher->getMusicArtiste($detail['idArtiste']);
+                if(isset($detail) && isset($artistDetail)){
+                    require_once('views/detailAdmin.php');
+                }else{
+                    require_once('views/404.php');
+                }
+            }else{
+                $artist = $afficher->getAll();
+                    if($artist){
+                        require_once('views/afficherArtistes.php');
+                    }else{
+                        require_once('views/404.php');
+                    }
             }
+
             break;    
     }
 ?>
