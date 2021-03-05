@@ -24,11 +24,15 @@
             <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>
             <p><label for="image">Image de l'artiste : </label> <br ><textarea name="imageArtiste" id="image" required></textarea></p>
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
-                <option value="rock">Rock</option>
-                <option value="rap">Rap</option>
-                <option value="dancehall">DanceHall</option>
-                <option value="rnb">RnB</option>
+
+                <?php foreach($genreMusiques as $genre):  ?>
+
+                    <option value="<?=$genre['idGenre']?>"><?=$genre['nomGenre']?></option>
+
+                <?php endforeach ?>
+
             </select></p>
+
             <p><input type="submit" name="envoyer"></p>
 
         </form>
