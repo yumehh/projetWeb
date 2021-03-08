@@ -6,7 +6,7 @@
 
         function getAll(){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT a.nomArtiste, gm.nomGenre FROM artistes AS a, genremusique AS gm WHERE a.idGenre = gm.idGenre ORDER BY nomArtiste');
+            $reponse = $db->prepare('SELECT a.idArtiste, a.nomArtiste, gm.nomGenre FROM artistes AS a, genremusique AS gm WHERE a.idGenre = gm.idGenre ORDER BY nomArtiste');
             $reponse->execute();
             $artiste = $reponse->fetchAll();
 

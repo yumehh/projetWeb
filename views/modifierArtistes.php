@@ -1,7 +1,7 @@
 <?php 
 
-    $title = "Artistes";
-    $content = "Ajouts de l'artiste";
+    $title = "Modification del'Artiste";
+    $content = "Modification de l'artiste";
     //include 'includes/template.php';
 
 ?>
@@ -15,13 +15,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <script type="text/javascript" src="../js/script.js" async defer></script>
     </head>
     <body>
-
+    <p>test</p>
         <form method="POST">
         
-            <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" required></p>
+            <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" value=""></p>
             <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>
             <p><label for="image">Image de l'artiste : </label> <br ><textarea name="imageArtiste" id="image" required></textarea></p>
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
@@ -38,7 +37,7 @@
             <p><input type="submit" name="envoyer"></p>
             
         </form>
-        
+
         <script src="" async defer></script>
     </body>
 </html>

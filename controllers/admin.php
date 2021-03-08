@@ -11,6 +11,8 @@
 
     $genreMusiques = $genre->getAll();
     $afficherArtistes = $afficher->getAll();
+    //$rechercheArtiste = $afficher->getByNom();
+    
 
 
     switch(REQ_TYPE_ID){
@@ -32,20 +34,29 @@
             {
             $detailArtiste = $afficher->getByNom(REQ_ACTION);
             $artistMusics = $afficher->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
-                if(isset($detailArtiste) && isset($artistMusics)){
+                
+            if(isset($detailArtiste) && isset($artistMusics)){
+
                     require_once('views/detailArtiste.php');
-                } else {
+
+                }else {
                     require_once('views/404.php');
                 }
             
             }else{
                 $artistes = $afficher->getAll();   
                 if($artistes){
-                    require_once("views/afficherArtistes.php");
+                    require_once('views/afficherArtistes.php');
+
                 }else{
                     require_once('views/404.php');
                 }
             }
-            break;    
+            break;
+        
+        case "modifierArtistes":
+            
+                require_once('views/modifierArtistes.php');
+                
     }
 ?>

@@ -1,0 +1,7 @@
+.form__on{
+    display: block;
+}
+
+.form__off{
+    display: none;
+}

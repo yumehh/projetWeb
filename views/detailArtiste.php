@@ -26,7 +26,10 @@
             <thead>
                 <tr>
                     <th><?= $detailArtiste['nomArtiste'] ?></th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
                 </tr>
+
             </thead>
             <tbody>
 
@@ -48,7 +51,6 @@
 
                 <?php endforeach ?>
                 
-
             </tbody>
         </table>
 
