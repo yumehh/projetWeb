@@ -17,12 +17,17 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-    <p>test</p>
-        <form method="POST">
-        
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <?php foreach($artistes as $artiste): ?>
+
+                <?php endforeach ?>
+
+            <p> <label for="numero"> numéro de l'artiste : </label> <input type="text" name="idArtiste" id="id" value=" <?= REQ_ACTION ?> "> </p>
             <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" value=""></p>
             <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>
-            <p><label for="image">Image de l'artiste : </label> <br ><textarea name="imageArtiste" id="image" required></textarea></p>
+            <p><label for="image">Image de l'artiste : </label> <br ><input type="file" name="imageArtiste" id=""> </p>
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
 
                     <option value="defaut">Choississez une style</option>
@@ -36,7 +41,7 @@
 
             <p><input type="submit" name="envoyer"></p>
             
-        </form>
+        </form>   
 
         <script src="" async defer></script>
     </body>

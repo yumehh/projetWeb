@@ -32,9 +32,9 @@
             <tbody>
 
                 <tr>
-                    <td> <img src="" <?= $detailArtiste['imageArtiste'] ?> /></td>
+                    <td><img src="/img/<?= $detailArtiste['imageArtiste'] ?>" alt=""></td>
                 </tr>
-
+                <?= $detailArtiste['imageArtiste'] ?>
                 <th>Description de l'artiste</th>
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>
@@ -48,7 +48,6 @@
                     </tr>
 
                 <?php endforeach ?>
-                
             </tbody>
         </table>
 

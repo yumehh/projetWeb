@@ -19,11 +19,11 @@
     </head>
     <body>
 
-        <form method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         
             <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" required></p>
             <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>
-            <p><label for="image">Image de l'artiste : </label> <br ><textarea name="imageArtiste" id="image" required></textarea></p>
+            <p><label for="image">Image de l'artiste : </label> <br > <input type="file" name="imageArtiste" id=""> </p>
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
 
                     <option value="defaut">Choississez une style</option>

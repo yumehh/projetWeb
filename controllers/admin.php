@@ -4,6 +4,7 @@
     require_once('models/artistes.php');
     require_once('models/genreMusique.php');
     require_once('views/admin.php');
+    require_once('fonctions/sendImg.php');
 
     $admin = new Admin();
     $genre = new GenreMusique();
@@ -23,8 +24,11 @@
                 if($_POST['genreArtiste'] == "1"){
                     require_once('views/ajoutGenre.php');
                 }
-                elseif(!empty($_POST['nomArtiste']) && !empty($_POST['imageArtiste']) && !empty($_POST['descriptionArtiste']) && !empty($_POST['genreArtiste'])){
-                   $ajout = $admin->addArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
+                elseif(!empty($_POST['nomArtiste']) && !empty($_FILES['imageArtiste']) && !empty($_POST['descriptionArtiste']) && !empty($_POST['genreArtiste'])){
+
+                    $receiveImg = insertImg($_FILES['imageArtiste']);
+
+                  $ajout = $admin->addArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
                 }  
             }
             break;
@@ -47,24 +51,6 @@
                 $artistes = $afficher->getAll();   
                 if($artistes){
                     require_once('views/afficherArtistes.php');
-                               
-                    foreach($artistes as $artiste){
-                        
-                        //echo $artiste['idArtiste'] . $artiste['nomArtiste'] . "<br />";
-                        //recup id
-                        // $idArtiste = $admin->getArtisteById($artiste['idArtiste']);
-                        // echo $idArtiste;
-
-                        if(!empty($_POST)){
-
-                            $modify = $admin->updateArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste'], $_POST[$artiste['idArtiste']]);
-
-                        }
-                    }
-
-                    // if(!empty($_POST)){
-                    //     $modify = $admin->updateArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste'], $_POST[]);
-                    // }
 
                 }else{
                     require_once('views/404.php');
@@ -73,8 +59,20 @@
             break;
         
         case "modifierArtistes":
-            
+
+                $artistes = $afficher->getAll();
+                
                 require_once('views/modifierArtistes.php');
+
+                if(!empty($_POST)){
+                    print_r($_POST);
+
+                    $receiveImg = insertImg($_FILES['imageArtiste']);
+
+                    $modify = $admin->updateArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste'], $_POST['idArtiste']);
+
+                }
+
                 
     }
 ?>

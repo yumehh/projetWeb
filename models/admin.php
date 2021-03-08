@@ -20,20 +20,21 @@
         return $reponse;
     }
 
-    function updateArtistes($nom, $image, $description, $id){
+    function updateArtistes($nom, $image, $description, $genre, $id){
 
         $db= $this->connexionDB();
-        $reponse = $db->prepare('UPDATE artistes SET nomArtiste = :nomArtiste, imageArtiste = :imageArtiste, descriptionArtiste = :descriptionArtiste WHERE idArtiste = :id');
+        $reponse = $db->prepare('UPDATE artistes SET nomArtiste = :nomArtiste, imageArtiste = :imageArtiste, descriptionArtiste = :descriptionArtiste, idGenre = :genreArtiste WHERE idArtiste = :idArtiste');
         $reponse->execute(array(
             'nomArtiste' => $nom,
             'imageArtiste' => $image,
             'descriptionArtiste' => $description,
+            'genreArtiste' => $genre,
             'idArtiste' => $id
-            //'idGenre' => $genre
         ));
         $reponse->closeCursor();
 
         return $reponse;
+
     }
 
     function getArtisteById($id){

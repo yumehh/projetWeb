@@ -17,9 +17,9 @@ function formsubmit(){
     formulaire.addEventListener('submit');
 }
 
+
 btn.addEventListener('click', function(){
   form.classList.toggle('form__off');
-
   if(bool == 1){
 	  btn.innerHTML = txt[1];
 		bool = 0;  

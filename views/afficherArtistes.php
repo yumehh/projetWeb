@@ -30,6 +30,7 @@
                     <th> Détail Artistes </th>
                     <th> Artistes </th>
                     <th> Genre </th>
+                    <th> Modifier </th>
                 </tr>
 		    </thead>
                 
@@ -40,45 +41,16 @@
                     <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
                     <td><?= $artiste['nomArtiste']?></td>
                     <td><?= $artiste['nomGenre'] ?></td>
-
-                    <td> <button class="btn">Modifier</button></td>
-                
-                    <td>Supprimer</td>
+                    <td><a href="/<?= REQ_TYPE ?>/modifierArtistes/<?=$artiste['idArtiste'] ?>"> Modifier </a> </td>
+                    
+                    <!-- <td> <button class="btn">Modifier</button></td>
+                    <td>Supprimer</td> -->
                    
                 </tr>
                     
             <?php endforeach ?>   
 
     </table>  
-
-            <?php foreach($afficherArtistes as $artiste): ?>
-
-                    <form method="POST" class="form__off">
-                
-                    <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" value="<?= $artiste['nomArtiste']?>"></p>
-                    <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>
-                    <p><label for="image">Image de l'artiste : </label> <br ><textarea name="imageArtiste" id="image" required></textarea></p>
-                    <p><label for="genre">Genre de l'artiste : </label>
-                    
-                    <select name="genreArtiste" id="genre">
-
-                    <option value="defaut">Choississez une style</option>
-
-                        <?php foreach($genreMusiques as $genre):  ?>
-
-                    <option value="<?=$genre['idGenre']?>"><?=$genre['nomGenre']?></option>
-
-                        <?php endforeach ?>
-
-                    </select></p>
-
-                <p><input type="submit" name="envoyer"></p>
-
-                </form>
-
-            <?php endforeach ?>          
-
-</form>
         
     </body>
 </html>
