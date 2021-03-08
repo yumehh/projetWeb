@@ -47,6 +47,24 @@
                 $artistes = $afficher->getAll();   
                 if($artistes){
                     require_once('views/afficherArtistes.php');
+                               
+                    foreach($artistes as $artiste){
+                        
+                        //echo $artiste['idArtiste'] . $artiste['nomArtiste'] . "<br />";
+                        //recup id
+                        // $idArtiste = $admin->getArtisteById($artiste['idArtiste']);
+                        // echo $idArtiste;
+
+                        if(!empty($_POST)){
+
+                            $modify = $admin->updateArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste'], $_POST[$artiste['idArtiste']]);
+
+                        }
+                    }
+
+                    // if(!empty($_POST)){
+                    //     $modify = $admin->updateArtistes($_POST['nomArtiste'], $_POST['imageArtiste'], $_POST['descriptionArtiste'], $_POST[]);
+                    // }
 
                 }else{
                     require_once('views/404.php');

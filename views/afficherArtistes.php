@@ -26,6 +26,8 @@
         <caption>Liste des artistes </caption>
             <thead>
                 <tr>
+                    <th>Numéro de l'Artiste</th>
+                    <th> Détail Artistes </th>
                     <th> Artistes </th>
                     <th> Genre </th>
                 </tr>
@@ -34,8 +36,8 @@
             <?php foreach($afficherArtistes as $artiste): ?>
 
                 <tr>
-                    <!-- <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td> -->
-
+                    <td><?= $artiste['idArtiste']?></td>
+                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
                     <td><?= $artiste['nomArtiste']?></td>
                     <td><?= $artiste['nomGenre'] ?></td>
 
