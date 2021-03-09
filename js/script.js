@@ -34,4 +34,4 @@ function formsubmit(){
 //     if(formdelete.ajoutgenre[0].checked){alert("choix 0" + formdelete.ajoutgenre[0].value)};
 //     if(formdelete.ajoutgenre[1].checked){alert("choix 1" + formdelete.ajoutgenre[1].value)};
 
-}
+// }

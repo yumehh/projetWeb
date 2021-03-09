@@ -20,6 +20,19 @@
         return $reponse;
     }
 
+    function addMusicArtist($titre, $prix){
+
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('INSERT INTO musiques(titre, prix) VALUES(:titre, :prix)');
+        $reponse->execute(array(
+            'titre' => $titre,
+            'prix' => $prix
+        ));
+        $reponse->closeCursor();
+
+        return $reponse;
+    }
+
     function updateArtistes($nom, $image, $description, $genre, $id){
 
         $db= $this->connexionDB();

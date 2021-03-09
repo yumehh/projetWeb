@@ -24,11 +24,13 @@
                 if($_POST['genreArtiste'] == "1"){
                     require_once('views/ajoutGenre.php');
                 }
-                elseif(!empty($_POST['nomArtiste']) && !empty($_FILES['imageArtiste']) && !empty($_POST['descriptionArtiste']) && !empty($_POST['genreArtiste'])){
+                elseif(!empty($_POST['nomArtiste']) && !empty($_FILES['imageArtiste']) && !empty($_POST['descriptionArtiste']) 
+                        && !empty($_POST['genreArtiste'] && !empty($_POST['titreMusique']) && !empty($_POST['prixMusique']))){
 
                     $receiveImg = insertImg($_FILES['imageArtiste']);
 
                   $ajout = $admin->addArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
+                  $ajoutMusic = $admin->addMusicArtist($_POST['titreMusique'], $_POST['prixMusique']);
                 }  
             }
             break;
@@ -93,7 +95,6 @@
         case "restaurerArtistes":
             
            $artistesDeleted = $admin->getArtistIsDeleted();
-           //$artistesDeleted = $afficher->getAll();
            
             foreach($artistesDeleted as $deleted){
 
