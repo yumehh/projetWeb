@@ -34,7 +34,7 @@
                 <tr>
                     <td><img src="/img/<?= $detailArtiste['imageArtiste'] ?>" alt=""></td>
                 </tr>
-                <?= $detailArtiste['imageArtiste'] ?>
+                <!-- <?= $detailArtiste['imageArtiste'] ?> -->
                 <th>Description de l'artiste</th>
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>

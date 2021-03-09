@@ -65,7 +65,6 @@
                 require_once('views/modifierArtistes.php');
 
                 if(!empty($_POST)){
-                    print_r($_POST);
 
                     $receiveImg = insertImg($_FILES['imageArtiste']);
 

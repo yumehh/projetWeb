@@ -29,8 +29,8 @@
 
         <a href="/<?= REQ_TYPE ?>/afficherArtistes">Afficher artistes</a><br />
         <a href="/<?= REQ_TYPE ?>/ajoutArtistes">Ajouter artistes</a><br /> 
-        <a href="/<?= REQ_TYPE ?>/modifierArtistes">Modifier artistes</a><br />
-        <a href="">Supprimer artistes</a><br />
+        <!-- <a href="/<?= REQ_TYPE ?>/modifierArtistes">Modifier artistes</a><br /> -->
+        <!-- <a href="">Supprimer artistes</a><br /> -->
         <a href="">Confirmer - annuler commandes</a><br />
         <a href="">Statistiques des commandes</a><br />
         <a href="">Déconnexion</a>
