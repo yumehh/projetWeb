@@ -1,10 +1,10 @@
 // var test = window.prompt('votre prénom');
 // console.log(test);
 
-const btn = document.querySelector('.btn');
-const form = document.querySelector('form');
-var txt = ['Modifier','Cacher'];
-var bool = 1;
+// const btn = document.querySelector('.btn');
+// const form = document.querySelector('form');
+// var txt = ['Modifier','Cacher'];
+// var bool = 1;
 
 
 function choixAjoutGenre(formAjoutGenre){
@@ -18,14 +18,20 @@ function formsubmit(){
 }
 
 
-btn.addEventListener('click', function(){
-  form.classList.toggle('form__off');
-  if(bool == 1){
-	  btn.innerHTML = txt[1];
-		bool = 0;  
-  }else{
-	  btn.innerHTML = txt[0];
-		bool = 1;  
-  }
+// btn.addEventListener('click', function(){
+//   form.classList.toggle('form__off');
+//   if(bool == 1){
+// 	  btn.innerHTML = txt[1];
+// 		bool = 0;  
+//   }else{
+// 	  btn.innerHTML = txt[0];
+// 		bool = 1;  
+//   }
   
-});
+// });
+
+// function noDelete(formdelete){
+//     if(formdelete.ajoutgenre[0].checked){alert("choix 0" + formdelete.ajoutgenre[0].value)};
+//     if(formdelete.ajoutgenre[1].checked){alert("choix 1" + formdelete.ajoutgenre[1].value)};
+
+}

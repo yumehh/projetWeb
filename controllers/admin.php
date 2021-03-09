@@ -48,8 +48,10 @@
                 }
             
             }else{
-                $artistes = $afficher->getAll();   
+                $artistes = $afficher->getAll();
+
                 if($artistes){
+
                     require_once('views/afficherArtistes.php');
 
                 }else{
@@ -70,8 +72,39 @@
 
                     $modify = $admin->updateArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste'], $_POST['idArtiste']);
 
-                }
+                }  
+            
+            break;      
+        
+        case "supprimerArtistes":
 
+            $artistes = $afficher->getAll();
+            
+            require_once('views/supprimerArtistes.php');
+
+            if(!empty($_POST)){
                 
+                $delete = $admin->deleteArtistes(REQ_ACTION);
+            }
+        
+           break;
+
+
+        case "restaurerArtistes":
+            
+           $artistesDeleted = $admin->getArtistIsDeleted();
+           //$artistesDeleted = $afficher->getAll();
+           
+            foreach($artistesDeleted as $deleted){
+
+                $idDeleted = $deleted['idArtiste'];
+                $restore = $admin->restoreArtiste($idDeleted);
+            }
+
+            require_once('views/restaurerArtistes.php');
+
+            break;
+
+
     }
 ?>

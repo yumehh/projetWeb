@@ -7,8 +7,8 @@
         function addArtistes($nom, $image, $description, $genre){
         
         $db= $this->connexionDB();
-        $reponse = $db->prepare('INSERT INTO artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre)
-                                    VALUES(:nomArtiste, :imageArtiste, :descriptionArtiste, :genreArtiste)');
+        $reponse = $db->prepare('INSERT INTO artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre, is_deleted)
+                                    VALUES(:nomArtiste, :imageArtiste, :descriptionArtiste, :genreArtiste, 0)');
         $reponse->execute(array(
             'nomArtiste' => $nom,
             'imageArtiste' => $image,
@@ -37,16 +37,40 @@
 
     }
 
-    function getArtisteById($id){
+    function deleteArtistes($id){
 
-        $db= $this->connexionDB();
-        $reponse = $db->prepare('SELECT * FROM artistes WHERE idArtiste = :id');
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('UPDATE artistes SET is_deleted = 1 WHERE idArtiste = :idArtiste');
         $reponse->execute(array(
             'idArtiste' => $id
         ));
         $reponse->closeCursor();
 
         return $reponse;
+    }
+
+
+    function restoreArtiste($id){
+
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('UPDATE artistes SET is_deleted = 0 WHERE idArtiste = :idArtiste');
+        $reponse->execute(array(
+            'idArtiste' => $id
+        ));
+        $reponse->closeCursor();
+
+        return $reponse;
+    }
+
+    function getArtistIsDeleted(){
+
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('SELECT a.is_deleted, a.idArtiste, a.nomArtiste, gm.nomGenre FROM artistes AS a, genremusique AS gm WHERE a.idGenre = gm.idGenre AND a.is_deleted = 1 ORDER BY nomArtiste');
+        $reponse->execute();
+        $artiste = $reponse->fetchAll();
+        $reponse->closeCursor();
+
+            return $artiste;
     }
 
 }

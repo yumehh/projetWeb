@@ -1,7 +1,7 @@
 <?php 
 
     $title = "Artistes";
-    $content = "Ajouts de l'artiste";
+    $content = "Restaurer d'artistes";
     //include 'includes/template.php';
 
 ?>
@@ -18,38 +18,42 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style.css">
-        <script type="text/javascript" src="../js/script.js" async defer></script>
+        <link rel="stylesheet" href="">
     </head>
     <body>
-    <table>
+       <h1> Restauration d'artistes </h1>
+
+       <table>
         <caption>Liste des artistes </caption>
             <thead>
                 <tr>
                     <th>Numéro de l'Artiste</th>
-                    <th> Détail Artistes </th>
                     <th> Artistes </th>
                     <th> Genre </th>
-                    <th> Modifier </th>
-                    <th> Supprimer </th>
+                    <th> Restauration </th>
                 </tr>
 		    </thead>
                 
-            <?php foreach($afficherArtistes as $artiste): ?>
+            <?php foreach($artistesDeleted as $artiste): ?>
 
                 <tr>
                     <td><?= $artiste['idArtiste']?></td>
-                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
                     <td><?= $artiste['nomArtiste']?></td>
                     <td><?= $artiste['nomGenre'] ?></td>
-                    <td><a href="/<?= REQ_TYPE ?>/modifierArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>"> Modifier </a> </td>
-                    <td> <a href="/<?= REQ_TYPE ?>/supprimerArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>">Supprimer </a></td>
+                     <td>   <p><label for="choix">Voulez-vous restaurer cet artiste ? </label>
+                    <input type="radio" name="ajoutgenre" value="oui" ><label for="ajoutgenreoui" >Oui</label>
+                    <input type="radio" name="ajoutgenre" value="non" checked="checked"><label for="ajoutgenrenon">Non</label>
+                    <input type="submit" name="envoyer"></p>
+                    </td>
+                    <!-- <td><a href="">Restaurer</a></td> -->
                    
                 </tr>
                     
             <?php endforeach ?>   
 
-    </table>  
+    </table> 
         
+        <script src="" async defer></script>
     </body>
 </html>
+
