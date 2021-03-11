@@ -20,23 +20,11 @@
         return $reponse;
     }
 
-    function addMusicArtist($titre, $prix){
-
-        $db = $this->connexionDB();
-        $reponse = $db->prepare('INSERT INTO musiques(titre, prix) VALUES(:titre, :prix)');
-        $reponse->execute(array(
-            'titre' => $titre,
-            'prix' => $prix
-        ));
-        $reponse->closeCursor();
-
-        return $reponse;
-    }
-
     function updateArtistes($nom, $image, $description, $genre, $id){
 
         $db= $this->connexionDB();
-        $reponse = $db->prepare('UPDATE artistes SET nomArtiste = :nomArtiste, imageArtiste = :imageArtiste, descriptionArtiste = :descriptionArtiste, idGenre = :genreArtiste WHERE idArtiste = :idArtiste');
+        $reponse = $db->prepare('UPDATE artistes SET nomArtiste = :nomArtiste, imageArtiste = :imageArtiste, descriptionArtiste = :descriptionArtiste, idGenre = :genreArtiste 
+                                    WHERE idArtiste = :idArtiste');
         $reponse->execute(array(
             'nomArtiste' => $nom,
             'imageArtiste' => $image,
@@ -78,12 +66,27 @@
     function getArtistIsDeleted(){
 
         $db = $this->connexionDB();
-        $reponse = $db->prepare('SELECT a.is_deleted, a.idArtiste, a.nomArtiste, gm.nomGenre FROM artistes AS a, genremusique AS gm WHERE a.idGenre = gm.idGenre AND a.is_deleted = 1 ORDER BY nomArtiste');
+        $reponse = $db->prepare('SELECT a.is_deleted, a.idArtiste, a.nomArtiste, gm.nomGenre 
+                                    FROM artistes AS a, genremusique AS gm 
+                                        WHERE a.idGenre = gm.idGenre AND a.is_deleted = 1 ORDER BY nomArtiste');
         $reponse->execute();
         $artiste = $reponse->fetchAll();
         $reponse->closeCursor();
 
             return $artiste;
+    }
+
+    function LinkMusicArtist($idArtiste, $idMusic){
+
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('INSERT INTO artistesmusiques (idArtiste, idMusique) VALUES(:idArtiste, idMusique)');
+        $reponse->execute(array(
+            'idArtiste' => $idArtiste,
+            'idMusique' => $idMusic
+        ));
+        $reponse->closeCursor();
+
+        return $reponse;
     }
 
 }

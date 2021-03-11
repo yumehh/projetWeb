@@ -35,9 +35,13 @@
 
             </select></p>
 
+            <!-- <h3> Musiques </h3>       
+            <p><label for="titreMusique">Titre : </label> <input type="text" name="titreMusique"> </p>
+            <p><label for="prixMusique"> Prix : </label> <input type="text" name="prixMusique"> </p> -->
+
             <p><input type="submit" name="envoyer"></p>
-            
-        </form>   
+
+        </form>
 
         <script src="" async defer></script>
     </body>
