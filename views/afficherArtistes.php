@@ -28,7 +28,7 @@
                 <tr>
                     <th>Numéro de l'Artiste</th>
                     <th> Détail Artistes </th>
-                    <th> Artistes </th>
+                    <!-- <th> Artistes </th> -->
                     <th> Genre </th>
                     <th> Modifier </th>
                     <th> Supprimer </th>
@@ -39,11 +39,12 @@
 
                 <tr>
                     <td><?= $artiste['idArtiste']?></td>
-                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
-                    <td><?= $artiste['nomArtiste']?></td>
+                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>/<?=$artiste['idArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
+                    <!-- <td><?= $artiste['nomArtiste']?></td> -->
                     <td><?= $artiste['nomGenre'] ?></td>
                     <td><a href="/<?= REQ_TYPE ?>/modifierArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>"> Modifier </a> </td>
                     <td> <a href="/<?= REQ_TYPE ?>/supprimerArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>">Supprimer </a></td>
+                    
                    
                 </tr>
                     

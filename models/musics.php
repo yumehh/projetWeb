@@ -16,13 +16,14 @@
 
         }
 
-        function addMusic($titre, $prix){
+        function addMusic($titre, $prix, $idArtiste){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO musiques(titre, prix, is_deleted) VALUES(:titre, :prix, 0)');
+            $reponse = $db->prepare('INSERT INTO musiques(titre, prix, is_deleted, idArtiste) VALUES(:titre, :prix, 0, :idArtiste)');
             $reponse->execute(array(
                 'titre' => $titre,
-                'prix' => $prix
+                'prix' => $prix,
+                'idArtiste' => $idArtiste
             ));
             $reponse->closeCursor();
     
@@ -78,6 +79,18 @@
             ));
             $reponse->closeCursor();
     
+            return $reponse;
+        }
+
+        function getMusicByArtistId($idArtiste){
+
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM musiques where idArtiste =:idArtiste');
+            $reponse->execute(array(
+                'idArtiste' => $idArtiste
+            ));
+            $reponse->closeCursor();
+            
             return $reponse;
         }
     

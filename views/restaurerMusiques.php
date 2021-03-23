@@ -35,6 +35,8 @@ $content = "Restaurer les musiques";
                 </tr>
 		    </thead>
 
+            <form method="POST">
+            
             <?php foreach($afficherMusicDeleted as $deleted): ?>
 
                 <tr>
@@ -50,7 +52,9 @@ $content = "Restaurer les musiques";
 
             <?php endforeach ?>
 
+            </form>
+
     </table>        
         
     </body>
-</html>l
+</html>

@@ -28,6 +28,7 @@
             return $artiste;
         }
 
+        /*
         function getMusicArtiste($idArtiste){
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT am.idArtiste, am.idMusique, m.titre, m.prix 
@@ -42,6 +43,23 @@
 
             return $artisteMusic;
         }
+        */
+
+        function getInfoArtiste($idArtiste){
+
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM artistes where idArtiste = :idArtiste');
+            $reponse->execute(array(
+                'idArtiste' => $idArtiste
+            ));
+
+            $artiste = $reponse->fetchAll();
+            $reponse->closeCursor();
+
+            return $artiste;
+
+        }
+        
 
 }
 

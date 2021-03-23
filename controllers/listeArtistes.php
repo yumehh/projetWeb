@@ -9,7 +9,7 @@
 
             $detailArtiste = $artistesObjet->getByNom(REQ_TYPE_ID);
 
-            $artistMusics = $artistesObjet->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
+            $artistMusics = $artistesObjet->getInfoArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
             
             if(isset($detailArtiste) && isset($artistMusics)){
 
@@ -28,6 +28,5 @@
                 }
                 
             }
-
     
 ?>

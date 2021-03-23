@@ -41,15 +41,30 @@
                 </tr>
                 
                 <th>Liste de musiques </th>
-                <?php foreach($artistMusics as $artistMusic): ?>
+
+            </tbody>
+        </table>
+
+        <h4>ajout musiques </h4>
+        <form method="POST">
+
+                    <label for="artiste">Numéro artiste : </label> <input type="text" name="idArtiste" value="<?= REQ_ACTION_2 ?>" required><br />
+                    <label for="titre">Titre : </label> <input type="text" name="titreMusique" required ><br />
+                    <label for="prix">Prix : </label> <input type="text" name="prixMusique" required > <br /><br />
+                    <input type="submit" name="envoyer">
+
+                </form>
+
+                <!-- a refaire -->
+                <?php foreach($getMusicArtist as $artistMusic): ?>
                     
                     <tr>
-                        <td><?=$artistMusic['titre'] ?> : <?=$artistMusic['prix'] ?> euros</td>
+                        <td><?=$getMusicArtist['titre'] ?> : <?=$getMusicArtist['prix'] ?> euros</td>
                     </tr>
 
                 <?php endforeach ?>
-            </tbody>
-        </table>
+
+         </form>
 
     </body>
 </html>

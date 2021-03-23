@@ -33,7 +33,7 @@
 
                   $ajout = $admin->addArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
                 
-                }  
+                } 
             }
             break;
 
@@ -41,10 +41,21 @@
             if(REQ_ACTION)
             {
             $detailArtiste = $afficher->getByNom(REQ_ACTION);
-            $artistMusics = $afficher->getMusicArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
+            $artistMusics = $afficher->getInfoArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
+            
+            //a retravaillier : récupérer l'id pour afffichezr les musique
+            $getMusicArtist = $music->getMusicByArtistId($detailArtiste['idArtiste']);
                 
             if(isset($detailArtiste) && isset($artistMusics)){
                     require_once('views/detailArtiste.php');
+
+                    if(!empty($_SESSION)){
+                        if(!empty($_POST['titreMusique']) && !empty($_POST['prixMusique']) && !empty($_POST['idArtiste'])){
+                            $addMusics = $music->addMusic($_POST['titreMusique'], $_POST['prixMusique'], $_POST['idArtiste']);
+                        }
+                    }
+                    
+
                 }else {
                     require_once('views/404.php');
                 }
@@ -132,14 +143,18 @@
         case "restaurerMusiques":
 
            $musiqueDeleted = $music->getMusicIsDeleted();
+           foreach($musiqueDeleted as $deleted){
+            $idDeleted = $deleted['idMusique'];
+            $restore = $music->restoreMusics($idDeleted);
+            }
             require_once('views/restaurerMusiques.php');
 
-            if($_POST){
-                $restore = $music->restoreMusics($musiqueDeleted['idMusique']);
-            }
             break;    
 
+        case "includeMusiques":
             
+            require_once('views/includeMusiques.php');
 
+            break;
     }
 ?>

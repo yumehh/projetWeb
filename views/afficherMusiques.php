@@ -30,6 +30,9 @@ $content = "Afficher les musiques";
                     <th>Numéro de musique</th>
                     <th>Titre</th>
                     <th>Prix</th>
+                    <th> Artistes </th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
                 </thead>
 
                 <?php foreach($afficherMusics as $music): ?>
@@ -37,6 +40,7 @@ $content = "Afficher les musiques";
                         <td><?= $music['idMusique']?></td>
                         <td><?= $music['titre']?></td>
                         <td><?= $music['prix'] ?> </td>
+                        <td>artistes </td>
                         <td><a href="/<?= REQ_TYPE ?>/modifierMusics/<?=$music['idMusique'] ?>"> Modifier </a> </td>
                         <td> <a href="/<?= REQ_TYPE ?>/supprimerMusics/<?=$music['idMusique'] ?>">Supprimer </a></td>
                     </tr>
