@@ -13,7 +13,7 @@
             
             if(isset($detailArtiste) && isset($artistMusics)){
 
-                require_once('views/detailArtiste.php');
+                require_once('views/infoArtiste.php');
             } else {
                 require_once('views/404.php');
             }
