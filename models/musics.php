@@ -33,13 +33,14 @@
         }
     
 
-        function updateMusic($titre, $prix, $id){
+        function updateMusic($titre, $prix, $idArtiste, $id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE musiques SET titre = :titre, prix = :prix WHERE idMusique = :idMusique');
+            $reponse = $db->prepare('UPDATE musiques SET titre = :titre, prix = :prix, idArtiste =:idArtiste WHERE idMusique = :idMusique');
             $reponse->execute(array(
             'titre' => $titre,
             'prix' => $prix,
+            'idArtiste' => $idArtiste,
             'idMusique' => $id
         ));
             $reponse->closeCursor();

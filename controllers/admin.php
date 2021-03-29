@@ -126,7 +126,7 @@
                 $musique = $music->getAll();
                 require_once('views/modifierMusics.php');
                 if(!empty($_POST)){
-                    $modify = $music->updateMusic($_POST['nomMusique'], $_POST['prixMusique'], $_POST['numeroMusique']);
+                    $modify = $music->updateMusic($_POST['nomMusique'], $_POST['prixMusique'], $_POST['idArtiste'], $_POST['numeroMusique']);
                 }
 
             break; 

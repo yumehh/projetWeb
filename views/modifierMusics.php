@@ -25,6 +25,7 @@
         <form method="POST" enctype="multipart/form-data">
 
             <p><label for="numeroMusique"> Numéro de la musique : </label> <input type="text" name="numeroMusique" value="<?= REQ_ACTION ?>"> </p>
+            <p><label for="idArtiste">ID de l'artiste :</label> <input type="text" name="idArtiste"></p>
             <p><label for="nomMusique"> Nom de la musique : </label> <input type="text" name="nomMusique"></p>
             <p><label for="prixMusique">Prix de la musique :</label> <input type="text" name="prixMusique"></p>
 
