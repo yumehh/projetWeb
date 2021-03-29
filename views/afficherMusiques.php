@@ -40,7 +40,7 @@ $content = "Afficher les musiques";
                         <td><?= $music['idMusique']?></td>
                         <td><?= $music['titre']?></td>
                         <td><?= $music['prix'] ?> </td>
-                        <td>artistes </td>
+                        <td><?= $music['idArtiste'] ?> </td>
                         <td><a href="/<?= REQ_TYPE ?>/modifierMusics/<?=$music['idMusique'] ?>"> Modifier </a> </td>
                         <td> <a href="/<?= REQ_TYPE ?>/supprimerMusics/<?=$music['idMusique'] ?>">Supprimer </a></td>
                     </tr>

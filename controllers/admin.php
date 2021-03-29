@@ -151,10 +151,5 @@
 
             break;    
 
-        case "includeMusiques":
-            
-            require_once('views/includeMusiques.php');
-
-            break;
     }
 ?>
