@@ -6,7 +6,9 @@
 
         function getAll(){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM musiques WHERE is_deleted != 1');
+            $reponse = $db->prepare('SELECT m.idMusique, m.titre, m.prix, m.is_deleted, m.idArtiste, a.idArtiste, a.nomArtiste 
+                                        FROM musiques AS m, artistes AS a 
+                                            WHERE m.idArtiste = a.idArtiste AND m.is_deleted != 1');
             $reponse->execute();
             $musics = $reponse->fetchAll();
     
