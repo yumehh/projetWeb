@@ -36,7 +36,7 @@
 
         <a href="">Confirmer - annuler commandes</a><br />
         <a href="">Statistiques des commandes</a><br />
-        <a href="">Déconnexion</a>
+        <a href="logout">Déconnexion</a>
 
 
     </body>
