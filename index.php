@@ -18,7 +18,6 @@ define('REQ_ACTION_2', $segments[3] ?? Null);
 $file = ROOT.'controllers/'.REQ_TYPE.'.php';
 if(file_exists($file)){
     require $file;
-
 }
 else {
     require ROOT.'controllers/404.php';

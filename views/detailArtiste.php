@@ -54,17 +54,13 @@
                     <input type="submit" name="envoyer">
 
                 </form>
-
-                <!-- a refaire -->
-                <?php foreach($getMusicArtist as $artistMusic): ?>
-                    
-                    <tr>
-                        <td><?=$getMusicArtist['titre'] ?> : <?=$getMusicArtist['prix'] ?> euros</td>
-                    </tr>
-
-                <?php endforeach ?>
-
          </form>
+
+         <?php foreach($musiqueArtiste as $musicArtist): ?>
+                    
+                    <td><?=$musicArtist['idArtiste']?></td>
+                    
+                    <?php endforeach ?>
 
     </body>
 </html>

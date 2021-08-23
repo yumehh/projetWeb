@@ -16,6 +16,7 @@
     $afficherArtistes = $afficher->getAll();
     $afficherMusics = $music->getAll();
     $afficherMusicDeleted = $music->getMusicIsDeleted();
+    $musiqueArtiste = $music->getMusicByArtistId(REQ_ACTION_2);
     
 
     switch(REQ_TYPE_ID){
@@ -149,7 +150,7 @@
             }
             require_once('views/restaurerMusiques.php');
 
-            break;    
+            break; 
 
     }
 ?>

@@ -12,8 +12,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
 
-    
-
     </head>
     <body>
     
@@ -21,9 +19,9 @@
 
         <h3>Menu de navigation</h3>
         <nav>
-            <li><a href='welcome'>Page d'accueil</a></li>
-            <li><a href='inscription'>Inscription</a></li>
-            <li><a href='login'>Login</a></li>
+
+            <li><a href='clients'>Page d'accueil</a></li>
+            <li><a href='profil'>Profil</a></li>
             <li><a href='listeArtistes'>Liste des artistes</a></li>
             <li><a href='logout'>Déconnexion</a></li>
         </nav>

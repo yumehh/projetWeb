@@ -8,7 +8,7 @@
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT m.idMusique, m.titre, m.prix, m.is_deleted, m.idArtiste, a.idArtiste, a.nomArtiste 
                                         FROM musiques AS m, artistes AS a 
-                                            WHERE m.idArtiste = a.idArtiste AND m.is_deleted != 1');
+                                            WHERE m.idArtiste = a.idArtiste AND m.is_deleted != 1 ORDER BY a.nomArtiste');
             $reponse->execute();
             $musics = $reponse->fetchAll();
     

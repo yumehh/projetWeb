@@ -1,3 +1,8 @@
+<?php
+$title="Bienvenue";
+$content="Bienvenue sur votre page";
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,29 +12,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?php echo $title ?></title>
+        <title><?=$title?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-
-    
-
     </head>
     <body>
-    
-    <h1><?php echo $content ?></h1>
 
-        <h3>Menu de navigation</h3>
-        <nav>
-            <li><a href='welcome'>Page d'accueil</a></li>
-            <li><a href='inscription'>Inscription</a></li>
-            <li><a href='login'>Login</a></li>
-            <li><a href='listeArtistes'>Liste des artistes</a></li>
-            <li><a href='logout'>Déconnexion</a></li>
-        </nav>
+        <h1><?=$content?></h1>
+
+        <?php echo "Bonjour " . $_SESSION['pseudo'] ?><br /><br />
+
+        <?= include 'includes/menu_client.php' ?>
+
+        <!-- <?php foreach($afficherClient as $client): ?>
+            <td><?= $client['pseudo']?> : <?=$client['email']?></td>
+        <?php endforeach ?> -->
         
         <script src="" async defer></script>
     </body>
 </html>
-
-

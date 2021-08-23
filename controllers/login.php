@@ -29,7 +29,7 @@
             }elseif($userAuth == "2"){
 
                 $_SESSION['pseudo']=$_POST['pseudo'];
-                header('Location: welcome');
+                header('Location: clients');
                 exit();
 
             }else{
