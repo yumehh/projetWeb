@@ -27,7 +27,7 @@ $content="Bienvenue sur votre page";
 
         <!-- <?php foreach($afficherClient as $client): ?>
             <td><?= $client['pseudo']?> : <?=$client['email']?></td>
-        <?php endforeach ?> -->
+            <?php endforeach ?> -->
         
         <script src="" async defer></script>
     </body>

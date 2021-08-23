@@ -2,7 +2,7 @@
 
     $title = "Mon Profil";
     $content = "Mes informations";
-    include 'includes/templateClient.php';
+    //include 'includes/templateClient.php';
 
 ?>
 <!DOCTYPE html>
@@ -20,6 +20,10 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+
+    <?php foreach($afficherClient as $client): ?>
+            <td><?= $client['pseudo']?> : <?=$client['email']?></td>
+    <?php endforeach ?>
 
         <script src="" async defer></script>
     </body>
