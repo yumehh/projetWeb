@@ -21,9 +21,10 @@
             $reponse->execute(array(
                 'pseudo' => $pseudo
             ));
+            $user = $reponse->fetch();
             $reponse->closeCursor();
             
-            return $reponse;
+            return $user;
         }
 
         function getUserById($idUtilisateur){

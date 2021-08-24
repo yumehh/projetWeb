@@ -4,7 +4,7 @@
     $content = "Achat";
 
 ?>
-<<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
     <head>
