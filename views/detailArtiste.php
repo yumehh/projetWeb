@@ -53,12 +53,11 @@
                         <td><?= $music['prix'] ?> </td>
                     </tr>
                 <?php endforeach ?>
+                
         </table>
 
             </tbody>
         </table>
-
-        <!-- <?= print_r($musiqueArtiste); ?> -->
 
         <h4>ajout musiques </h4>
         <form method="POST">

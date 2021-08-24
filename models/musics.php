@@ -60,7 +60,6 @@
             return $reponse;
         }
 
-
         function getMusicIsDeleted(){
 
             $db = $this->connexionDB();
@@ -85,17 +84,17 @@
             return $reponse;
         }
 
-        function getMusicByArtistId($idArtiste){
+        function MusicByArtistId($idArtiste){
 
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT * FROM musiques where idArtiste =:idArtiste');
             $reponse->execute(array(
                 'idArtiste' => $idArtiste
             ));
-            $artistMusic = $reponse->fetchAll();
+            $artistIdMusic = $reponse->fetchAll();
             $reponse->closeCursor();
             
-            return $artistMusic;
+            return $artistIdMusic;
         }
     
     }

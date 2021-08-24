@@ -16,8 +16,9 @@
     $afficherArtistes = $afficher->getAll();
     $afficherMusics = $music->getAll();
     $afficherMusicDeleted = $music->getMusicIsDeleted();
-    $musiqueArtiste = $music->getMusicByArtistId(REQ_ACTION_2);
+    $musiqueArtiste = $music->MusicByArtistId(REQ_ACTION_2);
     
+
     switch(REQ_TYPE_ID){
 
         case "ajoutArtistes":
@@ -107,6 +108,19 @@
             }
             break;
         
+        
+        case "detailArtiste":
+
+            $detailArtiste = $afficher->getByNom(REQ_ACTION);
+                if(isset($getMusicArtist)){
+                    require_once('views/detailArtiste.php');
+                }else{
+                    require_once('views/404.php');
+                }
+    
+                break;
+
+
         case "modifierMusics":
                 $musique = $music->getAll();
                 require_once('views/modifierMusics.php');
