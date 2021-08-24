@@ -26,16 +26,24 @@
                 <tr>
                     <th>Pseudo</th>
                     <th> Email </th>
+                    
                 </tr>
 		    </thead>
                 
-
             <tr>
                 <td><?= $user['pseudo'] ?></td>
                 <td><?= $user['email']?></td>
             </tr>
-
     </table>  
+    
+    <h3>Modification</h3>
+
+    <form method="POST">
+        <label for="pseudo">Pseudo : </label><input type="text" name="pseudo" placeholder="<?=$user['pseudo']?>" required><br />
+        <label for="pwUser">Mot de passe : </label><input type="password" name="pwUser" required><br />
+        <label for="pseudo">Email : </label><input type="email" name="email" placeholder="<?=$user['email']?>" required><br />
+        <input type="submit" name="envoyer">
+    </form>
 
         <script src="" async defer></script>
     </body>

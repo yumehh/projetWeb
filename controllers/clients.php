@@ -15,6 +15,9 @@
                 if(isset($user) && isset($userDetail)){
                     require_once('views/profil.php');
                 }
+                if(!empty($_POST)){
+                    $modify = $client->updateUser($_POST['pseudo'], $_POST['pwUser'], $_POST['email'], $user['idUtilisateur']);
+                }
             }
             
             break;

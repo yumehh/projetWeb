@@ -39,5 +39,29 @@
 
             return $artiste;
         }
+
+        function updateUser($pseudo, $pwUser, $email, $id){
+
+            $db= $this->connexionDB();
+            $reponse = $db->prepare('UPDATE utilisateurs SET pseudo = :pseudo, pwUser = :pwUser, email = :email WHERE idUtilisateur = :idUtilisateur');
+            
+            if($pwUser){
+                $pwUser = password_hash($pwUser, PASSWORD_DEFAULT);
+            }else{
+                echo "fail mot de passe";
+            }
+            
+            $reponse->execute(array(
+                'pseudo' => $pseudo,
+                'pwUser' => $pwUser,
+                'email' => $email,
+                'idUtilisateur' => $id
+            ));
+            $userId = $reponse->fetch();
+            $reponse->closeCursor();
+    
+            return $userId;
+    
+        }
     }
 ?>
