@@ -20,9 +20,22 @@
     </head>
     <body>
 
-    <h1><?=$content?></h1>
+    <table>
+        <caption>Mes informations </caption>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th> Email </th>
+                </tr>
+		    </thead>
+                
 
-    TEST
+            <tr>
+                <td><?= $user['pseudo'] ?></td>
+                <td><?= $user['email']?></td>
+            </tr>
+
+    </table>  
 
         <script src="" async defer></script>
     </body>
