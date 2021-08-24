@@ -20,7 +20,7 @@
     </head>
     <body>
 
-    <table>
+    <!-- <table>
         <caption>Mes informations </caption>
             <thead>
                 <tr>
@@ -34,7 +34,7 @@
                 <td><?= $user['pseudo'] ?></td>
                 <td><?= $user['email']?></td>
             </tr>
-    </table>  
+    </table>   -->
     
     <h3>Modification</h3>
 

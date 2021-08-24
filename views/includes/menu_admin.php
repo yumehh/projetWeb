@@ -1,4 +1,4 @@
-
+        <a href="/<?= REQ_TYPE ?>/profil/<?=$_SESSION['pseudo']?>">profil</a><br />
         <a href="/<?= REQ_TYPE ?>/afficherArtistes">Afficher artistes</a><br />
         <a href="/<?= REQ_TYPE ?>/ajoutArtistes">Ajouter artistes</a><br /> 
         <a href="/<?= REQ_TYPE ?>/restaurerArtistes">Restaurer des artistes</a><br />

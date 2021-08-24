@@ -4,6 +4,7 @@
     require_once('models/artistes.php');
     require_once('models/genreMusique.php');
     require_once('models/musics.php');
+    require_once('models/clients.php');
     require_once('views/admin.php');
     require_once('fonctions/sendImg.php');
 
@@ -11,6 +12,7 @@
     $genre = new GenreMusique();
     $afficher = new Artistes();
     $music = new Musics();
+    $client = new Clients();
 
     $genreMusiques = $genre->getAll();
     $afficherArtistes = $afficher->getAll();
@@ -20,6 +22,20 @@
     
 
     switch(REQ_TYPE_ID){
+
+        case "profil": 
+            if(REQ_ACTION){
+                $user = $client->getUserByNom(REQ_ACTION);
+                $userDetail = $client->getUserById($user['idUtilisateur']);
+                if(isset($user) && isset($userDetail)){
+                    require_once('views/profil.php');
+                }
+                if(!empty($_POST)){
+                    $modify = $client->updateUser($_POST['pseudo'], $_POST['pwUser'], $_POST['email'], $user['idUtilisateur']);
+                }
+            }
+
+            break;
 
         case "ajoutArtistes":
             require_once('views/ajoutArtistes.php');
