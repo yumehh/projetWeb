@@ -2,7 +2,6 @@
 
     $title = "Mon Profil";
     $content = "Mes informations";
-    //include 'includes/templateClient.php';
 
 ?>
 <!DOCTYPE html>
@@ -14,16 +13,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title><?=$content?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
 
-    <?php foreach($afficherClient as $client): ?>
-            <td><?= $client['pseudo']?> : <?=$client['email']?></td>
-    <?php endforeach ?>
+    <h1><?=$content?></h1>
+
+    TEST
 
         <script src="" async defer></script>
     </body>

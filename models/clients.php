@@ -14,5 +14,29 @@
 
             return $users;
         }
+
+        function getUserByNom($pseudo){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM utilisateurs where pseudo =:pseudo');
+            $reponse->execute(array(
+                'pseudo' => $pseudo
+            ));
+            $reponse->closeCursor();
+            
+            return $reponse;
+        }
+
+        function getUserById($idUtilisateur){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM utilisateurs where idUtilisateur = :idUtilisateur');
+            $reponse->execute(array(
+                'idUtilisateur' => $idUtilisateur
+            ));
+
+            $artiste = $reponse->fetchAll();
+            $reponse->closeCursor();
+
+            return $artiste;
+        }
     }
 ?>

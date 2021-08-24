@@ -2,7 +2,6 @@
 
     $title = $detailArtiste['nomArtiste'];
     $content = "Présentation de l'artiste";
-    //include 'includes/template.php';
 ?>
 
 

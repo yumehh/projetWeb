@@ -41,11 +41,10 @@
         case "afficherArtistes":
             if(REQ_ACTION)
             {
-            $detailArtiste = $afficher->getByNom(REQ_ACTION);
-            $artistMusics = $afficher->getInfoArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
+                $detailArtiste = $afficher->getByNom(REQ_ACTION);
+                $artistMusics = $afficher->getInfoArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
             
-            //a retravaillier : récupérer l'id pour afffichezr les musique
-            $getMusicArtist = $music->getMusicByArtistId($detailArtiste['idArtiste']);
+                $getMusicArtist = $music->getMusicByArtistId($detailArtiste['idArtiste']);
                 
             if(isset($detailArtiste) && isset($artistMusics)){
                     require_once('views/detailArtiste.php');
@@ -56,7 +55,6 @@
                         }
                     }
                     
-
                 }else {
                     require_once('views/404.php');
                 }
