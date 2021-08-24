@@ -32,9 +32,10 @@
             'genreArtiste' => $genre,
             'idArtiste' => $id
         ));
+        $artistId = $reponse->fetch();
         $reponse->closeCursor();
 
-        return $reponse;
+        return $artistId;
 
     }
 

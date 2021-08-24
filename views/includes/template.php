@@ -25,7 +25,6 @@
             <li><a href='inscription'>Inscription</a></li>
             <li><a href='login'>Login</a></li>
             <li><a href='listeArtistes'>Liste des artistes</a></li>
-            <li><a href='logout'>Déconnexion</a></li>
         </nav>
         
         <script src="" async defer></script>

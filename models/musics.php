@@ -92,9 +92,10 @@
             $reponse->execute(array(
                 'idArtiste' => $idArtiste
             ));
+            $artistMusic = $reponse->fetchAll();
             $reponse->closeCursor();
             
-            return $reponse;
+            return $artistMusic;
         }
     
     }

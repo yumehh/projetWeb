@@ -38,28 +38,36 @@
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>
                 </tr>
-                
-                <th>Liste de musiques </th>
+            
+                <table>
+                <thead>
+                    <th>Numéro de musique</th>
+                    <th>Titre</th>
+                    <th>Prix</th>
+                </thead>
+
+                <?php foreach($musiqueArtiste as $music): ?>
+                    <tr>
+                        <td><?= $music['idMusique']?></td>
+                        <td><?= $music['titre']?></td>
+                        <td><?= $music['prix'] ?> </td>
+                    </tr>
+                <?php endforeach ?>
+        </table>
 
             </tbody>
         </table>
 
+        <!-- <?= print_r($musiqueArtiste); ?> -->
+
         <h4>ajout musiques </h4>
         <form method="POST">
 
-                    <label for="artiste">Numéro artiste : </label> <input type="text" name="idArtiste" value="<?= REQ_ACTION_2 ?>" required><br />
                     <label for="titre">Titre : </label> <input type="text" name="titreMusique" required ><br />
                     <label for="prix">Prix : </label> <input type="text" name="prixMusique" required > <br /><br />
                     <input type="submit" name="envoyer">
 
                 </form>
          </form>
-
-         <?php foreach($musiqueArtiste as $musicArtist): ?>
-                    
-                    <td><?=$musicArtist['idArtiste']?></td>
-                    
-                    <?php endforeach ?>
-
     </body>
 </html>

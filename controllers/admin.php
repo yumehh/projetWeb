@@ -18,7 +18,6 @@
     $afficherMusicDeleted = $music->getMusicIsDeleted();
     $musiqueArtiste = $music->getMusicByArtistId(REQ_ACTION_2);
     
-
     switch(REQ_TYPE_ID){
 
         case "ajoutArtistes":
@@ -42,16 +41,14 @@
             if(REQ_ACTION)
             {
                 $detailArtiste = $afficher->getByNom(REQ_ACTION);
-                $artistMusics = $afficher->getInfoArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
-            
-                $getMusicArtist = $music->getMusicByArtistId($detailArtiste['idArtiste']);
+                $artistMusics = $afficher->getInfoArtiste($detailArtiste['idArtiste']); 
                 
             if(isset($detailArtiste) && isset($artistMusics)){
                     require_once('views/detailArtiste.php');
 
                     if(!empty($_SESSION)){
-                        if(!empty($_POST['titreMusique']) && !empty($_POST['prixMusique']) && !empty($_POST['idArtiste'])){
-                            $addMusics = $music->addMusic($_POST['titreMusique'], $_POST['prixMusique'], $_POST['idArtiste']);
+                        if(!empty($_POST['titreMusique']) && !empty($_POST['prixMusique'])){
+                            $addMusics = $music->addMusic($_POST['titreMusique'], $_POST['prixMusique'], $detailArtiste['idArtiste']);
                         }
                     }
                     
@@ -71,9 +68,10 @@
         case "modifierArtistes":
                 $artistes = $afficher->getAll();
                 require_once('views/modifierArtistes.php');
+                $detailArtiste = $afficher->getByNom(REQ_ACTION_2);
                 if(!empty($_POST)){
                     $receiveImg = insertImg($_FILES['imageArtiste']);
-                    $modify = $admin->updateArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste'], $_POST['idArtiste']);
+                    $modify = $admin->updateArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste'], $detailArtiste['idArtiste']);
 
                 }  
             
@@ -88,8 +86,8 @@
         
            break;
 
-
         case "restaurerArtistes":
+
            $artistesDeleted = $admin->getArtistIsDeleted();
             foreach($artistesDeleted as $deleted){
                 $idDeleted = $deleted['idArtiste'];
@@ -99,17 +97,6 @@
 
             break;
         
-
-        case "ajouterMusiques":
-
-            require_once('views/ajouterMusiques.php');
-
-            if(!empty($_POST['titreMusique']) && !empty($_POST['prixMusique'])){
-                $addMusics = $music->addMusic($_POST['titreMusique'], $_POST['prixMusique']);
-            }
-
-            break;
-
         case "afficherMusiques":
 
             $musique = $music->getAll();
@@ -118,7 +105,6 @@
             }else{
                 require_once('views/404.php');
             }
-
             break;
         
         case "modifierMusics":
