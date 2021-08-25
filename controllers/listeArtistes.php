@@ -1,26 +1,24 @@
 <?php 
 
+    require_once('models/clients.php');
     require_once('models/artistes.php');
-    $artistesObjet = new Artistes();
+    require_once('models/musics.php');
+
+    $afficher = new Artistes();
+    $music = new Musics();
 
 
     if(REQ_TYPE_ID)
         {
 
-            $detailArtiste = $artistesObjet->getByNom(REQ_TYPE_ID);
-
-            $artistMusics = $artistesObjet->getInfoArtiste($detailArtiste['idArtiste']); //on récupère l'ID artiste lié au titre de la musique
-            
-            if(isset($detailArtiste) && isset($artistMusics)){
-
+            $detailArtiste = $afficher->getByNom(REQ_TYPE_ID);
+            $musiqueArtiste = $music->MusicByArtistId($detailArtiste['idArtiste']);
+            if(isset($musiqueArtiste)){
                 require_once('views/infoArtiste.php');
-            } else {
-                require_once('views/404.php');
             }
             
         }else{
-                $artistes = $artistesObjet->getAll();
-                
+                $artistes = $afficher->getAll();    
                 if($artistes){
                     require_once("views/listeArtistes.php");
                 }else{

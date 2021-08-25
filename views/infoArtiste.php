@@ -39,7 +39,18 @@
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>
                 </tr>
-
+            <table>
+                <thead>
+                    <th>Titre</th>
+                    <th>Prix</th>
+                </thead>
+                <?php foreach($musiqueArtiste as $music): ?>
+                    <tr>
+                        <td><?= $music['titre']?></td>
+                        <td><?= $music['prix'] ?> euros </td>
+                    </tr>
+                <?php endforeach ?>   
+        </table>
             </tbody>
         </table>
 
