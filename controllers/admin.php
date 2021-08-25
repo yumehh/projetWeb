@@ -48,7 +48,11 @@
 
                     $receiveImg = insertImg($_FILES['imageArtiste']);
 
-                  $ajout = $admin->addArtistes($_POST['nomArtiste'], $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
+                    $searchSpace = " ";
+                    $replaceSpace ="";
+                    $delSpace = str_replace($searchSpace, $replaceSpace, $_POST['nomArtiste']);
+
+                  $ajout = $admin->addArtistes($delSpace, $receiveImg[1], $_POST['descriptionArtiste'], $_POST['genreArtiste']);
                 
                 } 
             }
