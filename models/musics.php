@@ -31,6 +31,18 @@
     
             return $reponse;
         }
+
+        function getMusicById($id){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT * FROM musiques where idMusique = :idMusique');
+            $reponse->execute(array(
+                'idMusique' => $id
+            ));
+            $artiste = $reponse->fetch();
+            $reponse->closeCursor();
+
+            return $artiste;
+        }
     
 
         function updateMusic($titre, $prix, $idArtiste, $id){
@@ -43,9 +55,10 @@
             'idArtiste' => $idArtiste,
             'idMusique' => $id
         ));
+            $updateMusic = $reponse->fetch();
             $reponse->closeCursor();
 
-            return $reponse;
+            return $updateMusic;
         }
 
         function deleteMusic($id){
