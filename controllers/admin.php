@@ -61,12 +61,13 @@
                 $artistMusics = $afficher->getInfoArtiste($detailArtiste['idArtiste']); 
                 
             if(isset($detailArtiste) && isset($artistMusics)){
-                    require_once('views/detailArtiste.php');
 
                     if(!empty($_SESSION)){
                         if(!empty($_POST['titreMusique']) && !empty($_POST['prixMusique'])){
                             $addMusics = $music->addMusic($_POST['titreMusique'], $_POST['prixMusique'], $detailArtiste['idArtiste']);
                         }
+
+                        require_once('views/detailArtiste.php');
                     }
                     
                 }else {
