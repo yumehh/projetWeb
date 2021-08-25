@@ -66,7 +66,6 @@
                         if(!empty($_POST['titreMusique']) && !empty($_POST['prixMusique'])){
                             $addMusics = $music->addMusic($_POST['titreMusique'], $_POST['prixMusique'], $detailArtiste['idArtiste']);
                         }
-
                         require_once('views/detailArtiste.php');
                     }
                     

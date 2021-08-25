@@ -18,6 +18,27 @@
     <body>  
         <h1>ACHAT</h1>
         
+        <table>
+        <caption>Liste des artistes </caption>
+            <thead>
+                <tr>
+                    <th> Détail Artistes </th>
+                    <!-- <th> Artistes </th> -->
+                    <th> Genre </th>
+                </tr>
+		    </thead>
+                
+            <?php foreach($afficherArtistes as $artiste): ?>
+
+                <tr>
+                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
+                    <td><?= $artiste['nomGenre'] ?></td>
+                </tr>
+                    
+            <?php endforeach ?>   
+
+    </table>  
+
         <script src="" async defer></script>
     </body>
 </html>

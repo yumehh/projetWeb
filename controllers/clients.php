@@ -1,10 +1,16 @@
 <?php 
 
     require_once('models/clients.php');
+    require_once('models/artistes.php');
+    require_once('models/musics.php');
     require_once('views/clients.php');
     
     $client = new Clients();
+    $afficher = new Artistes();
+    $music = new Musics();
+
     $afficherClient = $client->getAll();
+    $afficherArtistes = $afficher->getAll();
 
     switch(REQ_TYPE_ID){
     
@@ -23,9 +29,18 @@
             break;
 
         case "achat":
-            require_once('views/achat.php');
-            break;
+            if(REQ_ACTION){
 
+                $detailArtiste = $afficher->getByNom(REQ_ACTION);
+                $musiqueArtiste = $music->MusicByArtistId($detailArtiste['idArtiste']);
+                if(isset($musiqueArtiste)){
+                    require_once('views/detailArtisteClient.php');
+                }
+            }else{
+                require_once('views/achat.php');
+            }
+
+            break;
     }
        
 ?>
