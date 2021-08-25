@@ -46,9 +46,10 @@
         $reponse->execute(array(
             'idArtiste' => $id
         ));
+        $artistDelete = $reponse->fetch();
         $reponse->closeCursor();
 
-        return $reponse;
+        return $artistDelete;
     }
 
 
@@ -59,10 +60,12 @@
         $reponse->execute(array(
             'idArtiste' => $id
         ));
+        $artistRestore = $reponse->fetch();
         $reponse->closeCursor();
 
-        return $reponse;
+        return $artistRestore;
     }
+
 
     function getArtistIsDeleted(){
 
@@ -77,18 +80,18 @@
             return $artiste;
     }
 
-    function LinkMusicArtist($idArtiste, $idMusic){
+    // function LinkMusicArtist($idArtiste, $idMusic){
 
-        $db = $this->connexionDB();
-        $reponse = $db->prepare('INSERT INTO artistesmusiques (idArtiste, idMusique) VALUES(:idArtiste, idMusique)');
-        $reponse->execute(array(
-            'idArtiste' => $idArtiste,
-            'idMusique' => $idMusic
-        ));
-        $reponse->closeCursor();
+    //     $db = $this->connexionDB();
+    //     $reponse = $db->prepare('INSERT INTO artistesmusiques (idArtiste, idMusique) VALUES(:idArtiste, idMusique)');
+    //     $reponse->execute(array(
+    //         'idArtiste' => $idArtiste,
+    //         'idMusique' => $idMusic
+    //     ));
+    //     $reponse->closeCursor();
 
-        return $reponse;
-    }
+    //     return $reponse;
+    // }
 
 }
 

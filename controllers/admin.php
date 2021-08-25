@@ -107,12 +107,11 @@
         case "restaurerArtistes":
 
            $artistesDeleted = $admin->getArtistIsDeleted();
+            require_once('views/restaurerArtistes.php');
             foreach($artistesDeleted as $deleted){
                 $idDeleted = $deleted['idArtiste'];
                 $restore = $admin->restoreArtiste($idDeleted);
             }
-            require_once('views/restaurerArtistes.php');
-
             break;
         
         case "afficherMusiques":
