@@ -34,11 +34,13 @@
 
         function getMusicById($id){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM musiques where idMusique = :idMusique');
+            $reponse = $db->prepare('SELECT m.idMusique, m.titre, m.prix, m.idArtiste, a.idArtiste, a.nomArtiste 
+                                        FROM musiques AS m, artistes AS a 
+                                            WHERE m.idArtiste = a.idArtiste AND idMusique = :idMusique');
             $reponse->execute(array(
                 'idMusique' => $id
             ));
-            $artiste = $reponse->fetch();
+            $artiste = $reponse->fetchAll(); //panier
             $reponse->closeCursor();
 
             return $artiste;

@@ -3,6 +3,7 @@
     require_once('models/clients.php');
     require_once('models/artistes.php');
     require_once('models/musics.php');
+    require_once('models/panier.php');
     require_once('views/clients.php');
     
     $client = new Clients();
@@ -11,6 +12,7 @@
 
     $afficherClient = $client->getAll();
     $afficherArtistes = $afficher->getAll();
+    $afficherMusic = $music->getAll();
 
     switch(REQ_TYPE_ID){
     
@@ -35,12 +37,32 @@
                 $musiqueArtiste = $music->MusicByArtistId($detailArtiste['idArtiste']);
                 if(isset($musiqueArtiste)){
                     require_once('views/detailArtisteClient.php');
-                }
+               }
             }else{
                 require_once('views/achat.php');
             }
 
             break;
+
+        case "panier":
+                if(!empty($_POST)){
+                    $getMusic = $music->getMusicById($_POST['achatMusique']);
+                    
+                    $tempId = array();
+                    $tempId['idMusique'] = $getMusic;
+                    
+                    if(!isset($_SESSION['panier'])){
+                        creationPanier();
+                        ajoutPanier($tempId);
+                        
+                    }else{
+                        ajoutPanier($tempId);
+                    }
+
+                    require_once('views/panier.php');
+                }else{
+                    require_once('views/panier.php');
+                }     
     }
        
 ?>

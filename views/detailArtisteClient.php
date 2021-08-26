@@ -1,5 +1,4 @@
 <?php 
-
     $title = $detailArtiste['nomArtiste'];
     $content = "Présentation de l'artiste";
 ?>
@@ -32,18 +31,23 @@
                 </tr>
                 <table>
                 <thead>
+                    <th>Numéro musique</th>
                     <th>Titre</th>
                     <th>Prix</th>
+                    
                 </thead>
                 <?php foreach($musiqueArtiste as $music): ?>
                     <tr>
+                        <td><?= $music['idMusique']?></td>
                         <td><?= $music['titre']?></td>
                         <td><?= $music['prix'] ?> euros </td>
+ 
                     </tr>
                 <?php endforeach ?>   
         </table>
             </tbody>
         </table>
 
+        <br />
     </body>
 </html>
