@@ -80,19 +80,6 @@
             return $artiste;
     }
 
-    // function LinkMusicArtist($idArtiste, $idMusic){
-
-    //     $db = $this->connexionDB();
-    //     $reponse = $db->prepare('INSERT INTO artistesmusiques (idArtiste, idMusique) VALUES(:idArtiste, idMusique)');
-    //     $reponse->execute(array(
-    //         'idArtiste' => $idArtiste,
-    //         'idMusique' => $idMusic
-    //     ));
-    //     $reponse->closeCursor();
-
-    //     return $reponse;
-    // }
-
 }
 
 ?>

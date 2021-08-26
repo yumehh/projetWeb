@@ -54,6 +54,7 @@
                     //compta panier
                     $idMusicPanier = $panier->getMusicByIdPanier($_POST['achatMusique']);
                     $musicPrixPanier = $panier->getPrixByIdPanier($_POST['achatMusique']);
+
                     
                     //je stocke dans un tableau l'idMusique
                     $tempId = array();
@@ -67,6 +68,8 @@
                         $panier->ajoutPanier($tempId);
                         $panier->montant_panier();
                     }
+                    
+                    // $panier->addCommande(1, $idMusicPanier);
 
                     require_once('views/panier.php');
                 }else{

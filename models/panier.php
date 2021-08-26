@@ -70,6 +70,19 @@
             $prix_total += $prix;
             return $prix_total;
         }
+
+        function addCommande($idUser, $idMusic){
+            $db= $this->connexionDB();
+            $reponse = $db->prepare('INSERT INTO commandes(idStatusCommande, idUtilisateur, idMusique) VALUES (1, :idUtilisateur, :idMusique)');
+            $reponse->execute(array(
+                'idUtilisateur' => $idUser,
+                'idMusique' => $idMusic
+            ));
+            $reponse->closeCursor();
+        
+        return $reponse;
+
+        }
     }
 
     
