@@ -40,6 +40,19 @@
                 <?php endforeach ?>
 
                 <?php var_dump($_SESSION['panier']) ?>
+
+
+                
+
+                    <!-- <form method="POST" name="panierVide">  
+            <p>
+                <label for="choix">Voulez-vous vider le panier ?  </label>
+                <input type="radio" name="viderPanierOui" value="oui" ><label for="viderPanierOui" >Oui</label>
+                <input type="radio" name="viderPanierNon" value="non" checked="checked"><label for="viderPanierNon">Non</label>
+                <input type="submit" value="Choix" onClick="noDelete(formdelete)" >
+            </p> -->
+
+        </form>
                
         </table>
     </body>

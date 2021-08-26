@@ -9,6 +9,7 @@
     $client = new Clients();
     $afficher = new Artistes();
     $music = new Musics();
+    $panier = new Panier();
 
     $afficherClient = $client->getAll();
     $afficherArtistes = $afficher->getAll();
@@ -46,17 +47,25 @@
 
         case "panier":
                 if(!empty($_POST)){
+
+                    //affichage
                     $getMusic = $music->getMusicById($_POST['achatMusique']);
+
+                    //compta panier
+                    $idMusicPanier = $panier->getMusicByIdPanier($_POST['achatMusique']);
+                    $musicPrixPanier = $panier->getPrixByIdPanier($_POST['achatMusique']);
                     
+                    //je stocke dans un tableau l'idMusique
                     $tempId = array();
-                    $tempId['idMusique'] = $getMusic;
+                    $tempId['idMusique'] = $idMusicPanier;
+                    $tempId['prixMusique'] = $musicPrixPanier;
                     
                     if(!isset($_SESSION['panier'])){
-                        creationPanier();
-                        ajoutPanier($tempId);
-                        
+                        $panier->creationPanier();
+                        $panier->ajoutPanier($tempId);     
                     }else{
-                        ajoutPanier($tempId);
+                        $panier->ajoutPanier($tempId);
+                        $panier->montant_panier();
                     }
 
                     require_once('views/panier.php');
