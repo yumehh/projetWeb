@@ -39,8 +39,7 @@
                     </tr>
                 <?php endforeach ?>
 
-                <!-- <?php var_dump($_SESSION['panier']) ?> -->
-
+                <h3>Prix total : <?php echo $prix; ?> euros </h3>
 
                     <!-- <form method="POST" name="panierVide">  
             <p>

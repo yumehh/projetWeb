@@ -70,7 +70,7 @@
                     if(isset($_SESSION['panier'])){
                         $panier->ajoutPanier($tempId);
                         $prix = $panier->montant_panier();   
-                        echo "prix : " . $prix;
+                        
 
                         // $verif = $panier->verif_panier($idMusicPanier);
                         // var_dump($verif);
