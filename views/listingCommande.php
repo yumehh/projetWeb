@@ -13,14 +13,13 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        
-        <h1>MES ACHATS</h1>
-
-        <table>
+    <table>
         <caption>HISTORIQUE</caption>
             <thead>
                 <tr>
+                    <th>Numéro de Commande</th>
                     <th>Numéro de musique</th>
+                    <th>Numéro de client</th>
                     <th> Nom de l'artiste </th>
                     <th> titre </th>
                     <th> prix </th>
@@ -32,7 +31,9 @@
         <?php foreach($getCmd as $cmd): ?>
 
             <tr>
+                <td><?= $cmd['idCommande'] ?></td>
                 <td><?= $cmd['idMusique'] ?></td>
+                <td><?= $cmd['idUtilisateur'] ?></td>
                 <td><?= $cmd['nomArtiste']?></td>
                 <td><?= $cmd['titre'] ?></td>
                 <td><?= $cmd['prix'] ?>euros </td>
@@ -42,7 +43,6 @@
     
         <?php endforeach ?>  
         </table>
-
         <script src="" async defer></script>
     </body>
 </html>

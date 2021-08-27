@@ -93,7 +93,7 @@
                     foreach($_SESSION['userID'] as $userID){
                         $userID;
                     }
-                    $getCmd = $panier->getAllCommand($userID);
+                    $getCmd = $panier->getAllCommandByID($userID);
                     require_once('views/achats.php');
                 }else{
                     require_once('views/achats.php');

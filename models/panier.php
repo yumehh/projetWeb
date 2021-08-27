@@ -50,7 +50,7 @@
 
         function addCommande($idUtilisateur, $idMusic){
             $db= $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO commandes(idStatusCommande, idUtilisateur, idMusique) VALUES (1, :idUtilisateur, :idMusique)');
+            $reponse = $db->prepare('INSERT INTO commandes(idStatusCommande, idUtilisateur, idMusique, date_commande) VALUES (1, :idUtilisateur, :idMusique, NOW())');
             $reponse->execute(array(
                 'idUtilisateur' => $idUtilisateur,
                 'idMusique' => $idMusic
@@ -58,13 +58,13 @@
             $reponse->closeCursor();
         }
 
-        function getAllCommand($id){
+        function getAllCommandByID($id){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT m.idMusique, a.nomArtiste, m.titre, m.prix, sc.nom from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
+            $reponse = $db->prepare('SELECT m.idMusique, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
                                         WHERE c.idStatusCommande = sc.idStatusCommande
                                             AND c.idMusique = m.idMusique 
                                                 AND m.idArtiste = a.idArtiste
-                                                    AND idUtilisateur = :idUtilisateur');
+                                                    AND idUtilisateur = :idUtilisateur ORDER BY c.date_commande DESC');
             $reponse->execute(array(
                 'idUtilisateur' => $id
             ));
@@ -72,6 +72,20 @@
             $reponse->closeCursor();
             return $allCmd;
         }
+
+        function getAllCommand(){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT c.idCommande ,m.idMusique, c.idUtilisateur, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
+                                        WHERE c.idStatusCommande = sc.idStatusCommande
+                                            AND c.idMusique = m.idMusique 
+                                                AND m.idArtiste = a.idArtiste
+                                                     ORDER BY c.date_commande DESC');
+            $reponse->execute();
+            $allCmd = $reponse->fetchAll();
+            $reponse->closeCursor();
+            return $allCmd;
+        }
+
     }
 
 ?>

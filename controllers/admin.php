@@ -5,6 +5,7 @@
     require_once('models/genreMusique.php');
     require_once('models/musics.php');
     require_once('models/clients.php');
+    require_once('models/panier.php');
     require_once('views/admin.php');
     require_once('fonctions/sendImg.php');
 
@@ -13,6 +14,7 @@
     $afficher = new Artistes();
     $music = new Musics();
     $client = new Clients();
+    $panier = new Panier();
 
     $genreMusiques = $genre->getAll();
     $afficherArtistes = $afficher->getAll();
@@ -127,7 +129,6 @@
             }
             break;
         
-        
         case "detailArtiste":
 
             $detailArtiste = $afficher->getByNom(REQ_ACTION);
@@ -136,9 +137,7 @@
                 }else{
                     require_once('views/404.php');
                 }
-    
                 break;
-
 
         case "modifierMusics":
                 $musique = $music->getAll();
@@ -168,7 +167,21 @@
             }
             require_once('views/restaurerMusiques.php');
 
-            break; 
+            break;
+            
+        case "listingCommande":
+            
+            if(isset($_SESSION['userID'])){
+                foreach($_SESSION['userID'] as $userID){
+                    $userID;
+                }
+                $getCmd = $panier->getAllCommand();
+                require_once('views/listingCommande.php');
+            }else{
+                require_once('views/listingCommande.php');
+            }
+            
+            break;
 
     }
 ?>
