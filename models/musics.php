@@ -40,7 +40,7 @@
             $reponse->execute(array(
                 'idMusique' => $id
             ));
-            $artiste = $reponse->fetchAll(); //panier
+            $artiste = $reponse->fetchAll();
             $reponse->closeCursor();
 
             return $artiste;

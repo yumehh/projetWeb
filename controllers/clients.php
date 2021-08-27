@@ -49,46 +49,56 @@
             break;
 
         case "panier":
-                if(!empty($_POST)){
+            if(!empty($_POST)){
 
-                    //affichage
-                    $getMusic = $music->getMusicById($_POST['achatMusique']);
+                //affichage
+                $getMusic = $music->getMusicById($_POST['achatMusique']);
 
-                    //compta panier
-                    $idMusicPanier = $music->getIdMusic($_POST['achatMusique']);
-                    $musicPrixPanier = $music->getPrixByIdPanier($_POST['achatMusique']);
+                //compta panier
+                $idMusicPanier = $music->getIdMusic($_POST['achatMusique']);
+                $musicPrixPanier = $music->getPrixByIdPanier($_POST['achatMusique']);
 
-                    foreach($_SESSION['userID'] as $test){
-                        $test;
+                foreach($_SESSION['userID'] as $userID){
+                    $userID;
+                }
+
+                foreach($musicPrixPanier as $prixMusic){
+                    $prixMusic[0];
+                }
+                    
+                //je stocke dans un tableau l'idMusique
+                $tempId = array();
+                $tempId['idMusique'] = $idMusicPanier;
+                $tempId['qte'] = 1;
+                $tempId['prixMusique'] = $prixMusic['prix'];
+                    
+                $panier->creationPanier();
+                    
+                if(isset($_SESSION['panier'])){
+                    $panier->ajoutPanier($tempId);
+                    $prix = $panier->montant_panier();   
+                    $panier->addCommande($userID, $_POST['achatMusique']);
+                    // $verif = $panier->verif_panier($idMusicPanier);
+                    // var_dump($verif);
                     }
+                        require_once('views/panier.php');
+                    }else{
+                        require_once('views/panier.php');
+                }  
+                break;
 
-                    $panier->addCommande($test, $_POST['achatMusique']);
 
-                   foreach($musicPrixPanier as $prixMusic){
-                        $prixMusic[0];
-                   }
-                    
-                    //je stocke dans un tableau l'idMusique
-                    $tempId = array();
-                    $tempId['idMusique'] = $idMusicPanier;
-                    $tempId['qte'] = 1;
-                    $tempId['prixMusique'] = $prixMusic['prix'];
-                    
-                    $panier->creationPanier();
-                    
-                    if(isset($_SESSION['panier'])){
-                        $panier->ajoutPanier($tempId);
-                        $prix = $panier->montant_panier();   
-                        
-
-                        // $verif = $panier->verif_panier($idMusicPanier);
-                        // var_dump($verif);
+        case "achats":
+                if(!empty($_SESSION['panier'])){
+                    foreach($_SESSION['userID'] as $userID){
+                        $userID;
                     }
-                    
-                    require_once('views/panier.php');
+                    $getCmd = $panier->getAllCommand($userID);
+                    require_once('views/achats.php');
                 }else{
-                    require_once('views/panier.php');
-                }     
+                    require_once('views/achats.php');
+                }
+            break;
     }
        
 ?>
