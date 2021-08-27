@@ -44,8 +44,7 @@
             $reponse->closeCursor();
 
             return $artiste;
-        }
-    
+        }  
 
         function updateMusic($titre, $prix, $idArtiste, $id){
 

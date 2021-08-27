@@ -38,7 +38,12 @@
                     
             <?php endforeach ?>   
 
-    </table>  
+    </table>
+    
+    <form method="POST">
+        <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
+        <p><input type="submit" name="envoyer"></p>
+    </form>
         
         <script src="" async defer></script>
     </body>

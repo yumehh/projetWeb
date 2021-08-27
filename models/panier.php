@@ -32,12 +32,14 @@
             if(!isset($_SESSION['panier'])){
                 $_SESSION['panier'] = array();
                 $_SESSION['panier']['idMusique'] = array();
+                $_SESSION['panier']['qte'] = array();
                 $_SESSION['panier']['prixMusique'] = array();
             }
         }
     
         function ajoutPanier($tempId){
             array_push($_SESSION['panier']['idMusique'],$tempId['idMusique']);
+            array_push($_SESSION['panier']['qte'], $tempId['qte']);
             array_push($_SESSION['panier']['prixMusique'],$tempId['prixMusique']); 
         }
     
@@ -61,14 +63,13 @@
     
         function montant_panier(){
         
-            $prix_total = 0;
+            $montant = 0;
             $total_panier = count($_SESSION['panier']['idMusique']);
             for($i = 0; $i < $total_panier; $i++){
-                $prix = 0;
-                $prix += $_SESSION['panier']['prixMusique'][$i];
+
+                $montant += $_SESSION['panier']['prixMusique'][$i] * $_SESSION['panier']['qte'][$i];
             }
-            $prix_total += $prix;
-            return $prix_total;
+            return $montant;
         }
 
         function addCommande($idUser, $idMusic){
