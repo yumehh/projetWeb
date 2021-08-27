@@ -13,6 +13,7 @@
     $music = new Musics();
     $panier = new Panier();
     $user = new Users();
+    
 
     $afficherClient = $client->getAll();
     $afficherArtistes = $afficher->getAll();
@@ -74,12 +75,11 @@
                     
                 $panier->creationPanier();
                     
-                if(isset($_SESSION['panier'])){
+                if(!empty($_SESSION['panier'])){
                     $panier->ajoutPanier($tempId);
                     $prix = $panier->montant_panier();   
                     $panier->addCommande($userID, $_POST['achatMusique']);
-                    // $verif = $panier->verif_panier($idMusicPanier);
-                    // var_dump($verif);
+
                     }
                         require_once('views/panier.php');
                     }else{
@@ -89,15 +89,18 @@
 
 
         case "achats":
-                if(!empty($_SESSION['panier'])){
-                    foreach($_SESSION['userID'] as $userID){
-                        $userID;
-                    }
-                    $getCmd = $panier->getAllCommandByID($userID);
-                    require_once('views/achats.php');
-                }else{
-                    require_once('views/achats.php');
-                }
+            foreach($_SESSION['userID'] as $userID){
+                $userID;
+            }
+            $getCmd = $panier->getAllCommandByID($userID);
+            require_once('views/achats.php');
+
+            if(!empty($_POST['annuleCmd'])){
+                $annuleCmd = $panier->annuleCommande($_POST['annuleCmd'], $userID);
+            }elseif(!empty($_POST['validCmd'])){
+                $validCmd = $panier->validCommande($_POST['validCmd'], $userID);
+            }
+
             break;
     }
        

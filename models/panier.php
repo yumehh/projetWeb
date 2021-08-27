@@ -60,7 +60,7 @@
 
         function getAllCommandByID($id){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT m.idMusique, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
+            $reponse = $db->prepare('SELECT c.idCommande, m.idMusique, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
                                         WHERE c.idStatusCommande = sc.idStatusCommande
                                             AND c.idMusique = m.idMusique 
                                                 AND m.idArtiste = a.idArtiste
@@ -84,6 +84,34 @@
             $allCmd = $reponse->fetchAll();
             $reponse->closeCursor();
             return $allCmd;
+        }
+
+        function annuleCommande($numCmd, $idUser){
+
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 3 WHERE idCommande = :idCommande AND idUtilisateur = :idUtilisateur');
+            $reponse->execute(array(
+                'idCommande' => $numCmd,
+                'idUtilisateur' => $idUser
+            ));
+            $annuleCmd = $reponse->fetch();
+            $reponse->closeCursor();
+    
+            return $annuleCmd;
+        }
+    
+        function validCommande($numCmd, $idUser){
+    
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 2 WHERE idCommande = :idCommande AND idUtilisateur = :idUtilisateur');
+            $reponse->execute(array(
+                'idCommande' => $numCmd,
+                'idUtilisateur' => $idUser
+            ));
+            $validCmd = $reponse->fetch();
+            $reponse->closeCursor();
+    
+            return $validCmd;
         }
 
     }

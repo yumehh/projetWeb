@@ -35,22 +35,29 @@
                         <td><?= $music['nomArtiste']?></td>
                         <td><?= $music['titre']?></td>
                         <td><?= $music['prix'] ?> euros </td>
- 
                     </tr>
                 <?php endforeach ?>
 
-                <h3>Prix total : <?php echo $prix; ?> euros </h3>
-
-                    <!-- <form method="POST" name="panierVide">  
-            <p>
-                <label for="choix">Voulez-vous vider le panier ?  </label>
-                <input type="radio" name="viderPanierOui" value="oui" ><label for="viderPanierOui" >Oui</label>
-                <input type="radio" name="viderPanierNon" value="non" checked="checked"><label for="viderPanierNon">Non</label>
-                <input type="submit" value="Choix" onClick="noDelete(formdelete)" >
-            </p> -->
-
-        </form>
-               
+                <h3>Prix total : <?php echo $prix; ?> euros </h3>     
         </table>
+
+        <!-- <table>
+                <thead>
+                    <th>Numéro de musique</th>
+                    <th>Artiste</th>
+                    <th>Titre</th>
+                    <th>Prix</th>
+                </thead>
+
+                <?php foreach($test as $music): ?>
+                    <tr>
+                        <td><?= $music['idMusique']?></td>
+                        <td><?= $music['nomArtiste']?></td>
+                        <td><?= $music['titre']?></td>
+                        <td><?= $music['prix'] ?> euros </td>
+ 
+                    </tr>
+                <?php endforeach ?>
+        </table> -->
     </body>
 </html>
