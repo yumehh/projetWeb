@@ -34,7 +34,7 @@
             
             break;
 
-        case "achat":
+        case "artistes":
             if(REQ_ACTION){
 
                 $detailArtiste = $afficher->getByNom(REQ_ACTION);
@@ -43,7 +43,7 @@
                     require_once('views/detailArtisteClient.php');
                }
             }else{
-                require_once('views/achat.php');
+                require_once('views/artistes.php');
             }
 
             break;
