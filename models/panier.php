@@ -67,7 +67,7 @@
             $total_panier = count($_SESSION['panier']['idMusique']);
             for($i = 0; $i < $total_panier; $i++){
 
-                $montant += $_SESSION['panier']['prixMusique'][$i] * $_SESSION['panier']['qte'][$i];
+                $montant += $_SESSION['panier']['prixMusique'][$i];
             }
             return $montant;
         }

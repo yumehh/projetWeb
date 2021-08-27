@@ -50,27 +50,27 @@
 
                     //affichage
                     $getMusic = $music->getMusicById($_POST['achatMusique']);
-                    print_r($getMusic);
 
                     //compta panier
                     $idMusicPanier = $panier->getMusicByIdPanier($_POST['achatMusique']);
-                    print_r($idMusicPanier);
                     $musicPrixPanier = $panier->getPrixByIdPanier($_POST['achatMusique']);
-                   // print_r($musicPrixPanier);
 
+                   foreach($musicPrixPanier as $prixMusic){
+                        $prixMusic['prix'];
+                   }
                     
                     //je stocke dans un tableau l'idMusique
                     $tempId = array();
                     $tempId['idMusique'] = $idMusicPanier;
                     $tempId['qte'] = 1;
-                    $tempId['prixMusique'] = $musicPrixPanier;
-
+                    $tempId['prixMusique'] = $prixMusic['prix'];
+                    
                     $panier->creationPanier();
                     
                     if(isset($_SESSION['panier'])){
                         $panier->ajoutPanier($tempId);
                         $prix = $panier->montant_panier();   
-                        echo $prix;
+                        echo "prix : " . $prix;
 
                         // $verif = $panier->verif_panier($idMusicPanier);
                         // var_dump($verif);
@@ -78,6 +78,7 @@
                     
                     // $panier->addCommande(1, $idMusicPanier);
 
+                    
                     require_once('views/panier.php');
                 }else{
                     require_once('views/panier.php');

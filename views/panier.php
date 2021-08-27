@@ -40,8 +40,6 @@
                 <?php endforeach ?>
 
                 <!-- <?php var_dump($_SESSION['panier']) ?> -->
-                <!-- <?php print_r($_SESSION['panier']) ?> -->
-                <!-- <?php echo json_encode($_SESSION['panier']) ?> -->
 
 
                     <!-- <form method="POST" name="panierVide">  
