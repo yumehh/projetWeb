@@ -43,6 +43,21 @@
     
         <?php endforeach ?>  
         </table>
+
+        <h3>Annulation</h3>
+
+        <form method="POST">
+        <p><label for="annuleCmd">Numéro de la commande :</label> <input type="text" name="annuleCmd" id="annuleCmd" required></p>
+        <p><input type="submit" name="envoyer"></p>
+        </form>
+
+        <h3>Confirmation</h3>
+        
+        <form method="POST">
+        <p><label for="validCmd">Numéro de la commande :</label> <input type="text" name="validCmd" id="validCmd" required></p>
+        <p><input type="submit" name="envoyer"></p>
+        </form>
+
         <script src="" async defer></script>
     </body>
 </html>

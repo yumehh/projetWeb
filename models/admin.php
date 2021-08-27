@@ -80,6 +80,32 @@
             return $artiste;
     }
 
+    function annuleCommande($numCmd){
+
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 3 WHERE idCommande = :idCommande');
+        $reponse->execute(array(
+            'idCommande' => $numCmd
+        ));
+        $idCmd = $reponse->fetch();
+        $reponse->closeCursor();
+
+        return $idCmd;
+    }
+
+    function validCommande($numCmd){
+
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 2 WHERE idCommande = :idCommande');
+        $reponse->execute(array(
+            'idCommande' => $numCmd
+        ));
+        $idCmd = $reponse->fetch();
+        $reponse->closeCursor();
+
+        return $idCmd;
+    }
+
 }
 
 ?>

@@ -176,6 +176,13 @@
                     $userID;
                 }
                 $getCmd = $panier->getAllCommand();
+
+                if(!empty($_POST['annuleCmd'])){
+                    $annuleCmd = $admin->annuleCommande($_POST['annuleCmd']);
+                }elseif(!empty($_POST['validCmd'])){
+                    $validCmd = $admin->validCommande($_POST['validCmd']);
+                }
+
                 require_once('views/listingCommande.php');
             }else{
                 require_once('views/listingCommande.php');
