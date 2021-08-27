@@ -87,6 +87,28 @@
             return $user;
         }
 
+        // function getUserId(){
+        //     $db = $this->connexionDB();
+        //     $reponse = $db->prepare('SELECT idUtilisateur FROM utilisateurs');
+        //     $reponse->execute();
+        //     $user = $reponse->fetch();
+        //     $reponse->closeCursor();
+
+        //     return $user;
+        // }
+
+        function getIdUser($pseudo){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT idUtilisateur FROM utilisateurs WHERE pseudo =:pseudo');
+            $reponse->execute(array(
+                'pseudo' => $pseudo
+            ));
+            $idUser = $reponse->fetch();
+            $reponse->closeCursor();
+
+            return $idUser;
+        }
+
     }
 
 ?>

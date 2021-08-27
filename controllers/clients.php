@@ -4,12 +4,15 @@
     require_once('models/artistes.php');
     require_once('models/musics.php');
     require_once('models/panier.php');
+    require_once('models/users.php');
     require_once('views/clients.php');
+    
     
     $client = new Clients();
     $afficher = new Artistes();
     $music = new Musics();
     $panier = new Panier();
+    $user = new Users();
 
     $afficherClient = $client->getAll();
     $afficherArtistes = $afficher->getAll();
@@ -52,11 +55,17 @@
                     $getMusic = $music->getMusicById($_POST['achatMusique']);
 
                     //compta panier
-                    $idMusicPanier = $panier->getMusicByIdPanier($_POST['achatMusique']);
-                    $musicPrixPanier = $panier->getPrixByIdPanier($_POST['achatMusique']);
+                    $idMusicPanier = $music->getIdMusic($_POST['achatMusique']);
+                    $musicPrixPanier = $music->getPrixByIdPanier($_POST['achatMusique']);
+
+                    foreach($_SESSION['userID'] as $test){
+                        $test;
+                    }
+
+                    $panier->addCommande($test, $_POST['achatMusique']);
 
                    foreach($musicPrixPanier as $prixMusic){
-                        $prixMusic['prix'];
+                        $prixMusic[0];
                    }
                     
                     //je stocke dans un tableau l'idMusique
@@ -75,9 +84,6 @@
                         // $verif = $panier->verif_panier($idMusicPanier);
                         // var_dump($verif);
                     }
-                    
-                    // $panier->addCommande(1, $idMusicPanier);
-
                     
                     require_once('views/panier.php');
                 }else{

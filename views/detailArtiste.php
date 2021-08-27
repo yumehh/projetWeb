@@ -50,7 +50,7 @@
                     <tr>
                         <td><?= $music['idMusique']?></td>
                         <td><?= $music['titre']?></td>
-                        <td><?= $music['prix'] ?> </td>
+                        <td><?= $music['prix'] ?> euros</td>
                     </tr>
                 <?php endforeach ?>
                 

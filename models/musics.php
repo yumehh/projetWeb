@@ -58,6 +58,18 @@
             return $idMusic;
         }
 
+        function getPrixByIdPanier($id){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT prix FROM musiques WHERE idMusique = :idMusique');
+            $reponse->execute(array(
+                'idMusique' => $id
+            ));
+            $prix = $reponse->fetchAll();
+            $reponse->closeCursor();
+
+            return $prix;
+        }
+
         function updateMusic($titre, $prix, $idArtiste, $id){
 
             $db = $this->connexionDB();

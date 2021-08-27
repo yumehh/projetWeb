@@ -19,7 +19,9 @@ $content="Bienvenue sur votre page";
         
         <?php echo "Bonjour " . $_SESSION['pseudo'] ?>
         <br /><br />
+        
         <?= include 'includes/menu_client.php' ?>  
+        
         
     </body>
 </html>

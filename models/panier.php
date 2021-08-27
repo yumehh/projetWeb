@@ -4,30 +4,6 @@
     
     Class Panier extends ConnectDB {
 
-        function getMusicByIdPanier($id){
-            $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT idMusique FROM musiques WHERE idMusique = :idMusique');
-            $reponse->execute(array(
-                'idMusique' => $id
-            ));
-            $music = $reponse->fetchAll();
-            $reponse->closeCursor();
-
-            return $music;
-        }
-
-        function getPrixByIdPanier($id){
-            $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT prix FROM musiques WHERE idMusique = :idMusique');
-            $reponse->execute(array(
-                'idMusique' => $id
-            ));
-            $prix = $reponse->fetchAll();
-            $reponse->closeCursor();
-
-            return $prix;
-        }
-
         function creationPanier(){
             if(!isset($_SESSION['panier'])){
                 $_SESSION['panier'] = array();
@@ -72,17 +48,14 @@
             return $montant;
         }
 
-        function addCommande($idUser, $idMusic){
+        function addCommande($idUtilisateur, $idMusic){
             $db= $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO commandes(idStatusCommande, idUtilisateur, idMusique) VALUES (1, :idUtilisateur, :idMusique)');
+            $reponse = $db->prepare('INSERT INTO commandes(idStatusCommande, idUtilisateur, idMusique) VALUES (2, :idUtilisateur, :idMusique)');
             $reponse->execute(array(
-                'idUtilisateur' => $idUser,
+                'idUtilisateur' => $idUtilisateur,
                 'idMusique' => $idMusic
             ));
             $reponse->closeCursor();
-        
-        return $reponse;
-
         }
     }
 
