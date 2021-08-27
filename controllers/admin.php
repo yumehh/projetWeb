@@ -143,7 +143,7 @@
         case "modifierMusics":
                 $musique = $music->getAll();
                 require_once('views/modifierMusics.php');
-                $musicById = $music->getMusicById(REQ_ACTION);
+                $musicById = $music->getIdMusic(REQ_ACTION);
                 if(!empty($_POST)){
                     $modify = $music->updateMusic($_POST['nomMusique'], $_POST['prixMusique'], $_POST['idArtiste'], $musicById['idMusique']);
                 }
