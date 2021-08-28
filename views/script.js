@@ -19,22 +19,21 @@ function verification(){
 
 function formsubmit(){
   var formulaire = document.getElementById('monform');
-  formulaire.addEventListener('submit', verification); // mettre les parenthèses à la fonction fait que ca déclenche la fct et donc peut provoquer des erreurs 
+  formulaire.addEventListener('submit', verification); 
 }
-
-// document.addEventListener('DOMContentLoaded', formsubmit); // attendre que le document soit chargé et ensuite event se déclenche
 
 document.addEventListener('DOMContentLoaded', function() {
   var formulaire = document.getElementById('monform');
   formulaire.addEventListener('submit', verification);
-}); //function anonyme : quand on est sur que l'on utilise que 1 fois. ET c'est la même chose que ce qui est juste au dessus.
+});
+
 
 let togg1 = document.getElementById("togg1");
 let d1 = document.getElementById("d1");
 togg1.addEventListener("click", () => {
-  if(getComputedStyle(d1).display != "none"){
-    d1.style.display = "none";
-  } else {
+  if(getComputedStyle(d1).display != "block"){
     d1.style.display = "block";
+  } else {
+    d1.style.display = "none";
   }
 })

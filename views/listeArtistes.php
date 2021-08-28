@@ -45,8 +45,10 @@
     <h3>Barre de recherche par nom </h3>
     <form method="POST">
         <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
-        <p><input type="submit" name="envoyer"></p>
+        <p><input type="submit" name="envoyer" id="togg1"></p>
     </form>
+
+    <div id="d1"></div>
     <table>
         <caption>Recherche</caption>
             <thead>
@@ -69,5 +71,6 @@
     
         <?php endforeach ?>  
         </table>
+    </div>    
     </body>
 </html>
