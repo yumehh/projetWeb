@@ -17,7 +17,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <script src="script.js"></script>
     </head>
     <body>
      
@@ -40,6 +40,7 @@
 
     </table>
     
+    <h3>Barre de recherche par nom </h3>
     <form method="POST">
         <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
         <p><input type="submit" name="envoyer"></p>
@@ -50,6 +51,7 @@
             <thead>
                 <tr>
                     <th>artistes</th>
+                    <th>informations supplémentaires</th>
                 </tr>
 		    </thead>
 
@@ -57,6 +59,11 @@
 
             <tr>
                 <td><?= $searchVisitor['nomArtiste']?></td>
+                <td>
+                    <form method="GET" action="https://google.be/search" id="monform" target="_blank">
+                        <input name="q" type="text" id="recherche" value= "<?= $searchVisitor['nomArtiste'] ?>" >
+                        <input type="submit" value="Rechercher">
+                </td>
             </tr>
     
         <?php endforeach ?>  

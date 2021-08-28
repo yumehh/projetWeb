@@ -192,6 +192,8 @@
 
         case "statsCommande":
             
+            $getUser = $admin->getUser();
+            $test = json_encode($getUser);
             require_once('views/statsCommande.php');
 
             break;

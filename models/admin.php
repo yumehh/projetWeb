@@ -106,6 +106,17 @@
         return $idCmd;
     }
 
+    function getUser(){
+        $db = $this->connexionDB();
+        $reponse = $db->prepare('SELECT DISTINCT idUtilisateur FROM utilisateurs');
+        $reponse->execute();
+
+        $allUser = $reponse->fetchAll();
+        $reponse->closeCursor();
+        
+        return $allUser;
+    }
+
 }
 
 ?>
