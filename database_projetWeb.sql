@@ -4,11 +4,11 @@ CREATE DATABASE IF NOT EXISTS projetWeb;
 
 USE projetWeb;
 
-DROP TABLE IF EXISTS Roles;
-CREATE TABLE IF NOT EXISTS Roles(
+DROP TABLE IF EXISTS `Role`;
+CREATE TABLE IF NOT EXISTS `Role`(
 
 	idRole INTEGER PRIMARY KEY AUTO_INCREMENT,
-	nom VARCHAR(50)
+	`name` VARCHAR(50)
 	
 )ENGINE = INNODB;
 
@@ -16,11 +16,12 @@ DROP TABLE IF EXISTS Utilisateurs;
 CREATE TABLE IF NOT EXISTS Utilisateurs(
 
 	idUtilisateur INTEGER PRIMARY KEY AUTO_INCREMENT,
-	idRole INTEGER UNIQUE,
-	login VARCHAR(100),
-	motDePasse VARCHAR(100),
+	pseudo VARCHAR(100),
+	pwUser VARCHAR(100),
 	email VARCHAR(100),
-	FOREIGN KEY (idRole) REFERENCES Roles(idRole)
+	idRole INTEGER,
+	date_inscription DATETIME,
+	FOREIGN KEY (idRole) REFERENCES `Role`(idRole)
 
 )ENGINE = INNODB;
 
@@ -34,27 +35,55 @@ CREATE TABLE IF NOT EXISTS StatusCommandes(
 )ENGINE = INNODB;
 
 
-DROP TABLE IF EXISTS Commandes;
-CREATE TABLE IF NOT EXISTS Commandes(
+DROP TABLE IF EXISTS genreMusique;
+CREATE TABLE IF NOT EXISTS genreMusique(
 
-	idCommande INTEGER PRIMARY KEY AUTO_INCREMENT,
-	idStatusCommande INTEGER UNIQUE, 
-	idUtilisateur INTEGER UNIQUE,
-	FOREIGN KEY (idStatusCommande) REFERENCES StatusCommandes(idStatusCommande),
-	FOREIGN KEY (idUtilisateur) REFERENCES Utilisateurs(idUtilisateur)
-	
+	idGenre INTEGER PRIMARY KEY AUTO_INCREMENT,
+	nomGenre VARCHAR(50)
 
 )ENGINE = INNODB;
 
+
+DROP TABLE IF EXISTS Artistes;
+CREATE TABLE IF NOT EXISTS Artistes(
+
+	idArtiste INTEGER PRIMARY KEY AUTO_INCREMENT,
+	nomArtiste VARCHAR(100),
+	imageArtiste TEXT,
+	descriptionArtiste TEXT,
+	idGenre INT,
+	is_deleted TINYINT DEFAULT NULL,
+	FOREIGN KEY (idGenre) REFERENCES genreMusique(idGenre)
+
+)ENGINE = INNODB;
 
 DROP TABLE IF EXISTS Musiques;
 CREATE TABLE IF NOT EXISTS Musiques(
 
 	idMusique INTEGER PRIMARY KEY AUTO_INCREMENT,
 	titre VARCHAR(100),
-	prix FLOAT
+	prix FLOAT,
+	is_deleted TINYINT DEFAULT NULL,
+	idArtiste INT,
+	FOREIGN KEY (idArtiste) REFERENCES `Artistes`(idArtiste)
 
 )ENGINE = INNODB;
+
+DROP TABLE IF EXISTS Commandes;
+CREATE TABLE IF NOT EXISTS Commandes(
+
+	idCommande INTEGER PRIMARY KEY AUTO_INCREMENT,
+	idStatusCommande INTEGER, 
+	idUtilisateur INTEGER,
+	idMusique INTEGER,
+	date_commande DATETIME,
+	FOREIGN KEY (idStatusCommande) REFERENCES StatusCommandes(idStatusCommande),
+	FOREIGN KEY (idUtilisateur) REFERENCES Utilisateurs(idUtilisateur),
+	FOREIGN KEY (idMusique) REFERENCES Musiques(idMusique)
+	
+
+)ENGINE = INNODB;
+
 
 DROP TABLE IF EXISTS CommandeMusiques;
 CREATE TABLE IF NOT EXISTS CommandeMusiques(
@@ -80,29 +109,8 @@ CREATE TABLE IF NOT EXISTS UtilisateurMusiques(
 )ENGINE = INNODB;
 
 
-DROP TABLE IF EXISTS genreMusique;
-CREATE TABLE IF NOT EXISTS genreMusique(
 
-	idGenre INTEGER PRIMARY KEY AUTO_INCREMENT,
-	nomGenre VARCHAR(50)
-
-)ENGINE = INNODB;
-
-
-DROP TABLE IF EXISTS Artistes;
-CREATE TABLE IF NOT EXISTS Artistes(
-
-	idArtiste INTEGER PRIMARY KEY AUTO_INCREMENT,
-	nomArtiste VARCHAR(100),
-	imageArtiste TEXT,
-	descriptionArtiste TEXT,
-	idGenre INT,
-	FOREIGN KEY (idGenre) REFERENCES genreMusique(idGenre)
-
-)ENGINE = INNODB;
-
-
-DROP TABLE IF EXISTS ArtisteMusiques;
+DROP TABLE IF EXISTS ArtistesMusiques;
 CREATE TABLE IF NOT EXISTS ArtistesMusiques(
 
 	idArtiste INTEGER,
@@ -113,6 +121,18 @@ CREATE TABLE IF NOT EXISTS ArtistesMusiques(
 )ENGINE = INNODB;
 
 
-INSERT INTO genreMusique(nomGenre) VALUES ('Rock'),('Rap'),('DanceHall'), ('RnB');
 
-INSERT INTO Artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre) VALUES('Soprano', 'soprano.png', 'cet homme est un rappeur', '2');
+INSERT INTO `role` (`name`) VALUES ('admin'), ('client');
+INSERT INTO utilisateurs (pseudo, pwUser, email, idRole, date_inscription) VALUES ('lea', '$2y$10$hmh/3sW.pEY2nMerQM4cCOiHOiWaWiQkyvOLInKDF2jixuAEocx7a', 'lea@gmail.com', '1', NOW()), 
+										  ('noah', '$2y$10$W0T2HDVHgsJizGs40ZXF4ORN0dEXZyFEavtTEbRf.K0.cgN2.TkES', 'noah@gmail.com', '2', NOW()); 
+INSERT INTO genreMusique(nomGenre) VALUES ('Ajout') ,('Rock'),('Rap'),('DanceHall'), ('RnB'), ('Métal');
+INSERT INTO statuscommandes(nom) VALUES ('vérification'), ('commandé'), ('annulée');
+-- INSERT INTO Artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre) 
+--	VALUES('Soprano', 'soprano.png', 'cet homme est un rappeur', '3'), 
+--		('Psy4DeLaRime', 'soprano.png', 'un groupe de RAP', '3'),
+--		('ACDC', 'soprano.png', 'un groupe de Rock', '2');
+
+ -- INSERT INTO musiques (titre, prix) VALUES ('en feu', '1.56');
+
+ -- INSERT INTO ArtistesMusiques (idArtiste, idMusique) VALUES (1,1);
+ -- INSERT INTO ArtistesMusiques (idArtiste, idMusique) VALUES (2,2);
