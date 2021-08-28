@@ -13,7 +13,7 @@ include 'includes/template.php';
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="">
     </head>
     <body>
@@ -22,7 +22,7 @@ include 'includes/template.php';
 
         <p><label for="pseudo"> Login : </label> <input type="text" name="pseudo" id="pseudo" required></p>
         <p><label for="mdp"> Mot de passe : </label><input type="password" name="mdp" id="mdp" required></p>
-        <p><input type="submit" name="envoyer"></p>
+        <button type="submit" name="envoyer" class="btn btn-primary mb-2">Se Connecter</button>
     
     </form>
 
