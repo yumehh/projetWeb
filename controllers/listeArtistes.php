@@ -13,7 +13,7 @@
         case "listeArtistes":
 
             if(REQ_TYPE){
-                if(!empty($_POST)){
+                if(isset($_POST)){
                     $search = $afficher->getByNomArtiste($_POST['recherche']);
                 }
             }
