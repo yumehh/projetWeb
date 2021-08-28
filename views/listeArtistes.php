@@ -44,6 +44,23 @@
         <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
         <p><input type="submit" name="envoyer"></p>
     </form>
+
+    <table>
+        <caption>Recherche</caption>
+            <thead>
+                <tr>
+                    <th>artistes</th>
+                </tr>
+		    </thead>
+
+        <?php foreach($search as $searchVisitor): ?>
+
+            <tr>
+                <td><?= $searchVisitor['nomArtiste']?></td>
+            </tr>
+    
+        <?php endforeach ?>  
+        </table>
         
         <script src="" async defer></script>
     </body>

@@ -42,6 +42,18 @@
             return $artiste;
 
         }  
+
+        function getByNomArtiste($nomArtiste){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT nomArtiste FROM artistes where nomArtiste = :nomArtiste');
+            $reponse->execute(array(
+                'nomArtiste' => $nomArtiste
+            ));
+            $artiste = $reponse->fetchAll();
+            $reponse->closeCursor();
+
+            return $artiste;
+        }
 }
 
 ?>
