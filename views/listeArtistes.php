@@ -17,12 +17,19 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../js/script.js"></script>
+        <script src="script.js"></script>
         <link rel="stylesheet" href="../css/style.css">
         
     </head>
     <body>
-     
+    
+    <h1>Comment afficher ou masquer un élément HTML</h1>
+    <button id="togg1">Cliquez-moi !</button>
+    <div id="d1">
+        <p>Ce texte appartient au premier div de ma page</p>
+        <p>Ce deuxième paragraphe également</p>
+    </div>
+
     <table>
         <caption>Liste des artistes </caption>
             <thead>
@@ -47,11 +54,6 @@
         <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
         <p><input type="submit" name="envoyer"></p>
     </form>
-
-    <button id="boutonRecherche">clic!</button>
-
-    <div id="sousMenu">
-        
     <table>
         <caption>Recherche</caption>
             <thead>
@@ -74,7 +76,7 @@
     
         <?php endforeach ?>  
         </table>
-    </div>    
+  
 
     </body>
 </html>
