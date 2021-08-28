@@ -22,13 +22,6 @@
         
     </head>
     <body>
-    
-    <h1>Comment afficher ou masquer un élément HTML</h1>
-    <button id="togg1">Cliquez-moi !</button>
-    <div id="d1">
-        <p>Ce texte appartient au premier div de ma page</p>
-        <p>Ce deuxième paragraphe également</p>
-    </div>
 
     <table>
         <caption>Liste des artistes </caption>
@@ -76,7 +69,5 @@
     
         <?php endforeach ?>  
         </table>
-  
-
     </body>
 </html>
