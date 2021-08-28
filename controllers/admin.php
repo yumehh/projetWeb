@@ -190,5 +190,11 @@
             
             break;
 
+        case "statsCommande":
+            
+            require_once('views/statsCommande.php');
+
+            break;
+
     }
 ?>

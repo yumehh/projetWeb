@@ -5,6 +5,5 @@
         <a href="/<?= REQ_TYPE ?>/afficherMusiques">Afficher les musiques</a><br />
         <a href="/<?= REQ_TYPE ?>/restaurerMusiques">Restaurer les musiques</a><br />
         <a href="/<?= REQ_TYPE ?>/listingCommande">Confirmer - annuler commandes</a><br />
-
-        <a href="">Statistiques des commandes</a><br />
+        <a href="/<?= REQ_TYPE ?>/statsCommande">Statistiques des commandes</a><br />
         <a href="/logout">Déconnexion</a>
