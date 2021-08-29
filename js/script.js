@@ -49,3 +49,7 @@ function valider(){
     return false;
   }
 }
+
+document.getElementById("inscription").addEventListener("submit", function() {
+  alert('Formulaire envoyé !')
+});
