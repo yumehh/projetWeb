@@ -20,14 +20,14 @@ include 'includes/template.php';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
-        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="../js/script.js"></script>
     </head>
     <body>
 
-    <form method="POST">
+    <form method="POST" id="inscription">
         <div class="form-group">
             <label for="pseudo">Pseudo</label>
-            <input type="text" class="form-control" name="pseudo" id="pseudo" aria-describedby="pseudo" placeholder="Insérez votre pseudo" required>
+            <input type="text" class="form-control" name="pseudo" id="pseudo" aria-describedby="pseudo" placeholder="Insérez votre pseudo" onsubmit=valider() >
         </div>
         <div class="form-group">
             <label for="mdp">Mot de passe</label>

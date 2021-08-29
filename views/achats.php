@@ -16,49 +16,6 @@
         
         <h1>MES ACHATS</h1>
 
-        <!-- <table>
-        <caption>HISTORIQUE</caption>
-            <thead>
-                <tr>
-                    <th>Numéro de commande</th>
-                    <th>Numéro de musique</th>
-                    <th> Nom de l'artiste </th>
-                    <th> titre </th>
-                    <th> prix </th>
-                    <th> status </th>
-                    <th>Date de commande</th>
-                </tr>
-		    </thead>
-
-        <?php foreach($getCmd as $cmd): ?>
-
-            <tr>
-                <td><?= $cmd['idCommande']?></td>
-                <td><?= $cmd['idMusique'] ?></td>
-                <td><?= $cmd['nomArtiste']?></td>
-                <td><?= $cmd['titre'] ?></td>
-                <td><?= $cmd['prix'] ?>euros </td>
-                <td><?= $cmd['nom'] ?></td>
-                <td><?= $cmd['date_commande']?></td>
-            </tr>
-    
-        <?php endforeach ?>  
-        </table> -->
-
-        <!-- <h3>Annulation </h3>
-
-        <form method="POST">
-        <p><label for="annuleCmd">Numéro de la commande :</label> <input type="text" name="annuleCmd" id="annuleCmd" required></p>
-        <p><input type="submit" name="envoyer"></p>
-        </form>
-
-        <h3>Confirmation</h3>
-        
-        <form method="POST">
-        <p><label for="validCmd">Numéro de la commande :</label> <input type="text" name="validCmd" id="validCmd" required></p>
-        <p><input type="submit" name="envoyer"></p>
-        </form> -->
-
         <table class="table">
             <thead class="thead-dark">
                 <tr>

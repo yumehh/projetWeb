@@ -11,7 +11,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="text/javascript" href="../bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <table>
@@ -24,27 +26,24 @@
                 <tr>
                     <td><img src="/img/<?= $detailArtiste['imageArtiste'] ?>" alt=""></td>
                 </tr>
-                <!-- <?= $detailArtiste['imageArtiste'] ?> -->
                 <th>Description de l'artiste</th>
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>
                 </tr>
-                <table>
-                <thead>
-                    <th>Numéro musique</th>
-                    <th>Titre</th>
-                    <th>Prix</th>
-                    
+                <table class="table">
+                <thead class="thead-dark">
+                    <th scope="col">Numéro de musique</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Prix</th>
                 </thead>
+
                 <?php foreach($musiqueArtiste as $music): ?>
                     <tr>
                         <td><?= $music['idMusique']?></td>
                         <td><?= $music['titre']?></td>
-                        <td><?= $music['prix'] ?> euros </td>
- 
+                        <td><?= $music['prix'] ?> euros</td>
                     </tr>
-                <?php endforeach ?>   
-        </table>
+                <?php endforeach ?> 
             </tbody>
         </table>
 

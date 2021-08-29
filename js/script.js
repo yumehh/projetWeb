@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function formAppear(){
-  var togg1 = document.getElementById("togg1");
-  var d1 = document.getElementById("d1");
+  var togg1 = document.getElementById("bouton1");
+  var d1 = document.getElementById("divBouton");
   togg1.addEventListener("submit", () => {
     if(getComputedStyle(d1).display != "none"){
       d1.style.display = "none";
@@ -38,4 +38,14 @@ function formAppear(){
       d1.style.display = "block";
     }
   })
+}
+
+function valider(){
+  frm=document.forms['pseudo'];
+  if(frm.elements['pseudo'].value =""){
+    return true;
+  } else {
+    alert("Manque le pseudo ! ");
+    return false;
+  }
 }

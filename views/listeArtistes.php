@@ -17,9 +17,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="script.js"></script>
         <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/script.js"></script>
         
     </head>
     <body>
@@ -49,7 +49,8 @@
         </div>
     </form>            
 
-    <div id="d1">
+    <button id="bouton1">clic</button>
+    <div id="divBouton">
         <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -64,7 +65,9 @@
                 <td>
                     <form method="GET" action="https://google.be/search" id="monform" target="_blank">
                         <div class="form-group-search">
-                            <input type="text" class="form-control" name="q" id="recherche" aria-describedby="pseudo" value= "<?= $searchVisitor['nomArtiste'] ?>" ><br />
+                            <div id="recherche">
+                                <input type="text" class="form-control" name="q" id="seek" aria-describedby="pseudo" value= "<?= $searchVisitor['nomArtiste'] ?>" ><br />
+                            </div>
                             <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Rechercher</button>
                         </div>
                     </form> 
@@ -73,7 +76,7 @@
     
         <?php endforeach ?>   
     </tbody>
-    </table>
-    </div>     
+    </table> 
+    </div>   
     </body>
 </html>
