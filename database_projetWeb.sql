@@ -85,54 +85,8 @@ CREATE TABLE IF NOT EXISTS Commandes(
 )ENGINE = INNODB;
 
 
-DROP TABLE IF EXISTS CommandeMusiques;
-CREATE TABLE IF NOT EXISTS CommandeMusiques(
-
-	idCommandeMusique INTEGER PRIMARY KEY AUTO_INCREMENT,
-	idMusique INTEGER UNIQUE, 
-	idCommande INTEGER UNIQUE,
-	prix FLOAT,
-	FOREIGN KEY (idMusique) REFERENCES Musiques(idMusique),
-	FOREIGN KEY (idCommande) REFERENCES Commandes(idCommande)
-
-)ENGINE = INNODB;
-
-
-DROP TABLE IF EXISTS UtilisateurMusiques;
-CREATE TABLE IF NOT EXISTS UtilisateurMusiques(
-
-	idUtilisateur INTEGER UNIQUE,
-	idMusique INTEGER UNIQUE,
-	FOREIGN KEY (idUtilisateur) REFERENCES Utilisateurs(idUtilisateur),
-	FOREIGN KEY (idMusique) REFERENCES Musiques(idMusique)
-
-)ENGINE = INNODB;
-
-
-
-DROP TABLE IF EXISTS ArtistesMusiques;
-CREATE TABLE IF NOT EXISTS ArtistesMusiques(
-
-	idArtiste INTEGER,
-	idMusique INTEGER,
-	FOREIGN KEY (idArtiste) REFERENCES Artistes(idArtiste),
-	FOREIGN KEY (idMusique) REFERENCES Musiques(idMusique)
-
-)ENGINE = INNODB;
-
-
-
 INSERT INTO `role` (`name`) VALUES ('admin'), ('client');
 INSERT INTO utilisateurs (pseudo, pwUser, email, idRole, date_inscription) VALUES ('lea', '$2y$10$hmh/3sW.pEY2nMerQM4cCOiHOiWaWiQkyvOLInKDF2jixuAEocx7a', 'lea@gmail.com', '1', NOW()), 
 										  ('noah', '$2y$10$W0T2HDVHgsJizGs40ZXF4ORN0dEXZyFEavtTEbRf.K0.cgN2.TkES', 'noah@gmail.com', '2', NOW()); 
 INSERT INTO genreMusique(nomGenre) VALUES ('Ajout') ,('Rock'),('Rap'),('DanceHall'), ('RnB'), ('Métal');
 INSERT INTO statuscommandes(nom) VALUES ('vérification'), ('commandé'), ('annulée');
--- INSERT INTO Artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre) 
---	VALUES('Soprano', 'soprano.png', 'cet homme est un rappeur', '3'), 
---		('Psy4DeLaRime', 'soprano.png', 'un groupe de RAP', '3'),
---		('ACDC', 'soprano.png', 'un groupe de Rock', '2');
-
- -- INSERT INTO musiques (titre, prix) VALUES ('en feu', '1.56');
-
- -- INSERT INTO ArtistesMusiques (idArtiste, idMusique) VALUES (1,1);
- -- INSERT INTO ArtistesMusiques (idArtiste, idMusique) VALUES (2,2);
