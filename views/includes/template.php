@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,10 +6,9 @@
         <title><?php echo $title ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="text/javascript" href="../../bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js">
         <link rel="stylesheet" href="../../bootstrap-5.1.0-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/style.css">
-
-    
 
     </head>
     <body>
@@ -40,24 +35,15 @@
         <li class="nav-item">
           <a class="nav-link" href="listeArtistes">Liste d'artistes</a>
         </li>
-
-
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> -->
       </ul>
     </div>
   </div>
 </nav>
 
+
     </body>
 </html>
 
 
+<html>
+<head>

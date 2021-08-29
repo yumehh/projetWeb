@@ -39,3 +39,7 @@ function formAppear(){
     }
   })
 }
+
+function toggle_text(){
+ 
+}

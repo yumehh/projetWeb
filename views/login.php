@@ -22,7 +22,7 @@ include 'includes/template.php';
     <form method="POST">
         <div class="form-group">
             <label for="pseudo">Pseudo</label>
-            <input type="text" class="form-control" name="pseudo" id="pseudo" aria-describedby="pseudo" placeholder="Insérer votre pseudo" required>
+            <input type="text" class="form-control" name="pseudo" id="pseudo" aria-describedby="pseudo" placeholder="Insérez votre pseudo" required>
         </div>
         <div class="form-group">
             <label for="mdp">Mot de passe</label>

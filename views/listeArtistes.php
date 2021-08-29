@@ -24,53 +24,56 @@
     </head>
     <body>
 
-    <table>
-        <caption>Liste des artistes </caption>
-            <thead>
-                <tr>
-                    <th> Artistes </th>
-                    <th> Genre </th>
-                </tr>
-		    </thead>
-                
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Artistes</th>
+                <th scope="col">Genre</th>
+            </tr>
+        </thead>
+        <tbody>
             <?php foreach($artistes as $artiste): ?>
                 <tr>
                     <td><a href= "/<?= REQ_TYPE?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
                     <td><?= $artiste['nomGenre'] ?></td>
-                </tr>
-                    
+                </tr>  
             <?php endforeach ?>   
-
+    </tbody>
     </table>
     
-
-    <h3>Barre de recherche par nom </h3>
     <form method="POST">
-        <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
-        <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Rechercher</button>
-    </form>
+    <div class="form-group">
+            <label for="recherche">Recherche : </label>
+            <input type="text" class="form-control" name="recherche" id="recherche" aria-describedby="pseudo" required><br />
+            <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Rechercher</button>
+        </div>
+    </form>            
 
     <div id="d1">
-    <table>
-            <thead>
-                <tr>
-                    <th>artistes</th>
-                    <th>informations supplémentaires</th>
-                </tr>
-		    </thead>
-
+        <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Artistes</th>
+                <th scope="col">Information complémentaire</th>
+            </tr>
+        </thead>
+        <tbody>
         <?php foreach($search as $searchVisitor): ?>
             <tr>
                 <td><?= $searchVisitor['nomArtiste']?></td>
                 <td>
                     <form method="GET" action="https://google.be/search" id="monform" target="_blank">
-                        <input name="q" type="text" id="recherche" value= "<?= $searchVisitor['nomArtiste'] ?>" >
-                        <button type="submit" name="envoyer" class="btn btn-primary mb-2" value="Rechercher">Recherche</button>
+                        <div class="form-group-search">
+                            <input type="text" class="form-control" name="q" id="recherche" aria-describedby="pseudo" value= "<?= $searchVisitor['nomArtiste'] ?>" ><br />
+                            <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Rechercher</button>
+                        </div>
+                    </form> 
                 </td>
             </tr>
     
-        <?php endforeach ?>  
-        </table> 
+        <?php endforeach ?>   
+    </tbody>
+    </table>
     </div>     
     </body>
 </html>
