@@ -23,18 +23,19 @@ $content = "Afficher les musiques";
     <body>
 
         <h3>Afficher les musiques </h3>
-
-        <table>
-            <caption>Liste des musiques</caption>
-                <thead>
-                    <th>Numéro de musique</th>
-                    <th>Titre</th>
-                    <th>Prix</th>
-                    <th> Artistes </th>
-                    <th>Modifier</th>
-                    <th>Supprimer</th>
-                </thead>
-
+        
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+        <th scope="col">Numéro de musique</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Artiste</th>
+        <th scope="col">Modifier</th>
+        <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
                 <?php foreach($afficherMusics as $music): ?>
                     <tr>
                         <td><?= $music['idMusique']?></td>
@@ -45,9 +46,7 @@ $content = "Afficher les musiques";
                         <td> <a href="/<?= REQ_TYPE ?>/supprimerMusics/<?=$music['idMusique'] ?>">Supprimer </a></td>
                     </tr>
                 <?php endforeach ?>
-
-        </table>
-        
-        <script src="" async defer></script>
+        </tbody>
+    </table>
     </body>
 </html>

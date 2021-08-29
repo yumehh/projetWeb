@@ -23,33 +23,32 @@
     <body>
        <h1> Restauration de l'artiste </h1>
 
-       <table>
-        <caption>Liste des artistes </caption>
-            <thead>
-                <tr>
-                    <th>Numéro de l'Artiste</th>
-                    <th> Artistes </th>
-                    <th> Genre </th>
-                    <th> Restauration </th>
-                </tr>
-		    </thead>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Numéro de l'artiste</th>
+      <th scope="col">Artistes</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Restauration</th>
+    </tr>
+  </thead>
+  <tbody>
+        <?php foreach($artistesDeleted as $artiste): ?>
 
-            <?php foreach($artistesDeleted as $artiste): ?>
-
-                <tr>
-                    <td><?= $artiste['idArtiste']?></td>
-                    <td><?= $artiste['nomArtiste']?></td>
-                    <td><?= $artiste['nomGenre'] ?></td>
-                    <td><p><label for="choix">Voulez-vous restaurer cet artiste ? </label>
-                        <input type="radio" name="ajoutgenre" value="oui" ><label for="ajoutgenreoui" >Oui</label>
-                        <input type="radio" name="ajoutgenre" value="non" checked="checked"><label for="ajoutgenrenon">Non</label>
-                        <input type="submit" name="envoyer"></p>
-                    </td>  
-                </tr>
-                    
-            <?php endforeach ?> 
-
-    </table> 
+        <tr>
+            <td><?= $artiste['idArtiste']?></td>
+            <td><?= $artiste['nomArtiste']?></td>
+            <td><?= $artiste['nomGenre'] ?></td>
+            <td><p><label for="choix">Voulez-vous restaurer cet artiste ? </label>
+                <input type="radio" name="ajoutgenre" value="oui" ><label for="ajoutgenreoui" >Oui</label>
+                <input type="radio" name="ajoutgenre" value="non" checked="checked"><label for="ajoutgenrenon">Non</label>
+                <input type="submit" name="envoyer"></p>
+            </td>  
+        </tr>
+            
+        <?php endforeach ?>
+  </tbody>
+</table>
 
     </body>
 </html>

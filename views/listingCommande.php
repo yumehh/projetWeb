@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,23 +6,24 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-    <table>
-        <caption>HISTORIQUE</caption>
-            <thead>
+
+        <table class="table">
+            <thead class="thead-dark">
                 <tr>
-                    <th>Numéro de Commande</th>
-                    <th>Numéro de musique</th>
-                    <th>Numéro de client</th>
-                    <th> Nom de l'artiste </th>
-                    <th> titre </th>
-                    <th> prix </th>
-                    <th> status </th>
-                    <th>Date de commande</th>
+                <th scope="col">Numéro de commande</th>
+                <th scope="col">Numéro de musique</th>
+                <th scope="col">Numéro de client</th>
+                <th scope="col">Nom de l'artiste</th>
+                <th scope="col"> titre </th>
+                <th scope="col"> prix </th>
+                <th scope="col"> status </th>
+                <th scope="col">Date de commande</th>
                 </tr>
-		    </thead>
+            </thead>
+        <tbody>
 
         <?php foreach($getCmd as $cmd): ?>
 
@@ -40,24 +37,30 @@
                 <td><?= $cmd['nom'] ?></td>
                 <td><?= $cmd['date_commande']?></td>
             </tr>
-    
-        <?php endforeach ?>  
+
+            <?php endforeach ?>
+            
+        </tbody>
         </table>
+
 
         <h3>Annulation</h3>
 
         <form method="POST">
-        <p><label for="annuleCmd">Numéro de la commande :</label> <input type="text" name="annuleCmd" id="annuleCmd" required></p>
-        <p><input type="submit" name="envoyer"></p>
-        </form>
+        <div class="form-group">
+            <label for="annuleCmd">Numéro commande : </label>
+            <input type="text" class="form-control" name="annuleCmd" id="annuleCmd" required><br />
+            <button type="submit" class="btn btn-primary">Confirmer</button>
+        </div>
 
         <h3>Confirmation</h3>
-        
-        <form method="POST">
-        <p><label for="validCmd">Numéro de la commande :</label> <input type="text" name="validCmd" id="validCmd" required></p>
-        <p><input type="submit" name="envoyer"></p>
-        </form>
 
-        <script src="" async defer></script>
+        <form method="POST">
+        <div class="form-group">
+            <label for="validCmd">Numéro commande : </label>
+            <input type="text" class="form-control" name="validCmd" id="validCmd" required><br />
+            <button type="submit" class="btn btn-primary">Confirmer</button>
+        </div>
+        
     </body>
 </html>

@@ -18,37 +18,33 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
-        <script type="text/javascript" src="../js/script.js" async defer></script>
     </head>
     <body>
-    <table>
-        <caption>Liste des artistes </caption>
-            <thead>
-                <tr>
-                    <th>Numéro de l'Artiste</th>
-                    <th> Détail Artistes </th>
-                    <!-- <th> Artistes </th> -->
-                    <th> Genre </th>
-                    <th> Modifier </th>
-                    <th> Supprimer </th>
-                </tr>
-		    </thead>
-                
-            <?php foreach($afficherArtistes as $artiste): ?>
 
-                <tr>
-                    <td><?= $artiste['idArtiste']?></td>
-                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>/<?=$artiste['idArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
-                    <td><?= $artiste['nomGenre'] ?></td>
-                    <td><a href="/<?= REQ_TYPE ?>/modifierArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>"> Modifier </a> </td>
-                    <td> <a href="/<?= REQ_TYPE ?>/supprimerArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>">Supprimer </a></td>
-                    
-                </tr>
-                    
-            <?php endforeach ?>   
-
-    </table>  
-        
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Numéro de l'Artiste</th>
+      <th scope="col">Détail Artistes</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($afficherArtistes as $artiste): ?>
+    <tr>
+        <td><?= $artiste['idArtiste']?></td>
+        <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>/<?=$artiste['idArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
+        <td><?= $artiste['nomGenre'] ?></td>
+        <td><a href="/<?= REQ_TYPE ?>/modifierArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>"> Modifier </a> </td>
+        <td> <a href="/<?= REQ_TYPE ?>/supprimerArtistes/<?=$artiste['idArtiste'] ?>/<?=$artiste['nomArtiste']?>">Supprimer </a></td>
+    </tr>   
+    <?php endforeach ?>
+  </tbody>
+</table>
+    
     </body>
 </html>

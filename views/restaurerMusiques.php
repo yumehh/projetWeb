@@ -24,21 +24,19 @@ $content = "Restaurer les musiques";
         
     <h1> Restauration des musiques </h1>
 
-    <table>
-        <caption>Liste des musiques </caption>
-            <thead>
-                <tr>
-                    <th>Numéro de la musique</th>
-                    <th> Titre </th>
-                    <th> Prix </th>
-                    <th> Restauration </th>
-                </tr>
-		    </thead>
-
-            <form method="POST">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">Numéro de musique</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Restauration</th>
+            </tr>
+        </thead>
+  <tbody>
+  <form method="POST">
             
             <?php foreach($afficherMusicDeleted as $deleted): ?>
-
                 <tr>
                     <td><?= $deleted['idMusique'] ?></td>
                     <td><?= $deleted['titre'] ?></td>
@@ -49,12 +47,11 @@ $content = "Restaurer les musiques";
                         <input type="submit" name="envoyer"></p>
                     </td>  
                 </tr>
-
             <?php endforeach ?>
 
-            </form>
-
-    </table>        
+    </form>
+  </tbody>
+</table>
         
     </body>
 </html>

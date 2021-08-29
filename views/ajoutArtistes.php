@@ -1,9 +1,6 @@
 <?php 
-
     $title = "Artistes";
     $content = "Ajouts de l'artiste";
-    //include 'includes/template.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +11,15 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script type="text/javascript" src="../js/script.js" async defer></script>
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
 
     <form action="" method="POST" enctype="multipart/form-data">
-        
-            <p><label for="nom">Nom de l'artiste :</label> <input type="text" name="nomArtiste" id="nom" required></p>
+
+            <div class="form-group">
+
+            <p><label for="nom">Nom de l'artiste :</label> <input type="text" class="form-control" name="nomArtiste" id="nom" required></p>
             <p><label for="description">Description de l'artiste :</label><br /><textarea name="descriptionArtiste" id="description" required></textarea></p>
             <p><label for="image">Image de l'artiste : </label> <br > <input type="file" name="imageArtiste" id=""> </p>
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
@@ -36,9 +34,7 @@
             </select></p>
 
             <p><input type="submit" name="envoyer"></p>
-            
+            </div>
         </form>
-        
-        <script src="" async defer></script>
     </body>
 </html>

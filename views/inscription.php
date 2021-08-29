@@ -42,7 +42,5 @@ include 'includes/template.php';
         <button type="submit" class="btn btn-primary">S'inscrire</button>
        
     </form>
-   
-        <script src="" async defer></script>
     </body>
 </html>
