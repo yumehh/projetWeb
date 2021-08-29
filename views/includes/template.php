@@ -10,24 +10,26 @@
         <title><?php echo $title ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="../../bootstrap-5.1.0-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/style.css">
 
     
 
     </head>
     <body>
     
+    <div class="container-fluid red">
     <h1><?php echo $content ?></h1>
 
         <h3>Menu de navigation</h3>
-        <nav>
+        <nav class="navTemplatev">
             <li><a href='welcome'>Page d'accueil</a></li>
             <li><a href='inscription'>Inscription</a></li>
             <li><a href='login'>Login</a></li>
             <li><a href='listeArtistes'>Liste des artistes</a></li>
         </nav>
-        
-        <script src="" async defer></script>
+    </div>  
+
     </body>
 </html>
 
