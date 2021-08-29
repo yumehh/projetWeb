@@ -16,6 +16,7 @@
                 <th scope="col">Numéro de commande</th>
                 <th scope="col">Numéro de musique</th>
                 <th scope="col">Numéro de client</th>
+                <th scope="col">Pseudo client</th>
                 <th scope="col">Nom de l'artiste</th>
                 <th scope="col"> titre </th>
                 <th scope="col"> prix </th>
@@ -31,6 +32,7 @@
                 <td><?= $cmd['idCommande'] ?></td>
                 <td><?= $cmd['idMusique'] ?></td>
                 <td><?= $cmd['idUtilisateur'] ?></td>
+                <td><?= $cmd['pseudo']?></td>
                 <td><?= $cmd['nomArtiste']?></td>
                 <td><?= $cmd['titre'] ?></td>
                 <td><?= $cmd['prix'] ?>euros </td>

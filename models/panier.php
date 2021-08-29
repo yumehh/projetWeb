@@ -75,11 +75,13 @@
 
         function getAllCommand(){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT c.idCommande ,m.idMusique, c.idUtilisateur, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
-                                        WHERE c.idStatusCommande = sc.idStatusCommande
-                                            AND c.idMusique = m.idMusique 
-                                                AND m.idArtiste = a.idArtiste
-                                                     ORDER BY c.date_commande DESC');
+            $reponse = $db->prepare('SELECT c.idCommande ,m.idMusique, c.idUtilisateur, u.pseudo, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande 
+                                        from musiques as m, commandes as c, statuscommandes as sc, artistes as a, utilisateurs as u 
+                                            WHERE c.idStatusCommande = sc.idStatusCommande
+                                                AND c.idMusique = m.idMusique 
+                                                    AND m.idArtiste = a.idArtiste
+                                                        AND c.idUtilisateur = u.idUtilisateur
+                                                            ORDER BY c.date_commande DESC');
             $reponse->execute();
             $allCmd = $reponse->fetchAll();
             $reponse->closeCursor();
