@@ -29,7 +29,7 @@
                     <th>Prix</th>
                 </thead>
 
-                <?php foreach($getMusic as $music): ?>
+                <?php foreach((array) $getMusic as $music): ?>
                     <tr>
                         <td><?= $music['idMusique']?></td>
                         <td><?= $music['nomArtiste']?></td>
@@ -41,23 +41,6 @@
                 <h3>Prix total : <?php echo $prix; ?> euros </h3>     
         </table>
 
-        <!-- <table>
-                <thead>
-                    <th>Numéro de musique</th>
-                    <th>Artiste</th>
-                    <th>Titre</th>
-                    <th>Prix</th>
-                </thead>
 
-                <?php foreach($test as $music): ?>
-                    <tr>
-                        <td><?= $music['idMusique']?></td>
-                        <td><?= $music['nomArtiste']?></td>
-                        <td><?= $music['titre']?></td>
-                        <td><?= $music['prix'] ?> euros </td>
- 
-                    </tr>
-                <?php endforeach ?>
-        </table> -->
     </body>
 </html>
