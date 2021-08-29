@@ -18,15 +18,19 @@ include 'includes/template.php';
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        
-    <form method="POST">
 
-        <p><label for="pseudo"> Login : </label> <input type="text" name="pseudo" id="pseudo" required></p>
-        <p><label for="mdp"> Mot de passe : </label><input type="password" name="mdp" id="mdp" required></p>
+    <form method="POST">
+        <div class="form-group">
+            <label for="pseudo">Pseudo</label>
+            <input type="text" class="form-control" name="pseudo" id="pseudo" aria-describedby="pseudo" placeholder="Insérer votre pseudo" required>
+        </div>
+        <div class="form-group">
+            <label for="mdp">Mot de passe</label>
+            <input type="password" class="form-control" name="mdp" id="mdp" placeholder="Votre mot de passe" required>
+        </div>
+        <br />
         <button type="submit" name="envoyer" class="btn btn-primary mb-2">Se Connecter</button>
     
-    </form>
-
-        <script src="" async defer></script>
+    </form> 
     </body>
 </html>

@@ -3,3 +3,7 @@
     list-style-type: none;
 }
 
+/* LOGIN */
+.form-group{
+    width: 15%;
+}

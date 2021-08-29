@@ -18,6 +18,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="script.js"></script>
+        <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
         
     </head>
@@ -46,12 +47,11 @@
     <h3>Barre de recherche par nom </h3>
     <form method="POST">
         <p><label for="recherche"> Recherche : </label> <input type="text" name="recherche" id="recherche" required></p>
-        <p><input type="submit" name="envoyer" id="togg1"></p>
+        <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Rechercher</button>
     </form>
 
     <div id="d1">
     <table>
-        <caption>Recherche</caption>
             <thead>
                 <tr>
                     <th>artistes</th>
@@ -60,13 +60,12 @@
 		    </thead>
 
         <?php foreach($search as $searchVisitor): ?>
-
             <tr>
                 <td><?= $searchVisitor['nomArtiste']?></td>
                 <td>
                     <form method="GET" action="https://google.be/search" id="monform" target="_blank">
                         <input name="q" type="text" id="recherche" value= "<?= $searchVisitor['nomArtiste'] ?>" >
-                        <input type="submit" value="Rechercher">
+                        <button type="submit" name="envoyer" class="btn btn-primary mb-2" value="Rechercher">Recherche</button>
                 </td>
             </tr>
     
