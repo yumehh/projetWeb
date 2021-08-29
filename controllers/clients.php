@@ -53,7 +53,7 @@
 
             $getMusic = null;
             $prix = null;
-            
+
             if(!empty($_POST)){
 
                 //affichage
@@ -63,7 +63,7 @@
                 $idMusicPanier = $music->getIdMusic($_POST['achatMusique']);
                 $musicPrixPanier = $music->getPrixByIdPanier($_POST['achatMusique']);
 
-                if(!empty($idMusicPanier)){
+                if(!empty($idMusicPanier || !empty($musicPrixPanier))){
 
                     foreach($_SESSION['userID'] as $userID){
                         $userID;

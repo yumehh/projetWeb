@@ -26,24 +26,21 @@
                 <tr>
                     <th><?= $detailArtiste['nomArtiste'] ?></th>
                 </tr>
-
             </thead>
             <tbody>
-
                 <tr>
                     <td><img src="/img/<?= $detailArtiste['imageArtiste'] ?>" alt=""></td>
                 </tr>
-                <!-- <?= $detailArtiste['imageArtiste'] ?> -->
                 <th>Description de l'artiste</th>
                 <tr>
                     <td><?= $detailArtiste['descriptionArtiste'] ?></td>
                 </tr>
-            
-                <table>
-                <thead>
-                    <th>Numéro de musique</th>
-                    <th>Titre</th>
-                    <th>Prix</th>
+
+                <table class="table">
+                <thead class="thead-dark">
+                    <th scope="col">Numéro de musique</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Prix</th>
                 </thead>
 
                 <?php foreach($musiqueArtiste as $music): ?>
@@ -53,20 +50,19 @@
                         <td><?= $music['prix'] ?> euros</td>
                     </tr>
                 <?php endforeach ?>
-                
-        </table>
 
+                </table>
             </tbody>
         </table>
+
 
         <h4>ajout musiques </h4>
         <form method="POST">
 
-                    <label for="titre">Titre : </label> <input type="text" name="titreMusique" required ><br />
-                    <label for="prix">Prix : </label> <input type="text" name="prixMusique" required > <br /><br />
-                    <input type="submit" name="envoyer">
-
-                </form>
+                    <label for="titre">Titre : </label> <input type="text" class="form-control" name="titreMusique" required ><br />
+                    <label for="prix">Prix : </label> <input type="text" class="form-control" name="prixMusique" required > <br /><br />
+                    <button type="submit" class="btn btn-primary">Confirmer</button>
          </form>
+
     </body>
 </html>

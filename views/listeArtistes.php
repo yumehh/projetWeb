@@ -58,7 +58,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach($search as $searchVisitor): ?>
+        <?php foreach((array) $search as $searchVisitor): ?>
             <tr>
                 <td><?= $searchVisitor['nomArtiste']?></td>
                 <td>
