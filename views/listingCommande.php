@@ -49,7 +49,7 @@
         <form method="POST">
         <div class="form-group">
             <label for="annuleCmd">Numéro commande : </label>
-            <input type="text" class="form-control" name="annuleCmd" id="annuleCmd" required><br />
+            <input type="text" class="form-control" name="annuleCmd" id="annuleCmd"><br />
             <button type="submit" class="btn btn-primary">Confirmer</button>
         </div>
 
@@ -58,7 +58,7 @@
         <form method="POST">
         <div class="form-group">
             <label for="validCmd">Numéro commande : </label>
-            <input type="text" class="form-control" name="validCmd" id="validCmd" required><br />
+            <input type="text" class="form-control" name="validCmd" id="validCmd"><br />
             <button type="submit" class="btn btn-primary">Confirmer</button>
         </div>
         

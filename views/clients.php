@@ -11,7 +11,9 @@ $content="Bienvenue sur votre page";
         <title><?=$title?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="text/javascript" href="../../bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="../../bootstrap-5.1.0-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/style.css">
     </head>
     <body>
 
@@ -21,7 +23,5 @@ $content="Bienvenue sur votre page";
         <br /><br />
         
         <?= include 'includes/menu_client.php' ?>  
-        
-        
     </body>
 </html>

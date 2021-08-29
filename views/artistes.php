@@ -1,8 +1,6 @@
 <?php 
-
     $title = "Achat";
     $content = "Achat";
-
 ?>
 <!DOCTYPE html>
 
@@ -18,27 +16,23 @@
     <body>  
         <h1>ACHAT</h1>
         
-        <table>
-        <caption>Liste des artistes </caption>
-            <thead>
-                <tr>
-                    <th> Détail Artistes </th>
-                    <!-- <th> Artistes </th> -->
-                    <th> Genre </th>
-                </tr>
-		    </thead>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Détail Artistes</th>
+                <th scope="col">Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($afficherArtistes as $artiste): ?>
+
+            <tr>
+                <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
+                <td><?= $artiste['nomGenre'] ?></td>
+            </tr>
                 
-            <?php foreach($afficherArtistes as $artiste): ?>
-
-                <tr>
-                    <td><a href= "/<?= REQ_TYPE ?>/<?= REQ_TYPE_ID ?>/<?=$artiste['nomArtiste']?>"> <?=$artiste['nomArtiste']?> </a></td>
-                    <td><?= $artiste['nomGenre'] ?></td>
-                </tr>
-                    
-            <?php endforeach ?>   
-
-    </table>  
-
-        <script src="" async defer></script>
+        <?php endforeach ?>     
+    </tbody>
+    </table>
     </body>
 </html>
