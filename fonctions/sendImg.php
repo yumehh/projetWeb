@@ -3,7 +3,7 @@
     function insertImg($img){
 
         $maxSize = 500000;
-        $validExt =array('.jpg','jpeg','.gif','.png');
+        $validExt =array('.jpg','.jpeg','.gif','.png');
 
         if($img['error']>0)
         {

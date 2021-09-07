@@ -25,11 +25,11 @@
             <p><label for="genre">Genre de l'artiste : </label><select name="genreArtiste" id="genre">
 
                     <option value="defaut">Choississez une style</option>
-                <?php foreach($genreMusiques as $genre):  ?>
+                        <?php foreach($genreMusiques as $genre):  ?>
 
-                    <option value="<?=$genre['idGenre']?>"><?=$genre['nomGenre']?></option>
+                            <option value="<?=$genre['idGenre']?>"><?=$genre['nomGenre']?></option>
 
-                <?php endforeach ?>
+                        <?php endforeach ?>
 
             </select></p>
 

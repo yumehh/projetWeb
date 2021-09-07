@@ -1,3 +1,3 @@
 <?php 
-include 'views/404.php';
+    require('views/404.php');
 ?>
