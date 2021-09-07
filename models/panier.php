@@ -5,6 +5,7 @@
     Class Panier extends ConnectDB {
 
         function creationPanier(){
+
             if(!isset($_SESSION['panier'])){
                 $_SESSION['panier'] = array();
                 $_SESSION['panier']['idMusique'] = array();
@@ -14,6 +15,7 @@
         }
     
         function ajoutPanier($tempId){
+
             array_push($_SESSION['panier']['idMusique'],$tempId['idMusique']);
             array_push($_SESSION['panier']['qte'], $tempId['qte']);
             array_push($_SESSION['panier']['prixMusique'],$tempId['prixMusique']); 
@@ -42,7 +44,6 @@
             $montant = 0;
             $total_panier = count($_SESSION['panier']['idMusique']);
             for($i = 0; $i < $total_panier; $i++){
-
                 $montant += $_SESSION['panier']['prixMusique'][$i];
             }
             return $montant;
@@ -96,10 +97,7 @@
                 'idCommande' => $numCmd,
                 'idUtilisateur' => $idUser
             ));
-            $annuleCmd = $reponse->fetch();
             $reponse->closeCursor();
-    
-            return $annuleCmd;
         }
     
         function validCommande($numCmd, $idUser){
@@ -110,12 +108,8 @@
                 'idCommande' => $numCmd,
                 'idUtilisateur' => $idUser
             ));
-            $validCmd = $reponse->fetch();
             $reponse->closeCursor();
-    
-            return $validCmd;
         }
-
     }
 
 ?>
