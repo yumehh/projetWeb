@@ -38,5 +38,4 @@
     }
 
     require('views/login.php');
-
 ?>

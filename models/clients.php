@@ -7,7 +7,7 @@
         function getAll(){
             
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * from utilisateurs');
+            $reponse = $db->prepare('SELECT * from Utilisateurs');
             $reponse->execute();
             $users = $reponse->fetchAll();
             $reponse->closeCursor();
@@ -17,7 +17,7 @@
         function getUserByNom($pseudo){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM utilisateurs where pseudo =:pseudo');
+            $reponse = $db->prepare('SELECT * FROM Utilisateurs where pseudo =:pseudo');
             $reponse->execute(array(
                 'pseudo' => $pseudo
             ));
@@ -29,7 +29,7 @@
         function getUserById($idUtilisateur){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM utilisateurs where idUtilisateur = :idUtilisateur');
+            $reponse = $db->prepare('SELECT * FROM Utilisateurs where idUtilisateur = :idUtilisateur');
             $reponse->execute(array(
                 'idUtilisateur' => $idUtilisateur
             ));
@@ -41,7 +41,7 @@
         function updateUser($pseudo, $pwUser, $email, $id){
 
             $db= $this->connexionDB();
-            $reponse = $db->prepare('UPDATE utilisateurs SET pseudo = :pseudo, pwUser = :pwUser, email = :email WHERE idUtilisateur = :idUtilisateur');
+            $reponse = $db->prepare('UPDATE Utilisateurs SET pseudo = :pseudo, pwUser = :pwUser, email = :email WHERE idUtilisateur = :idUtilisateur');
             if($pwUser){
                 $pwUser = password_hash($pwUser, PASSWORD_DEFAULT);
             }else{

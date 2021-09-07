@@ -56,7 +56,7 @@
         function addUser($pseudo, $mdp, $email){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO utilisateurs(idRole, pseudo, pwUser, email, date_inscription) 
+            $reponse = $db->prepare('INSERT INTO Utilisateurs(idRole, pseudo, pwUser, email, date_inscription) 
                                         VALUES (2, :pseudo, :mdp, :email, NOW())');
             if($mdp){
                 $mdp = password_hash($mdp, PASSWORD_DEFAULT);
@@ -74,7 +74,7 @@
         function checkUserByPseudo($pseudo){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM utilisateurs WHERE pseudo = :pseudo');
+            $reponse = $db->prepare('SELECT * FROM Utilisateurs WHERE pseudo = :pseudo');
             $reponse->execute(array(
                 'pseudo' => $pseudo
             ));
@@ -86,7 +86,7 @@
         function getIdUser($pseudo){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT idUtilisateur FROM utilisateurs WHERE pseudo =:pseudo');
+            $reponse = $db->prepare('SELECT idUtilisateur FROM Utilisateurs WHERE pseudo =:pseudo');
             $reponse->execute(array(
                 'pseudo' => $pseudo
             ));

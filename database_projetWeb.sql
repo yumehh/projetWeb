@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS StatusCommandes(
 )ENGINE = INNODB;
 
 
-DROP TABLE IF EXISTS genreMusique;
+DROP TABLE IF EXISTS GenreMusique;
 CREATE TABLE IF NOT EXISTS genreMusique(
 
 	idGenre INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS Commandes(
 
 
 INSERT INTO `role` (`name`) VALUES ('admin'), ('client');
-INSERT INTO utilisateurs (pseudo, pwUser, email, idRole, date_inscription) VALUES ('lea', '$2y$10$hmh/3sW.pEY2nMerQM4cCOiHOiWaWiQkyvOLInKDF2jixuAEocx7a', 'lea@gmail.com', '1', NOW()), 
+INSERT INTO Utilisateurs (pseudo, pwUser, email, idRole, date_inscription) VALUES ('lea', '$2y$10$hmh/3sW.pEY2nMerQM4cCOiHOiWaWiQkyvOLInKDF2jixuAEocx7a', 'lea@gmail.com', '1', NOW()), 
 										  ('noah', '$2y$10$W0T2HDVHgsJizGs40ZXF4ORN0dEXZyFEavtTEbRf.K0.cgN2.TkES', 'noah@gmail.com', '2', NOW()); 
-INSERT INTO genreMusique(nomGenre) VALUES ('Ajout') ,('Rock'),('Rap'),('DanceHall'), ('RnB'), ('Métal');
-INSERT INTO statuscommandes(nom) VALUES ('vérification'), ('commandé'), ('annulée');
+INSERT INTO GenreMusique(nomGenre) VALUES ('Ajout') ,('Rock'),('Rap'),('DanceHall'), ('RnB'), ('Métal');
+INSERT INTO Statuscommandes(nom) VALUES ('vérification'), ('commandé'), ('annulée');

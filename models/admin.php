@@ -7,7 +7,7 @@
         function addArtistes($nom, $image, $description, $genre){
         
             $db= $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre, is_deleted)
+            $reponse = $db->prepare('INSERT INTO Artistes(nomArtiste, imageArtiste, descriptionArtiste, idGenre, is_deleted)
                                         VALUES(:nomArtiste, :imageArtiste, :descriptionArtiste, :genreArtiste, 0)');
             $reponse->execute(array(
                 'nomArtiste' => $nom,
@@ -21,7 +21,7 @@
         function updateArtistes($nom, $image, $description, $genre, $id){
 
             $db= $this->connexionDB();
-            $reponse = $db->prepare('UPDATE artistes SET nomArtiste = :nomArtiste, imageArtiste = :imageArtiste, descriptionArtiste = :descriptionArtiste, idGenre = :genreArtiste 
+            $reponse = $db->prepare('UPDATE Artistes SET nomArtiste = :nomArtiste, imageArtiste = :imageArtiste, descriptionArtiste = :descriptionArtiste, idGenre = :genreArtiste 
                                         WHERE idArtiste = :idArtiste');
             $reponse->execute(array(
                 'nomArtiste' => $nom,
@@ -36,7 +36,7 @@
         function deleteArtistes($id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE artistes SET is_deleted = 1 WHERE idArtiste = :idArtiste');
+            $reponse = $db->prepare('UPDATE Artistes SET is_deleted = 1 WHERE idArtiste = :idArtiste');
             $reponse->execute(array(
                 'idArtiste' => $id
             ));
@@ -46,7 +46,7 @@
         function restoreArtiste($id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE artistes SET is_deleted = 0 WHERE idArtiste = :idArtiste');
+            $reponse = $db->prepare('UPDATE Artistes SET is_deleted = 0 WHERE idArtiste = :idArtiste');
             $reponse->execute(array(
                 'idArtiste' => $id
             ));
@@ -57,7 +57,7 @@
 
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT a.is_deleted, a.idArtiste, a.nomArtiste, gm.nomGenre 
-                                        FROM artistes AS a, genremusique AS gm 
+                                        FROM Artistes AS a, genremusique AS gm 
                                             WHERE a.idGenre = gm.idGenre AND a.is_deleted = 1 ORDER BY nomArtiste');
             $reponse->execute();
             $artiste = $reponse->fetchAll();
@@ -68,7 +68,7 @@
         function annuleCommande($numCmd){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 3 WHERE idCommande = :idCommande');
+            $reponse = $db->prepare('UPDATE Commandes SET idStatusCommande = 3 WHERE idCommande = :idCommande');
             $reponse->execute(array(
                 'idCommande' => $numCmd
             ));
@@ -78,7 +78,7 @@
         function validCommande($numCmd){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 2 WHERE idCommande = :idCommande');
+            $reponse = $db->prepare('UPDATE Commandes SET idStatusCommande = 2 WHERE idCommande = :idCommande');
             $reponse->execute(array(
                 'idCommande' => $numCmd
             ));
@@ -88,7 +88,7 @@
         function getUser(){
             
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT DISTINCT idUtilisateur FROM utilisateurs');
+            $reponse = $db->prepare('SELECT DISTINCT idUtilisateur FROM Utilisateurs');
             $reponse->execute();
             $allUser = $reponse->fetchAll();
             $reponse->closeCursor();

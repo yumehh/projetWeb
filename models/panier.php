@@ -51,7 +51,7 @@
 
         function addCommande($idUtilisateur, $idMusic){
             $db= $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO commandes(idStatusCommande, idUtilisateur, idMusique, date_commande) VALUES (1, :idUtilisateur, :idMusique, NOW())');
+            $reponse = $db->prepare('INSERT INTO Commandes(idStatusCommande, idUtilisateur, idMusique, date_commande) VALUES (1, :idUtilisateur, :idMusique, NOW())');
             $reponse->execute(array(
                 'idUtilisateur' => $idUtilisateur,
                 'idMusique' => $idMusic
@@ -61,7 +61,7 @@
 
         function getAllCommandByID($id){
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT c.idCommande, m.idMusique, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from musiques as m, commandes as c, statuscommandes as sc, artistes as a 
+            $reponse = $db->prepare('SELECT c.idCommande, m.idMusique, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande from Musiques as m, Commandes as c, StatusCommandes as sc, Artistes as a 
                                         WHERE c.idStatusCommande = sc.idStatusCommande
                                             AND c.idMusique = m.idMusique 
                                                 AND m.idArtiste = a.idArtiste
@@ -77,7 +77,7 @@
         function getAllCommand(){
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT c.idCommande ,m.idMusique, c.idUtilisateur, u.pseudo, a.nomArtiste, m.titre, m.prix, sc.nom, c.date_commande 
-                                        from musiques as m, commandes as c, statuscommandes as sc, artistes as a, utilisateurs as u 
+                                        from Musiques as m, Commandes as c, StatusCommandes as sc, Artistes as a, Utilisateurs as u 
                                             WHERE c.idStatusCommande = sc.idStatusCommande
                                                 AND c.idMusique = m.idMusique 
                                                     AND m.idArtiste = a.idArtiste
@@ -92,7 +92,7 @@
         function annuleCommande($numCmd, $idUser){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 3 WHERE idCommande = :idCommande AND idUtilisateur = :idUtilisateur');
+            $reponse = $db->prepare('UPDATE Commandes SET idStatusCommande = 3 WHERE idCommande = :idCommande AND idUtilisateur = :idUtilisateur');
             $reponse->execute(array(
                 'idCommande' => $numCmd,
                 'idUtilisateur' => $idUser
@@ -103,7 +103,7 @@
         function validCommande($numCmd, $idUser){
     
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE commandes SET idStatusCommande = 2 WHERE idCommande = :idCommande AND idUtilisateur = :idUtilisateur');
+            $reponse = $db->prepare('UPDATE Commandes SET idStatusCommande = 2 WHERE idCommande = :idCommande AND idUtilisateur = :idUtilisateur');
             $reponse->execute(array(
                 'idCommande' => $numCmd,
                 'idUtilisateur' => $idUser

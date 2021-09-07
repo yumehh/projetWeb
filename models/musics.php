@@ -8,7 +8,7 @@
 
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT m.idMusique, m.titre, m.prix, m.is_deleted, m.idArtiste, a.idArtiste, a.nomArtiste 
-                                        FROM musiques AS m, artistes AS a 
+                                        FROM Musiques AS m, Artistes AS a 
                                             WHERE m.idArtiste = a.idArtiste AND m.is_deleted != 1 ORDER BY a.nomArtiste');
             $reponse->execute();
             $musics = $reponse->fetchAll();
@@ -19,7 +19,7 @@
         function addMusic($titre, $prix, $idArtiste){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('INSERT INTO musiques(titre, prix, is_deleted, idArtiste) VALUES(:titre, :prix, 0, :idArtiste)');
+            $reponse = $db->prepare('INSERT INTO Musiques(titre, prix, is_deleted, idArtiste) VALUES (:titre, :prix, 0, :idArtiste)');
             $reponse->execute(array(
                 'titre' => $titre,
                 'prix' => $prix,
@@ -32,7 +32,7 @@
             
             $db = $this->connexionDB();
             $reponse = $db->prepare('SELECT m.idMusique, m.titre, m.prix, m.idArtiste, a.idArtiste, a.nomArtiste 
-                                        FROM musiques AS m, artistes AS a 
+                                        FROM Musiques AS m, Artistes AS a 
                                             WHERE m.idArtiste = a.idArtiste AND idMusique = :idMusique');
             $reponse->execute(array(
                 'idMusique' => $id
@@ -45,7 +45,7 @@
         function getIdMusic($id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT idMusique from musiques WHERE idMusique = :idMusique');
+            $reponse = $db->prepare('SELECT idMusique from Musiques WHERE idMusique = :idMusique');
             $reponse->execute(array(
                 'idMusique' => $id
             ));
@@ -57,7 +57,7 @@
         function getPrixByIdPanier($id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT prix FROM musiques WHERE idMusique = :idMusique');
+            $reponse = $db->prepare('SELECT prix FROM Musiques WHERE idMusique = :idMusique');
             $reponse->execute(array(
                 'idMusique' => $id
             ));
@@ -69,7 +69,7 @@
         function updateMusic($titre, $prix, $idArtiste, $id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE musiques SET titre = :titre, prix = :prix, idArtiste =:idArtiste WHERE idMusique = :idMusique');
+            $reponse = $db->prepare('UPDATE Musiques SET titre = :titre, prix = :prix, idArtiste =:idArtiste WHERE idMusique = :idMusique');
             $reponse->execute(array(
                 'titre' => $titre,
                 'prix' => $prix,
@@ -82,7 +82,7 @@
         function deleteMusic($id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE musiques SET is_deleted = 1 WHERE idMusique = :idMusique');
+            $reponse = $db->prepare('UPDATE Musiques SET is_deleted = 1 WHERE idMusique = :idMusique');
             $reponse->execute(array(
                 'idMusique' => $id
             ));
@@ -92,7 +92,7 @@
         function getMusicIsDeleted(){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * from musiques WHERE is_deleted = 1 ');
+            $reponse = $db->prepare('SELECT * from Musiques WHERE is_deleted = 1 ');
             $reponse->execute();
             $musics = $reponse->fetchAll();
             $reponse->closeCursor();
@@ -102,7 +102,7 @@
         function restoreMusics($id){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('UPDATE musiques SET is_deleted = 0 WHERE idMusique = :idMusique');
+            $reponse = $db->prepare('UPDATE Musiques SET is_deleted = 0 WHERE idMusique = :idMusique');
             $reponse->execute(array(
                 'idMusique' => $id
             ));
@@ -112,7 +112,7 @@
         function MusicByArtistId($idArtiste){
 
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM musiques where idArtiste =:idArtiste');
+            $reponse = $db->prepare('SELECT * FROM Musiques where idArtiste =:idArtiste');
             $reponse->execute(array(
                 'idArtiste' => $idArtiste
             ));

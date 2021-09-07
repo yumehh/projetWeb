@@ -7,7 +7,7 @@
         function getAll(){
             
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT * FROM genremusique');
+            $reponse = $db->prepare('SELECT * FROM GenreMusique');
             $reponse->execute();
             $genre = $reponse->fetchAll();
             $reponse->closeCursor();
