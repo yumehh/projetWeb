@@ -89,6 +89,16 @@
             return $allCmd;
         }
 
+        function getCommandByUser(){
+            $db = $this->connexionDB();
+            $reponse = $db->prepare('SELECT c.idCommande, u.pseudo FROM Commandes as c, Utilisateurs as u 
+                                        WHERE c.idUtilisateur = u.idUtilisateur');
+            $reponse->execute();
+            $cmd = $reponse->fetchAll();
+            $reponse->closeCursor();
+            return $cmd;
+        }
+
         function annuleCommande($numCmd, $idUser){
 
             $db = $this->connexionDB();

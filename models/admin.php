@@ -88,7 +88,7 @@
         function getUser(){
             
             $db = $this->connexionDB();
-            $reponse = $db->prepare('SELECT DISTINCT idUtilisateur FROM Utilisateurs');
+            $reponse = $db->prepare('SELECT idUtilisateur FROM Utilisateurs');
             $reponse->execute();
             $allUser = $reponse->fetchAll();
             $reponse->closeCursor();

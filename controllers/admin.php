@@ -170,12 +170,11 @@
                 break;
     
             case "statsCommande":
-                $getUser = $admin->getUser();
-                $test = json_encode($getUser);
+                $getCmd = $panier->getCommandByUser();
+                $dataCmd = json_encode($getCmd);
+                
                 require_once('views/statsCommande.php');
                 break;
         }
     }
-
-    
 ?>
