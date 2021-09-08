@@ -1,7 +1,6 @@
 <?php
 
     require_once('models/users.php');
-    //require_once('views/login.php');
 
     $user = new Users();
 
@@ -22,14 +21,14 @@
                 $userID = $user->getIdUser($_POST['pseudo']);
                 $_SESSION['userID'] = $userID;
                 $_SESSION['pseudo']=$_POST['pseudo'];
-                require_once('views/admin.php');
+                header('Location: admin');
                 exit();
             }elseif($userAuth == "2"){
                 $userID = $user->getIdUser($_POST['pseudo']);
                 $_SESSION['userID'] = $userID;
                 $_SESSION['pseudo'] = $_POST['pseudo'];
                 $test = $user->getIdUser($_POST['pseudo']);
-                require_once('views/clients.php');
+                header('Location: clients');
                 exit();
             }else{
                 $_SESSION['error'] = "mauvais login/mot de passe";
