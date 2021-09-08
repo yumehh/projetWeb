@@ -46,8 +46,6 @@
         </div>
     </form>            
 
-    <button id="bouton1">clic</button>
-    <div id="divBouton">
         <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -56,7 +54,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach((array) $search as $searchVisitor): ?>
+        <?php foreach((array)$search as $searchVisitor): ?>
             <tr>
                 <td><?= $searchVisitor['nomArtiste']?></td>
                 <td>
@@ -70,10 +68,8 @@
                     </form> 
                 </td>
             </tr>
-    
         <?php endforeach ?>   
     </tbody>
-    </table> 
-    </div>   
+    </table>  
     </body>
 </html>
