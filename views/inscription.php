@@ -36,7 +36,7 @@ include 'includes/template.php';
             <label for="email">Confirmer votre email</label>
             <input type="email" class="form-control"  name="email-confirmation" id="email2" aria-describedby="emailHelp" placeholder="Confirmer email" >
         </div><br />
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        <input type="submit" class="btn btn-primary" value="S'inscrire">
     </form>
     <p style="color: red;" id="erreur"></p>
 
