@@ -26,7 +26,7 @@ function formDynamic(){
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
-        alert('formulaire send');
+        alert('Inscription confirmée ! ');
     }
 })
 }
