@@ -33,7 +33,7 @@
 
             </select></p>
 
-            <p><input type="submit" name="envoyer"></p>
+            <p><input type="submit" name="envoyer" value="Ajouter Artistes"></p>
             </div>
         </form>
     </body>

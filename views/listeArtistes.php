@@ -63,9 +63,9 @@
                     <form method="GET" action="https://google.be/search" id="monform" target="_blank">
                         <div class="form-group-search">
                             <div id="recherche">
-                                <input type="text" class="form-control" name="q" id="seek" aria-describedby="pseudo" value= "<?= $searchVisitor['nomArtiste'] ?>" ><br />
+                                <input type="hidden" class="form-control" name="q" id="seek" aria-describedby="pseudo" value= "<?= $searchVisitor['nomArtiste'] ?>"><br />
                             </div>
-                            <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Rechercher</button>
+                            <button type="submit" name="envoyer" class="btn btn-primary mb-2" id="togg1">Informations complémentaires</button>
                         </div>
                     </form> 
                 </td>
