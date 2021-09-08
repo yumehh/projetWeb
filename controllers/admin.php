@@ -68,14 +68,14 @@
                             require_once('views/detailArtiste.php');
                             }
                         }else{
-                            require_once('views/404.php');
+                            require_once('views/listeArtistesNullAdmin.php');
                         }
                 }else{
                         $artistes = $afficher->getAll();
                         if($artistes){
                             require_once('views/afficherArtistes.php');
                         }else{
-                            require_once('views/404.php');
+                            require_once('views/listeArtistesNullAdmin.php');
                         }
                     }
                 break;
@@ -112,7 +112,7 @@
                 if($musique){
                     require_once('views/afficherMusiques.php');
                 }else{
-                    require_once('views/404.php');
+                    require_once('views/listeMusiquesNullAdmin.php');
                 }
                 break;
             
@@ -122,7 +122,7 @@
                     if(isset($getMusicArtist)){
                         require_once('views/detailArtiste.php');
                     }else{
-                        require_once('views/404.php');
+                        require_once('views/listeArtistesNullAdmin.php');
                     }
                     break;
     
